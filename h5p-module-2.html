@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Rablási kísérlet az étteremben</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 80%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .video-container {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .video-container video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .text-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .text-container textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .text-container .text-area-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        .text-container .text-area-wrapper label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 10px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>4. Rablási kísérlet az étteremben</h1>
+        <p>Ebben a feladatban egy szituációt fog látni, ahol egy vendég rablási kísérlet áldozata lesz egy étteremben. Nézze meg figyelmesen a néma videót, majd elemezze a látottakat az alábbiakban: jegyezze le a fő eseményeket pontokba szedve (1. Események), elemezze az éttermi személyzet viselkedését (2. Dolgozói reakciók), majd írjon egy rövid összefoglalót a láttotakról, és értékelje az esetet (3. Összegzés).</p>
+        <div class="content">
+            <div class="video-container">
+                <video controls>
+                    <source src="rablas.mp4" type="video/mp4">
+                    Az Ön böngészője nem támogatja a videó lejátszását.
+                </video>
+            </div>
+            <div class="text-container">
+                <div class="text-area-wrapper">
+                    <label for="events">Események</label>
+                    <textarea id="events" placeholder="Írja ide a fő eseményeket..."></textarea>
+                </div>
+                <div class="text-area-wrapper">
+                    <label for="reactions">Dolgozói reakciók</label>
+                    <textarea id="reactions" placeholder="Írja ide a dolgozói reakciókat..."></textarea>
+                </div>
+                <div class="text-area-wrapper">
+                    <label for="summary">Összegzés</label>
+                    <textarea id="summary" placeholder="Írja ide az összegzést..."></textarea>
+                </div>
+                <button onclick="saveNotes()">Mentés</button>
+                <p id="message" class="message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedEvents = localStorage.getItem('events');
+            const savedReactions = localStorage.getItem('reactions');
+            const savedSummary = localStorage.getItem('summary');
+            
+            if (savedEvents) {
+                document.getElementById('events').value = savedEvents;
+            }
+            if (savedReactions) {
+                document.getElementById('reactions').value = savedReactions;
+            }
+            if (savedSummary) {
+                document.getElementById('summary').value = savedSummary;
+            }
+        });
+
+        function saveNotes() {
+            const events = document.getElementById('events').value;
+            const reactions = document.getElementById('reactions').value;
+            const summary = document.getElementById('summary').value;
+
+            localStorage.setItem('events', events);
+            localStorage.setItem('reactions', reactions);
+            localStorage.setItem('summary', summary);
+
+            document.getElementById('message').innerText = 'A jegyzeteket elmentettük!';
+        }
+    </script>
+</body>
+</html>
+

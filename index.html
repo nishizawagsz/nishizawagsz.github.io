@@ -54,6 +54,7 @@
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: var(--accent-blue);
+            text-align: center;
         }
 
         .hero p {
@@ -61,6 +62,7 @@
             line-height: 1.8;
             margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
+            text-align: justify;
         }
 
         /* Container */
@@ -99,6 +101,7 @@
             line-height: 1.8;
             color: var(--text-light);
             margin-bottom: 20px;
+            text-align: justify;
         }
 
         /* Skills Grid */
@@ -151,9 +154,18 @@
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .project-card {
@@ -194,6 +206,7 @@
             color: var(--text-light);
             margin-bottom: 15px;
             line-height: 1.6;
+            text-align: justify;
         }
 
         .project-tags {
@@ -298,7 +311,7 @@
         <div class="hero-content">
             <h1>Dr. Gabriella Szilvia Nishizawa</h1>
             <p class="subtitle">Educational Technology Specialist | Instructional Designer | Developer</p>
-            <p>Innovative educational technology professional with expertise in instructional design, LMS implementation, interactive content development, and mobile app development. Currently based in Yokohama, Japan, with extensive experience across European Schools and university libraries.</p>
+            <p>Innovative educational technology professional with expertise in instructional design, interactive content development, and mobile app development. Currently based in Yokohama, Japan, with extensive experience across international schools and university libraries.</p>
         </div>
     </section>
 
@@ -307,7 +320,7 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p>I am an Educational Technology Specialist with a unique blend of technical expertise and pedagogical innovation. With an MSc in Computer Science Education, Instructional Design certification from the University of Pannonia, and background in Library & Information Science and Linguistics, I bring deep theoretical knowledge combined with practical educational technology implementation experience.</p>
+                <p>I am an Educational Technology Specialist with a unique blend of technical expertise and pedagogical innovation. With an MSc in Computer Science Education, Instructional Design certification from the University of Pannonia, and BA in Library & Information Science and Linguistics, I bring deep theoretical knowledge combined with practical educational technology implementation experience.</p>
                 
                 <p>With extensive experience across international schools and university library systems, I bring a multicultural perspective and multilingual capabilities (Hungarian, German, English) to educational technology projects.</p>
 
@@ -325,9 +338,9 @@
                         <h3>💻 Technical Skills</h3>
                         <ul>
                             <li>iOS App Development</li>
-                            <li>HTML/CSS/JavaScript</li>
+                            <li>HTML/CSS, JavaScript</li>
                             <li>Python Programming</li>
-                            <li>LMS Administration</li>
+                            <li>IT Support</li>
                         </ul>
                     </div>
                     <div class="skill-card">
@@ -352,7 +365,7 @@
                         <ul>
                             <li>MSc Computer Science Education</li>
                             <li>Instructional Design Certification (University of Pannonia)</li>
-                            <li>Library & Information Science</li>
+                            <li>BA Library & Information Science</li>
                             <li>Background in Linguistics</li>
                         </ul>
                     </div>

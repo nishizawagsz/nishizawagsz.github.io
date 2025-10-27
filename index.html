@@ -36,29 +36,50 @@
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             color: var(--white);
             padding: 80px 20px;
-            text-align: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-profile-photo {
+            flex-shrink: 0;
+        }
+
+        .hero-profile-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
         }
 
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             font-weight: 700;
+            text-align: left;
         }
 
         .hero .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
             color: var(--accent-blue);
-            text-align: center;
+            text-align: left;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
@@ -279,12 +300,24 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
+                text-align: center;
             }
 
             .hero .subtitle {
                 font-size: 1.1rem;
+            }
+
+            .hero-profile-photo img {
+                width: 150px;
+                height: 150px;
             }
 
             .section-title {
@@ -309,9 +342,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Dr. Gabriella Szilvia Nishizawa</h1>
-            <p class="subtitle">Educational Technology Specialist | Instructional Designer | Developer</p>
-            <p>Innovative educational technology professional with expertise in instructional design, interactive content development, and mobile app development. Currently based in Yokohama, Japan, with extensive experience across international schools and university libraries.</p>
+            <div class="hero-profile-photo">
+                <img src="assets/profile-photo.png" alt="Dr. Gabriella Szilvia Nishizawa">
+            </div>
+            <div class="hero-text">
+                <h1>Dr. Gabriella Szilvia Nishizawa</h1>
+                <p class="subtitle">Educational Technology Specialist | Instructional Designer | Developer</p>
+                <p>Innovative educational technology professional with expertise in instructional design, interactive content development, and mobile app development. Currently based in Yokohama, Japan, with extensive experience across international schools and university libraries.</p>
+            </div>
         </div>
     </section>
 

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dr. Gabriella Szilvia Nishizawa – International Examiner & Educator. EdTech portfolio.">
-    <title>Dr. Gabriella Szilvia Nishizawa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Dr. Gabriella Szilvia Nishizawa – International Education, Digital Learning, Assessment and EdTech portfolio." name="description"/>
+<title>Dr. Gabriella Szilvia Nishizawa</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -160,7 +160,7 @@
         }
 
         /* ── About ──────────────────────────────────────────────── */
-        .section-about { background: var(--white); }
+        .section-about { background: #dbeafe; }
 
         /* wave divider */
         .wave-divider {
@@ -178,12 +178,16 @@
         }
 
         .about-text {
-            max-width: 760px;
+            max-width: 820px;
             margin: 0 auto;
             color: var(--slate);
             font-size: 1.02rem;
             line-height: 1.85;
             text-align: justify;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px 36px;
+            box-shadow: 0 4px 24px rgba(15,35,64,0.10);
         }
 
         .about-text p + p { margin-top: 18px; }
@@ -316,6 +320,10 @@
             transform: translateY(-3px);
         }
 
+        .project-card-wide {
+            grid-column: 1 / -1;
+        }
+
         /* Each card gets a unique mesh-gradient header via class */
         .project-visual {
             height: 130px;
@@ -357,6 +365,8 @@
         .grad-4 { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
         .grad-5 { background: linear-gradient(135deg, #431407 0%, #c2410c 100%); }
         .grad-6 { background: linear-gradient(135deg, #4a044e 0%, #9333ea 100%); }
+        .grad-7 { background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%); }
+        .grad-8 { background: linear-gradient(135deg, #0f172a 0%, #0891b2 100%); }
 
         .project-content {
             padding: 20px 22px 22px;
@@ -532,6 +542,7 @@
         @media (max-width: 768px) {
             .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
             .hero-photo { display: flex; justify-content: center; }
+            .about-text { padding: 26px 22px; }
             .hero-tags { justify-content: center; }
             .skills-grid { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
@@ -542,383 +553,277 @@
     </style>
 </head>
 <body>
-
 <!-- ── HERO ──────────────────────────────────────────────────────── -->
 <header class="hero">
-    <div class="hero-inner">
-        <div class="hero-photo">
-            <img src="assets/linkedin_v2_gray_blazer.jpg" alt="Dr. Gabriella Szilvia Nishizawa">
-        </div>
-        <div>
-            <p class="section-label">Educational Technology Portfolio</p>
-            <h1 class="hero-name">Dr. Gabriella<br>Szilvia Nishizawa</h1>
-            <p class="hero-title">Ph.D. &nbsp;·&nbsp; M.Sc. Computer Science Education &nbsp;·&nbsp; Cambridge Examiner</p>
-            <p class="hero-bio">International Educator based in Yokohama with over 20 years of experience. GPR (AS/A Level), IGCSE ICT Examiner and PDQ Examiner for an international teacher professional development qualification. My work sits at the intersection of Computer Science, Library and Information Science, and Linguistics, which means I teach not just tools, but the underlying logic of information and design.</p>
-            <div class="hero-tags">
-                <span class="hero-tag">External Assessment Specialist</span>
-                <span class="hero-tag">Curriculum Developer</span>
-                <span class="hero-tag">Digital Literacy</span>
-                <span class="hero-tag">iOS Development</span>
-                <span class="hero-tag">Yokohama · Local Hire</span>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- wave: navy → white -->
-<div class="wave-divider" style="background:#0f2340;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#ffffff"/>
-    </svg>
+<div class="hero-inner">
+<div class="hero-photo">
+<img alt="Dr. Gabriella Szilvia Nishizawa" src="assets/linkedin_v2_gray_blazer.jpg"/>
 </div>
-
+<div>
+<p class="section-label">Educational Technology Portfolio</p>
+<h1 class="hero-name">Dr. Gabriella<br/>Szilvia Nishizawa</h1>
+<p class="hero-title">Ph.D.  ·  M.Sc. Computer Science Education  ·  International Education &amp; Digital Learning</p>
+<p class="hero-bio">International educator based in Yokohama with over 20 years of experience across education, academic research and educational technology. My work brings together Computer Science Education, Library and Information Science, and Linguistics, with a particular interest in digital learning, information literacy, assessment, and the role of AI and robotics in education.</p>
+<div class="hero-tags">
+<span class="hero-tag">Digital Education</span>
+<span class="hero-tag">International Education</span>
+<span class="hero-tag">Assessment</span>
+<span class="hero-tag">Information Literacy</span>
+<span class="hero-tag">AI &amp; Robotics in Learning</span>
+</div>
+</div>
+</div>
+</header>
+<!-- wave: navy → light blue -->
+<div class="wave-divider" style="background:#0f2340;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
 <!-- ── ABOUT ─────────────────────────────────────────────────────── -->
 <section class="section section-about">
-    <div class="container">
-        <p class="section-label" style="text-align:center">Background</p>
-        <h2 class="section-heading">About Me</h2>
-        <div class="divider"></div>
-        <div class="about-text">
-            <p>I have worked in international education and academic research for over 20 years. Along the way I completed an M.Sc. in Computer Science Education, building on my Ph.D. in Linguistics and an earlier degree in Library and Information Science. This combination shapes how I think about technology: not as a set of tools to be mastered, but as a cognitive and informational practice.</p>
-
-            <p>My classroom experience spans humanities and technology subjects across international schools in Hungary, Germany, and Japan. I am particularly interested in how students process complex information and how to make digital logic feel intuitive and accessible. The Design Cycle and Information Literacy run through most of what I do. I am now based in Yokohama as a local resident.</p>
-
-            <p>In 2026, I took on an external portfolio assessor role with Cambridge International for the GPR, ICT and PDQ programme Teaching with Digital Technologies.</p>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-card-title">Instructional Design</div>
-                <ul>
-                    <li>Interactive Content (H5P, Lumi)</li>
-                    <li>Scenario-Based Learning</li>
-                    <li>Digital Textbook Development</li>
-                    <li>Assessment Design</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-title">Technical Skills</div>
-                <ul>
-                    <li>iOS App Development (Swift)</li>
-                    <li>HTML / CSS / JavaScript</li>
-                    <li>Python Programming</li>
-                    <li>IT Support &amp; Documentation</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-title">EdTech Tools</div>
-                <ul>
-                    <li>LMS: Canvas, Moodle, Coursera</li>
-                    <li>eXe Learning, Prezi</li>
-                    <li>H5P, Lumi</li>
-                    <li>VR / AR Technologies</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-title">Creative &amp; AI Tools</div>
-                <ul>
-                    <li>Canva, Renderforest, Pixlr</li>
-                    <li>Generative AI: Sora, Firefly, Leonardo</li>
-                    <li>Video: CapCut, Descript, Veed</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-title">Credentials</div>
-                <ul>
-                    <li>MSc Computer Science Education</li>
-                    <li>PhD Linguistics</li>
-                    <li>BA Library &amp; Information Science</li>
-                    <li>External Assessment Specialist (2026)</li>
-                    <li>External Portfolio Assessor, Teacher CPD Qualifications (2026)</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-title">Languages</div>
-                <ul>
-                    <li>Hungarian — Native</li>
-                    <li>English — Fluent (C2)</li>
-                    <li>German — Fluent (C1)</li>
-                    <li>Japanese — Basic (studying)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- wave: white → blue -->
-<div class="wave-divider" style="background:#ffffff;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,0 C480,90 960,90 1440,0 L1440,92 L0,92 Z" fill="#dbeafe"/>
-    </svg>
+<div class="container">
+<p class="section-label" style="text-align:center">Background</p>
+<h2 class="section-heading">About Me</h2>
+<div class="divider"></div>
+<div class="about-text">
+<p>I have worked in international education and academic research for over 20 years. Along the way I completed an M.Sc. in Computer Science Education, building on my Ph.D. in Linguistics and an earlier degree in Library and Information Science. This combination shapes how I think about technology: not as a set of tools to be mastered, but as a cognitive and informational practice.</p>
+<p>My classroom experience spans humanities and technology subjects across international schools in Hungary, Germany, and Japan. I am particularly interested in how students process complex information and how to make digital logic feel intuitive and accessible. The Design Cycle and Information Literacy run through most of what I do. I am now based in Yokohama as a local resident.</p>
+<p>In 2026, I began working as an examiner for Cambridge Professional Development Qualifications (PDQ), specialising in Teaching and Learning and Teaching with Digital Technologies.</p>
+<p>I also founded Nitaii Learning Lab, an independent EdTech initiative for developing and testing learning-support tools and small-scale educational pilots. Focusa is its first active project.</p>
+<p>A current focus of mine is Robot-Assisted Language Learning (RALL), especially the use of educational and social robots as interactive partners in language learning. I am interested in developing small-scale classroom pilots that explore how students can practise language through meaningful interaction with robots, and how teachers can integrate this into everyday language teaching.</p>
 </div>
-
-<!-- ── APPOINTMENTS ───────────────────────────────────────────────── -->
-<section class="section section-alt" style="padding-top: 48px;">
-    <div class="container">
-        <p class="section-label" style="text-align:center">2026 · Active</p>
-        <h2 class="section-heading">Current Appointments</h2>
-        <div class="divider"></div>
-        <div class="appt-card">
-            <div class="appt-header">
-                <span class="appt-org">Cambridge International Education</span>
-                <span class="appt-badge">Appointed 2026 · Remote · Active</span>
-            </div>
-            <div class="appt-roles">
-                <div class="appt-role" style="grid-column: 1 / -1;">
-                    <div class="appt-role-title">ICT, GPR and PDQ Examiner (Teaching with Digital Technologies)</div>
-                    <p>Assessing student (ICT, GPR) and teacher professional development portfolios for the Cambridge PDQ programme Teaching with Digital Technologies, within an international CPD framework.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </section>
-
-<!-- wave: blue → white -->
+<!-- wave: light blue → white -->
 <div class="wave-divider" style="background:#dbeafe;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,45 C360,0 1080,90 1440,45 L1440,92 L0,92 Z" fill="#ffffff"/>
-    </svg>
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,0 C480,90 960,90 1440,0 L1440,92 L0,92 Z" fill="#ffffff"></path>
+</svg>
 </div>
-
 <!-- ── PROJECTS ───────────────────────────────────────────────────── -->
 <section class="section">
-    <div class="container">
-        <p class="section-label" style="text-align:center">Work Samples</p>
-        <h2 class="section-heading">Featured Projects</h2>
-        <div class="divider"></div>
-        <div class="projects-grid">
+<div class="container">
+<p class="section-label" style="text-align:center">Work Samples</p>
+<h2 class="section-heading">Featured Projects</h2>
+<div class="divider"></div>
+<div class="projects-grid">
+<div class="project-card project-card-wide">
+<div class="project-visual grad-8">
+<span class="project-category">EdTech Initiative · Learning Research</span>
+<span class="project-num">01</span>
+</div>
+<div class="project-content">
+<h3 class="project-title">Nitaii Learning Lab</h3>
+<p class="project-desc">An independent EdTech initiative I founded in Yokohama to develop and test learning-support tools at the intersection of education, technology and cognition. The lab provides a framework for small-scale pilots and experimental projects, with Focusa as its first active project.</p>
+<div class="project-tags">
+<span class="tag">EdTech</span>
+<span class="tag">Learning Research</span>
+<span class="tag">Student Wellbeing</span>
+<span class="tag">Educational Pilots</span>
+</div>
+<div class="project-links">
+<a class="btn btn-primary" href="https://nitaii.eu/" target="_blank">Visit Nitaii Learning Lab</a>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual grad-1">
+<span class="project-category">Learning Support · Student Wellbeing</span>
+<span class="project-num">02</span>
+</div>
+<div class="project-content">
+<h3 class="project-title">Focusa App: Learning, Focus &amp; Wellbeing</h3>
+<p class="project-desc">A learning-support app developed within Nitaii Learning Lab to help students become more aware of concentration, stress and self-regulation during study. The project covers research, UI/UX design, Swift development and beta testing with Japanese university participants, using Polar H10 data to explore patterns related to focus and wellbeing.</p>
+<div class="project-tags">
+<span class="tag">Learning Support</span>
+<span class="tag">Student Wellbeing</span>
+<span class="tag">iOS / Swift</span>
+<span class="tag">Self-Regulation</span>
+</div>
+<p class="project-meta">Initiative: <span>Nitaii Learning Lab</span></p><p class="project-meta">Status: <span>Beta — Japanese university participants</span></p>
+<div class="project-links">
+<a class="btn btn-primary" href="assets/focusa-manual.pdf" target="_blank">View User Manual</a>
+<a class="btn btn-primary" href="https://nitaii.eu/#projects" target="_blank">Nitaii Learning Lab</a></div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual grad-2">
+<span class="project-category">Instructional Design · Higher Ed</span>
+<span class="project-num">03</span>
+</div>
+<div class="project-content">
+<h3 class="project-title">Interactive Digital Textbook Chapter</h3>
+<p class="project-desc">A comprehensive interactive textbook chapter built with eXe Learning, combining multimedia, interactive exercises, and self-assessment activities. SCORM-compliant, hosted on GitHub Pages.</p>
+<div class="project-tags">
+<span class="tag">eXe Learning</span>
+<span class="tag">HTML5</span>
+<span class="tag">SCORM</span>
+<span class="tag">Instructional Design</span>
+</div>
+<p class="project-meta">Audience: <span>University students</span></p>
+<div class="project-links">
+<a class="btn btn-primary" href="https://nishizawagsz.github.io/exe-learning/" target="_blank">View Project</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-visual grad-1">
-                    <span class="project-category">iOS · Health Technology</span>
-                    <span class="project-num">01</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Focusa App: Concentration &amp; Stress Monitoring</h3>
-                    <p class="project-desc">Covers the full development lifecycle: research, UI/UX design, Swift coding, and beta testing with Japanese university participants. Integrates Polar H10 biometric data with Apple Health for real-time cognitive performance feedback.</p>
-                    <div class="project-tags">
-                        <span class="tag">iOS / Swift</span>
-                        <span class="tag">Health Data API</span>
-                        <span class="tag">UX Design</span>
-                        <span class="tag">Beta Testing</span>
-                    </div>
-                    <p class="project-meta">Status: <span>Beta — Japanese university participants</span></p>
-                    <div class="project-links">
-                        <a href="assets/focusa-manual.pdf" class="btn btn-primary" target="_blank">View User Manual</a>
-                    </div>
-                </div>
-            </div>
+<div class="project-card">
+<div class="project-visual grad-4">
+<span class="project-category">Curriculum · Secondary Education</span>
+<span class="project-num">04</span>
+</div>
+<div class="project-content">
+<h3 class="project-title">Python Programming Digital Textbook</h3>
+<p class="project-desc">A non-linear secondary curriculum bridging humanities and technology through cognitive metaphors and humour-based exercises. Student-centred and inquiry-based, created for ELTE's CS Education Methods course.</p>
+<div class="project-tags">
+<span class="tag">Prezi</span>
+<span class="tag">Python</span>
+<span class="tag">Curriculum Design</span>
+<span class="tag">Pedagogy</span>
+</div>
+<p class="project-meta">Audience: <span>Grade 9 secondary students</span></p>
+<div class="project-links">
+<a class="btn btn-primary" href="https://prezi.com/view/BNe2m3IMXsoCpkAfQQQ8/" target="_blank">View Textbook</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-visual grad-2">
-                    <span class="project-category">Instructional Design · Higher Ed</span>
-                    <span class="project-num">02</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Interactive Digital Textbook Chapter</h3>
-                    <p class="project-desc">A comprehensive interactive textbook chapter built with eXe Learning, combining multimedia, interactive exercises, and self-assessment activities. SCORM-compliant, hosted on GitHub Pages.</p>
-                    <div class="project-tags">
-                        <span class="tag">eXe Learning</span>
-                        <span class="tag">HTML5</span>
-                        <span class="tag">SCORM</span>
-                        <span class="tag">Instructional Design</span>
-                    </div>
-                    <p class="project-meta">Audience: <span>University students</span></p>
-                    <div class="project-links">
-                        <a href="https://nishizawagsz.github.io/exe-learning/" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-visual grad-3">
-                    <span class="project-category">Training · Scenario-Based Learning</span>
-                    <span class="project-num">03</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Interactive Employee Training Modules</h3>
-                    <p class="project-desc">Three scenario-based H5P/Lumi modules for workplace safety training, developed as part of an Instructional Design certification at the University of Pannonia. Topics include emergency response, structured observation, and critical thinking.</p>
-                    <div class="project-tags">
-                        <span class="tag">H5P</span>
-                        <span class="tag">Lumi</span>
-                        <span class="tag">Scenario-Based</span>
-                        <span class="tag">Video Integration</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="assets/h5p-module-1.html" class="btn btn-primary" target="_blank">Module 1</a>
-                        <a href="assets/h5p-module-2.html" class="btn btn-primary" target="_blank">Module 2</a>
-                        <a href="assets/h5p-module-3.html" class="btn btn-primary" target="_blank">Module 3</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-visual grad-4">
-                    <span class="project-category">Curriculum · Secondary Education</span>
-                    <span class="project-num">04</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Python Programming Digital Textbook</h3>
-                    <p class="project-desc">A non-linear secondary curriculum bridging humanities and technology through cognitive metaphors and humour-based exercises. Student-centred and inquiry-based, created for ELTE's CS Education Methods course.</p>
-                    <div class="project-tags">
-                        <span class="tag">Prezi</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Curriculum Design</span>
-                        <span class="tag">Pedagogy</span>
-                    </div>
-                    <p class="project-meta">Audience: <span>Grade 9 secondary students</span></p>
-                    <div class="project-links">
-                        <a href="https://prezi.com/view/BNe2m3IMXsoCpkAfQQQ8/" class="btn btn-primary" target="_blank">View Textbook</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-visual grad-5">
-                    <span class="project-category">Technical Communication · German</span>
-                    <span class="project-num">05</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">User Training Video: Digital Calendar Management</h3>
-                    <p class="project-desc">Instructional video in German for library staff at the University of Augsburg, covering digital calendar management. Produced independently, including scripting, screen recording, and video editing.</p>
-                    <div class="project-tags">
-                        <span class="tag">Video Production</span>
-                        <span class="tag">Technical Docs</span>
-                        <span class="tag">User Support</span>
-                        <span class="tag">German</span>
-                    </div>
-                    <p class="project-meta">Audience: <span>University library staff</span></p>
-                    <div class="project-links">
-                        <a href="assets/training-video.mp4" class="btn btn-primary" target="_blank">Watch Video</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-visual grad-6">
-                    <span class="project-category">Educational Innovation · Conference</span>
-                    <span class="project-num">06</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Immersive Learning: AR/VR/XR in Education</h3>
-                    <p class="project-desc">A 25-slide international conference presentation on VR, AR, and mixed reality in education, covering devices such as Microsoft HoloLens and Magic Leap alongside interactive walls, virtual dissection, and practical implementation strategies.</p>
-                    <div class="project-tags">
-                        <span class="tag">AR/VR/XR</span>
-                        <span class="tag">Immersive Learning</span>
-                        <span class="tag">Conference Presentation</span>
-                    </div>
-                    <p class="project-meta">Format: <span>25 slides · International conference</span></p>
-                    <div class="project-links">
-                        <a href="assets/ar-vr-presentation.pdf" class="btn btn-primary" target="_blank">View Presentation</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<div class="project-card">
+<div class="project-visual grad-6">
+<span class="project-category">Educational Innovation · Conference</span>
+<span class="project-num">05</span>
+</div>
+<div class="project-content">
+<h3 class="project-title">Immersive Learning: AR/VR/XR in Education</h3>
+<p class="project-desc">A 25-slide international conference presentation on VR, AR, and mixed reality in education, covering devices such as Microsoft HoloLens and Magic Leap alongside interactive walls, virtual dissection, and practical implementation strategies.</p>
+<div class="project-tags">
+<span class="tag">AR/VR/XR</span>
+<span class="tag">Immersive Learning</span>
+<span class="tag">Conference Presentation</span>
+</div>
+<p class="project-meta">Format: <span>25 slides · International conference</span></p>
+<div class="project-links">
+<a class="btn btn-primary" href="assets/ar-vr-presentation.pdf" target="_blank">View Presentation</a>
+</div>
+</div>
+</div>
+<div class="project-card project-card-wide">
+<div class="project-visual grad-7">
+<span class="project-category">Web Design · Language Education</span>
+<span class="project-num">06</span>
+</div>
+<div class="project-content">
+<h3 class="project-title">Magyar Iskola Tokió Website</h3>
+<p class="project-desc">Website created for the Tokyo Hungarian School to present its programmes, provide practical information for families, and support Hungarian language and cultural education in Japan.</p>
+<div class="project-tags">
+<span class="tag">Web Design</span>
+<span class="tag">HTML / CSS</span>
+<span class="tag">Language Education</span>
+<span class="tag">Community Education</span>
+</div>
+<div class="project-links">
+<a class="btn btn-primary" href="https://mistokio.github.io/" target="_blank">Visit Website</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- wave: white → blue -->
 <div class="wave-divider" style="background:#ffffff;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,60 C240,10 480,85 720,45 C960,5 1200,75 1440,30 L1440,92 L0,92 Z" fill="#dbeafe"/>
-    </svg>
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,60 C240,10 480,85 720,45 C960,5 1200,75 1440,30 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
 </div>
-
-<!-- ── WHY WORK WITH ME ───────────────────────────────────────────── -->
+<!-- ── AREAS OF EXPERTISE ─────────────────────────────────────────── -->
 <section class="section section-alt">
-    <div class="container">
-        <p class="section-label" style="text-align:center">Value Proposition</p>
-        <h2 class="section-heading">Why Work With Me</h2>
-        <div class="divider"></div>
-        <div class="why-grid">
-            <div class="why-cell">
-                <div class="why-cell-top why-top-1"></div>
-                <div class="why-cell-body">
-                    <h3>Multicultural Perspective</h3>
-                    <ul>
-                        <li>International schools across 3 countries</li>
-                        <li>Hungarian, German, English fluency</li>
-                        <li>Cross-cultural communication</li>
-                        <li>Global educational insights</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="why-cell">
-                <div class="why-cell-top why-top-2"></div>
-                <div class="why-cell-body">
-                    <h3>Research-Backed Approach</h3>
-                    <ul>
-                        <li>Academic background in pedagogy</li>
-                        <li>Evidence-based instructional design</li>
-                        <li>Continuous learning mindset</li>
-                        <li>Data-driven decision making</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="why-cell">
-                <div class="why-cell-top why-top-3"></div>
-                <div class="why-cell-body">
-                    <h3>Full-Stack EdTech Expertise</h3>
-                    <ul>
-                        <li>From app development to content creation</li>
-                        <li>Technical and pedagogical expertise</li>
-                        <li>LMS to VR/AR technologies</li>
-                        <li>End-to-end project implementation</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="why-cell">
-                <div class="why-cell-top why-top-4"></div>
-                <div class="why-cell-body">
-                    <h3>Proven Track Record</h3>
-                    <ul>
-                        <li>Real-world implementations</li>
-                        <li>Beta testing with universities</li>
-                        <li>Professional training modules</li>
-                        <li>Self-directed and collaborative</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<p class="section-label" style="text-align:center">Professional Profile</p>
+<h2 class="section-heading">Areas of Expertise</h2>
+<div class="divider"></div>
+<div class="why-grid">
+<div class="why-cell">
+<div class="why-cell-top why-top-1"></div>
+<div class="why-cell-body">
+<h3>Digital Education</h3>
+<ul>
+<li>Teaching with Digital Technologies</li>
+<li>Digital learning materials and interactive content</li>
+<li>Educational technology integration</li>
+<li>AI and robotics in learning</li>
+</ul>
+</div>
+</div>
+<div class="why-cell">
+<div class="why-cell-top why-top-2"></div>
+<div class="why-cell-body">
+<h3>Assessment &amp; Teacher Development</h3>
+<ul>
+<li>Cambridge Professional Development Qualifications</li>
+<li>Teaching and Learning</li>
+<li>Teaching with Digital Technologies</li>
+<li>Portfolio-based assessment</li>
+</ul>
+</div>
+</div>
+<div class="why-cell">
+<div class="why-cell-top why-top-3"></div>
+<div class="why-cell-body">
+<h3>Educational Technology Development</h3>
+<ul>
+<li>Swift and iOS development</li>
+<li>Python programming</li>
+<li>H5P and interactive learning content</li>
+<li>AR, VR and physical computing</li>
+</ul>
+</div>
+</div>
+<div class="why-cell">
+<div class="why-cell-top why-top-4"></div>
+<div class="why-cell-body">
+<h3>Information &amp; Language Learning</h3>
+<ul>
+<li>Library and Information Science</li>
+<li>Information literacy</li>
+<li>Digital Society</li>
+<li>Robot-Assisted Language Learning (RALL)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- wave: blue → white -->
 <div class="wave-divider" style="background:#dbeafe;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,30 C240,85 480,5 720,50 C960,95 1200,15 1440,60 L1440,92 L0,92 Z" fill="#ffffff"/>
-    </svg>
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,85 480,5 720,50 C960,95 1200,15 1440,60 L1440,92 L0,92 Z" fill="#ffffff"></path>
+</svg>
 </div>
-
 <!-- ── CONTACT ────────────────────────────────────────────────────── -->
 <section class="section">
-    <div class="container">
-        <p class="section-label" style="text-align:center">Contact</p>
-        <h2 class="section-heading">Get In Touch</h2>
-        <div class="divider"></div>
-        <div class="contact-inner">
-            <p>I am open to collaborations, international opportunities, and projects at the intersection of education, technology, and research.</p>
-            <div class="contact-links">
-                <a href="mailto:nishizawagsz@gmail.com" class="contact-link">nishizawagsz@gmail.com</a>
-                <a href="https://linkedin.com/in/gabriella-nishizawa" class="contact-link" target="_blank">LinkedIn</a>
-                <a href="https://github.com/nishizawagsz" class="contact-link" target="_blank">GitHub</a>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<p class="section-label" style="text-align:center">Contact</p>
+<h2 class="section-heading">Get In Touch</h2>
+<div class="divider"></div>
+<div class="contact-inner">
+<p>I welcome professional connections and collaborations at the intersection of education, technology, assessment, and research.</p>
+<div class="contact-links">
+<a class="contact-link" href="mailto:nishizawagsz@gmail.com">nishizawagsz@gmail.com</a>
+<a class="contact-link" href="https://linkedin.com/in/gabriella-nishizawa" target="_blank">LinkedIn</a>
+</div>
+</div>
+</div>
 </section>
-
 <!-- wave: white → navy -->
 <div class="wave-divider" style="background:#ffffff;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#0f2340"/>
-    </svg>
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#0f2340"></path>
+</svg>
 </div>
-
 <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
 <footer>
-    <p>&copy; 2026 Dr. Gabriella Szilvia Nishizawa &nbsp;·&nbsp; Yokohama, Japan</p>
+<p>© 2026 Dr. Gabriella Szilvia Nishizawa  ·  Yokohama, Japan</p>
 </footer>
-
 </body>
 </html>

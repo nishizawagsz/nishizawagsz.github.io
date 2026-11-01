@@ -1,805 +1,1347 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="portfolio-site" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Dr. Gabriella Szilvia Nishizawa – International Education, Digital Learning, Assessment and EdTech portfolio." name="description"/>
-<title>Dr. Gabriella Szilvia Nishizawa</title>
+<meta content="Dr. Gabriella Nishizawa, librarian and information specialist, linguist, computer science educator and developer, and examiner based in Yokohama: school libraries, reading culture, research and information literacy, academic integrity and responsible AI use." name="description"/>
+<link rel="canonical" href="https://nishizawagsz.github.io/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Dr. Gabriella Nishizawa · Libraries, Information and Learning"/>
+<meta property="og:description" content="School librarian and teacher who builds reading, research and ethical AI skills, from kindergarten to the Diploma."/>
+<meta property="og:url" content="https://nishizawagsz.github.io/"/>
+<meta property="og:image" content="https://nishizawagsz.github.io/assets/four-roles-layers.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Dr. Gabriella Nishizawa · Libraries, Information and Learning</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
 <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --navy:      #0f2340;
-            --blue:      #1d4ed8;
-            --sky:       #3b82f6;
-            --pale:      #eff6ff;
-            --slate:     #475569;
-            --muted:     #94a3b8;
-            --line:      #e2e8f0;
-            --white:     #ffffff;
-            --off:       #f9fafb;
-            --serif:     'DM Serif Display', Georgia, serif;
-            --sans:      'Inter', 'Segoe UI', system-ui, sans-serif;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--sans);
-            color: var(--navy);
-            background: var(--white);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ── Utility ────────────────────────────────────────────── */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
-        .section-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--sky);
-            margin-bottom: 10px;
-        }
-        .divider {
-            width: 48px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--sky));
-            border-radius: 2px;
-            margin: 0 auto 48px;
-        }
-
-        /* ── Hero ───────────────────────────────────────────────── */
-        .hero {
-            background: var(--navy);
-            color: var(--white);
-            padding: 90px 32px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* subtle geometric accent */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -120px; right: -120px;
-            width: 500px; height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -80px; left: 5%;
-            width: 300px; height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(29,78,216,0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 56px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-photo img {
-            width: 190px;
-            height: 190px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-            border: 3px solid rgba(255,255,255,0.2);
-            display: block;
-        }
-
-        .hero-name {
-            font-family: var(--serif);
-            font-size: 2.6rem;
-            font-weight: 400;
-            line-height: 1.15;
-            margin-bottom: 10px;
-            color: var(--white);
-        }
-
-        .hero-title {
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: rgba(147,197,253,0.85);
-            margin-bottom: 24px;
-        }
-
-        .hero-bio {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.75);
-            max-width: 580px;
-            text-align: justify;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 24px;
-        }
-
-        .hero-tag {
-            font-size: 0.78rem;
-            font-weight: 500;
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.06);
-            letter-spacing: 0.02em;
-        }
-
-        /* ── Section wrapper ────────────────────────────────────── */
-        .section { padding: 80px 0; }
-        .section-alt { background: #dbeafe; }
-
-        .section-heading {
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 400;
-            text-align: center;
-            color: var(--navy);
-            margin-bottom: 14px;
-        }
-
-        /* ── About ──────────────────────────────────────────────── */
-        .section-about { background: #dbeafe; }
-
-        /* wave divider */
-        .wave-divider {
-            display: block;
-            width: 100%;
-            line-height: 0;
-            overflow: hidden;
-            margin: -1px 0;
-        }
-
-        .wave-divider svg {
-            display: block;
-            width: 100%;
-            height: 90px;
-        }
-
-        .about-text {
-            max-width: 820px;
-            margin: 0 auto;
-            color: var(--slate);
-            font-size: 1.02rem;
-            line-height: 1.85;
-            text-align: justify;
-            background: var(--white);
-            border-radius: 12px;
-            padding: 32px 36px;
-            box-shadow: 0 4px 24px rgba(15,35,64,0.10);
-        }
-
-        .about-text p + p { margin-top: 18px; }
-
-        /* ── Skills ─────────────────────────────────────────────── */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 48px;
-        }
-
-        .skill-card {
-            padding: 22px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--line);
-            background: var(--white);
-        }
-
-        .skill-card-title {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 14px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .skill-card ul { list-style: none; }
-
-        .skill-card li {
-            font-size: 0.9rem;
-            color: var(--slate);
-            padding: 4px 0;
-        }
-
-        .skill-card li::before {
-            content: '–';
-            color: var(--muted);
-            margin-right: 8px;
-        }
-
-        /* ── Appointments ───────────────────────────────────────── */
-        .appt-card {
-            max-width: 860px;
-            margin: 0 auto;
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(15,35,64,0.12);
-        }
-
-        .appt-header {
-            background: var(--navy);
-            padding: 28px 36px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .appt-org {
-            font-family: var(--serif);
-            font-size: 1.3rem;
-            color: var(--white);
-            font-weight: 400;
-        }
-
-        .appt-badge {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(147,197,253,0.9);
-            border: 1px solid rgba(147,197,253,0.3);
-            padding: 5px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .appt-roles {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: var(--white);
-        }
-
-        .appt-role {
-            padding: 28px 32px;
-        }
-
-        .appt-role + .appt-role {
-            border-left: 1px solid #bfdbfe;
-        }
-
-        .appt-role-title {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        .appt-role p {
-            font-size: 0.9rem;
-            color: var(--slate);
-            line-height: 1.65;
-            text-align: justify;
-        }
-
-        /* ── Project Cards ──────────────────────────────────────── */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .project-card {
-            border-radius: 10px;
-            border: 1px solid var(--line);
-            overflow: hidden;
-            background: var(--white);
-            transition: box-shadow 0.25s ease, transform 0.25s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            box-shadow: 0 12px 32px rgba(15,35,64,0.1);
-            transform: translateY(-3px);
-        }
-
-        .project-card-wide {
-            grid-column: 1 / -1;
-        }
-
-        /* Each card gets a unique mesh-gradient header via class */
-        .project-visual {
-            height: 130px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-visual .project-num {
-            position: absolute;
-            bottom: -12px;
-            right: 18px;
-            font-family: var(--serif);
-            font-size: 5.5rem;
-            font-weight: 400;
-            line-height: 1;
-            color: rgba(255,255,255,0.12);
-            user-select: none;
-        }
-
-        .project-visual .project-category {
-            position: absolute;
-            top: 18px;
-            left: 20px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.1);
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.15);
-        }
-
-        /* unique gradients per project */
-        .grad-1 { background: linear-gradient(135deg, #0f2340 0%, #1d4ed8 100%); }
-        .grad-2 { background: linear-gradient(135deg, #134e4a 0%, #0891b2 100%); }
-        .grad-3 { background: linear-gradient(135deg, #1e1b4b 0%, #7c3aed 100%); }
-        .grad-4 { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
-        .grad-5 { background: linear-gradient(135deg, #431407 0%, #c2410c 100%); }
-        .grad-6 { background: linear-gradient(135deg, #4a044e 0%, #9333ea 100%); }
-        .grad-7 { background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%); }
-        .grad-8 { background: linear-gradient(135deg, #0f172a 0%, #0891b2 100%); }
-
-        .project-content {
-            padding: 20px 22px 22px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .project-desc {
-            font-size: 0.9rem;
-            color: var(--slate);
-            line-height: 1.65;
-            margin-bottom: 12px;
-            flex: 1;
-            text-align: justify;
-        }
-
-        .project-meta {
-            font-size: 0.82rem;
-            color: var(--muted);
-            margin-bottom: 5px;
-        }
-
-        .project-meta span { color: var(--slate); }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin: 10px 0 14px;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            background: var(--pale);
-            color: var(--blue);
-            padding: 3px 9px;
-            border-radius: 12px;
-        }
-
-        .project-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
-
-        .btn {
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background 0.2s ease;
-        }
-
-        .btn-primary {
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        .btn-primary:hover { background: var(--blue); }
-
-        /* ── Why Work With Me ───────────────────────────────────── */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 860px;
-            margin: 0 auto;
-        }
-
-        .why-cell {
-            border-radius: 10px;
-            border: 1px solid var(--line);
-            overflow: hidden;
-            background: var(--white);
-            transition: box-shadow 0.25s ease, transform 0.25s ease;
-        }
-
-        .why-cell:hover {
-            box-shadow: 0 10px 28px rgba(15,35,64,0.09);
-            transform: translateY(-3px);
-        }
-
-        .why-cell-top {
-            height: 6px;
-        }
-
-        .why-top-1 { background: linear-gradient(90deg, #0f2340, #1d4ed8); }
-        .why-top-2 { background: linear-gradient(90deg, #134e4a, #0891b2); }
-        .why-top-3 { background: linear-gradient(90deg, #1e1b4b, #7c3aed); }
-        .why-top-4 { background: linear-gradient(90deg, #14532d, #16a34a); }
-
-        .why-cell-body { padding: 24px 26px 26px; }
-
-        .why-cell h3 {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 14px;
-        }
-
-        .why-cell ul { list-style: none; }
-
-        .why-cell li {
-            font-size: 0.9rem;
-            color: var(--slate);
-            padding: 4px 0;
-        }
-
-        .why-cell li::before {
-            content: '–';
-            color: var(--muted);
-            margin-right: 8px;
-        }
-
-        /* ── Contact ────────────────────────────────────────────── */
-        .contact-inner {
-            max-width: 640px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-inner p {
-            font-size: 1.02rem;
-            color: var(--slate);
-            margin-bottom: 36px;
-            line-height: 1.75;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--navy);
-            text-decoration: none;
-            padding: 10px 20px;
-            border: 1px solid var(--line);
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            background: var(--white);
-        }
-
-        .contact-link:hover {
-            background: var(--navy);
-            color: var(--white);
-            border-color: var(--navy);
-        }
-
-        /* ── Footer ─────────────────────────────────────────────── */
-        footer {
-            background: var(--navy);
-            color: rgba(255,255,255,0.45);
-            text-align: center;
-            padding: 28px;
-            font-size: 0.82rem;
-        }
-
-        /* ── Responsive ─────────────────────────────────────────── */
-        @media (max-width: 768px) {
-            .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
-            .hero-photo { display: flex; justify-content: center; }
-            .about-text { padding: 26px 22px; }
-            .hero-tags { justify-content: center; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .appt-roles { grid-template-columns: 1fr; }
-            .appt-role + .appt-role { border-left: none; border-top: 1px solid var(--line); }
-            .why-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --navy:  #0f2340;
+        --blue:  #1d4ed8;
+        --sky:   #3b82f6;
+        --pale:  #eff6ff;
+        --slate: #475569;
+        --muted: #94a3b8;
+        --line:  #e2e8f0;
+        --white: #ffffff;
+        --off:   #f9fafb;
+        --serif: 'DM Serif Display', Georgia, serif;
+        --sans:  'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--sans);
+        color: var(--navy);
+        background: var(--white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+    .section-label {
+        font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+        text-transform: uppercase; color: var(--sky); margin-bottom: 10px;
+    }
+    .divider {
+        width: 48px; height: 3px; border-radius: 2px; margin: 0 auto 48px;
+        background: linear-gradient(90deg, var(--blue), var(--sky));
+    }
+    .section { padding: 80px 0; }
+    .section-alt { background: #dbeafe; }
+    .section-heading {
+        font-family: var(--serif); font-size: 2rem; font-weight: 400;
+        text-align: center; color: var(--navy); margin-bottom: 14px;
+    }
+    .section-intro {
+        max-width: 720px; margin: -28px auto 44px; text-align: center;
+        color: var(--slate); font-size: 1rem; line-height: 1.75;
+    }
+
+    /* ── Top nav ─────────────────────────────────────────────── */
+    .topnav {
+        background: var(--navy);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topnav-inner {
+        max-width: 1000px; margin: 0 auto; padding: 14px 32px;
+        display: flex; justify-content: space-between; align-items: center; gap: 16px;
+        flex-wrap: wrap;
+    }
+    .topnav a {
+        color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem;
+        font-weight: 500; letter-spacing: 0.02em;
+    }
+    .topnav a:hover { color: var(--white); }
+    .topnav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .hero {
+        background: var(--navy); color: var(--white);
+        padding: 80px 32px 90px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+        content: ''; position: absolute; top: -120px; right: -120px;
+        width: 500px; height: 500px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero::after {
+        content: ''; position: absolute; bottom: -80px; left: 5%;
+        width: 300px; height: 300px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(29,78,216,0.15) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero-inner {
+        max-width: 1000px; margin: 0 auto;
+        display: grid; grid-template-columns: auto 1fr; gap: 56px;
+        align-items: center; position: relative; z-index: 1;
+    }
+    .hero-photo { position: relative; width: 220px; height: 220px; }
+    .hero-photo::before {
+        content: ''; position: absolute; inset: -9%;
+        border-radius: 70% 30% 50% 50% / 50% 50% 70% 30%;
+        background: linear-gradient(135deg, #1f8a87 0%, #3b82f6 45%, #d99a2b 100%);
+        opacity: 0.35; filter: blur(16px);
+        animation: blobMorph 9s ease-in-out infinite;
+    }
+    .hero-photo-blob {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+        border: 3px solid rgba(255,255,255,0.22);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+        animation: blobMorph 9s ease-in-out infinite;
+    }
+    .hero-photo-blob img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+    }
+    @keyframes blobMorph {
+        0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        33% { border-radius: 30% 70% 70% 30% / 30% 60% 40% 70%; }
+        66% { border-radius: 70% 30% 50% 50% / 50% 60% 40% 50%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hero-photo::before, .hero-photo-blob { animation: none; } }
+    .hero-name {
+        font-family: var(--serif); font-size: 2.6rem; font-weight: 400;
+        line-height: 1.15; margin-bottom: 10px; color: var(--white);
+    }
+    .hero-title {
+        font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+        text-transform: uppercase; color: rgba(147,197,253,0.85); margin-bottom: 24px;
+    }
+    .hero-bio {
+        font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.78);
+        max-width: 600px;
+    }
+    .hero-bio + .hero-bio { margin-top: 12px; }
+    .glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 56px; }
+    .glance a { display: block; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px 16px; text-decoration: none; color: inherit; border-top: 4px solid var(--navy); box-shadow: 0 4px 24px rgba(15,35,64,0.06); transition: transform .15s; }
+    .glance a:hover { transform: translateY(-2px); }
+    .glance .g-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .glance h3 { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; color: var(--navy); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+    .glance .g-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .glance p { font-size: 0.88rem; color: var(--slate); line-height: 1.55; text-align: left; }
+    .glance .g-more { display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600; color: var(--blue); }
+    /* justified running text */
+    .hero-bio, .strands-lead-text, .strand-card p, .strand-card li, .about-text p, .help-col li, .why-cell p, .guide-note, .guide-col li, .checklist li, .idea p, .exp-body li, .exp-body p, .layers-note p, .section-intro, .strands-band p, .help-caption, .guide-sources p, .contact-text { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+    .section-intro { text-align: center; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .hero-tag {
+        font-size: 0.78rem; font-weight: 500; padding: 5px 12px; border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);
+        background: rgba(255,255,255,0.06); letter-spacing: 0.02em;
+    }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+    .btn {
+        font-size: 0.82rem; font-weight: 600; padding: 9px 16px; border-radius: 6px;
+        text-decoration: none; transition: background 0.2s ease, color 0.2s ease;
+        display: inline-block;
+    }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-primary:hover { background: var(--blue); }
+    .btn-light { background: var(--white); color: var(--navy); }
+    .btn-light:hover { background: var(--pale); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.35); color: var(--white); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── Wave dividers ───────────────────────────────────────── */
+    .wave-divider { display: block; width: 100%; line-height: 0; overflow: hidden; margin: -1px 0; }
+    .wave-divider svg { display: block; width: 100%; height: 90px; }
+
+    /* ── At a glance ─────────────────────────────────────────── */
+    .glance-grid {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .glance-card {
+        background: var(--white); border-radius: 10px; padding: 24px 22px;
+        box-shadow: 0 4px 24px rgba(15,35,64,0.10);
+    }
+    .glance-card .big {
+        font-family: var(--serif); font-size: 1.9rem; line-height: 1.1;
+        color: var(--navy); margin-bottom: 8px;
+    }
+    .glance-card .label {
+        font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--blue); margin-bottom: 8px;
+    }
+    .glance-card p { font-size: 0.88rem; color: var(--slate); line-height: 1.6; }
+
+    .strands-figure { max-width: 820px; margin: 48px auto 44px; }
+    .strands-figure svg { width: 100%; height: auto; display: block; }
+    .help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .help-col { border-radius: 10px; border: 1px solid var(--line); overflow: hidden; background: var(--white); box-shadow: 0 4px 24px rgba(15,35,64,0.06); }
+    .help-top { height: 6px; }
+    .help-body { padding: 24px 24px 26px; }
+    .help-body h3 { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; color: var(--navy); margin-bottom: 14px; }
+    .help-body ul { list-style: none; }
+    .help-body li { font-size: 0.9rem; color: var(--slate); padding: 5px 0 5px 16px; position: relative; line-height: 1.55; }
+    .help-body li::before { content: '–'; color: var(--muted); position: absolute; left: 0; }
+    .strands-art { margin: 0; }
+    .strands-art img { width: 100%; height: auto; display: block; }
+    .story-figure { max-width: 960px; margin: 0 auto 36px; }
+    .story-figure svg { width: 100%; height: auto; display: block; }
+    .figure-caption { text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: -28px; margin-bottom: 8px; font-style: italic; }
+    /* ── Four strands ────────────────────────────────────────── */
+    .strands-head { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; padding-bottom: 28px; border-bottom: 2px solid var(--navy); margin-bottom: 32px; }
+    .strands-title { font-family: var(--serif); font-weight: 400; font-size: 3.1rem; line-height: 1.05; color: var(--navy); }
+    .strands-title em { font-style: italic; color: var(--blue); }
+    .strands-quote { max-width: 300px; font-size: 1rem; line-height: 1.6; color: var(--navy); padding-left: 18px; border-left: 2px solid var(--navy); }
+    .strands-lead { display: grid; grid-template-columns: 340px 1fr; gap: 36px; align-items: center; margin-bottom: 8px; }
+    .strands-lead-kicker { font-family: var(--serif); font-size: 1.7rem; line-height: 1.2; color: var(--blue); margin-bottom: 14px; }
+    .strands-lead-text { font-size: 1.02rem; line-height: 1.75; color: var(--slate); }
+    .strands-lead-text strong { color: var(--navy); font-weight: 600; }
+    .strand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
+    .strand-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 24px rgba(15,35,64,0.08); }
+    .strand-bar { height: 6px; }
+    .strand-body { padding: 26px 28px 28px; }
+    .strand-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .strand-top h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; color: var(--navy); }
+    .strand-num { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; }
+    .strand-sub { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin: 4px 0 14px; }
+    .strand-body p:last-child { font-size: 0.95rem; line-height: 1.7; color: var(--slate); }
+    .strand-body p strong { color: var(--navy); font-weight: 600; }
+    .strands-band { margin-top: 28px; background: var(--navy); border-radius: 10px; padding: 24px 30px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .strands-band p { color: rgba(255,255,255,0.85); font-size: 1.02rem; line-height: 1.6; }
+    .strands-band p strong { color: #93c5fd; }
+    .strands-legend { display: flex; flex-wrap: wrap; gap: 14px; max-width: 260px; justify-content: flex-end; }
+    .strands-legend span { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: inline-flex; align-items: center; gap: 6px; }
+    .strands-legend i { width: 9px; height: 9px; transform: rotate(45deg); display: inline-block; }
+    /* ── Timeline + stats ────────────────────────────────────── */
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; margin: 0 auto 28px; max-width: 900px; }
+    .timeline::before { content: ''; position: absolute; left: 8%; right: 8%; top: 9px; height: 2px; background: var(--line); }
+    .tl-stop { text-align: center; position: relative; padding: 0 10px; }
+    .tl-dot { display: block; width: 18px; height: 18px; border-radius: 50%; margin: 0 auto 12px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--line); position: relative; }
+    .tl-year { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); }
+    .tl-place { display: block; font-family: var(--serif); font-size: 1.35rem; color: var(--navy); line-height: 1.2; margin: 2px 0; }
+    .tl-what { display: block; font-size: 0.85rem; color: var(--slate); }
+    .tl-now .tl-dot { box-shadow: 0 0 0 2px var(--blue); }
+    .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto 44px; }
+    .stat { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 16px 14px; text-align: center; }
+    .stat-n { display: block; font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: var(--navy); }
+    .stat-l { display: block; font-size: 0.76rem; color: var(--slate); margin-top: 6px; line-height: 1.35; }
+    .exp-ico { position: absolute; right: 16px; bottom: 10px; width: 40px; height: 40px; }
+    .exp-visual .yr { bottom: 12px; left: 20px; right: auto; }
+    .exp-visual { height: 104px; }
+    .layers { display: grid; grid-template-columns: 520px 1fr; gap: 40px; align-items: center; max-width: 960px; margin: 0 auto; }
+    .layers-note p { font-size: 0.98rem; color: var(--slate); line-height: 1.7; margin-bottom: 14px; }
+    .layers-figure svg { width: 100%; height: auto; display: block; }
+    .layers-list { list-style: none; display: grid; gap: 14px; }
+    .layers-list li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; font-size: 0.92rem; line-height: 1.6; color: var(--slate); }
+    .layers-list li span { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 0.74rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .layers-list strong { color: var(--navy); font-weight: 600; }
+    /* ── Floor plan ──────────────────────────────────────────── */
+    .plan { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start; max-width: 1000px; margin: 0 auto; }
+    .plan-map { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 10px; box-shadow: 0 4px 24px rgba(15,35,64,0.08); }
+    .plan-map svg { width: 100%; height: auto; display: block; border-radius: 8px; }
+    .plan-notes { list-style: none; display: grid; gap: 12px; }
+    .plan-notes li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; font-size: 0.9rem; line-height: 1.6; color: var(--slate); }
+    .plan-notes li span { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 0.72rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .plan-notes li:nth-child(6) span, .plan-notes li:nth-child(7) span { background: #0891b2; }
+    .plan-notes strong { color: var(--navy); font-weight: 600; }
+    /* ── Experience cards ────────────────────────────────────── */
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .exp-card {
+        border-radius: 10px; border: 1px solid var(--line); overflow: hidden;
+        background: var(--white); display: flex; flex-direction: column;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .exp-card:hover { box-shadow: 0 12px 32px rgba(15,35,64,0.1); transform: translateY(-3px); }
+    .exp-visual { height: 96px; position: relative; overflow: hidden; }
+    .exp-visual .cat {
+        position: absolute; top: 16px; left: 18px; font-size: 0.66rem; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75);
+        background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+    .exp-visual .yr {
+        position: absolute; bottom: 12px; right: 18px; font-size: 0.78rem;
+        color: rgba(255,255,255,0.6); font-weight: 500;
+    }
+    .grad-1 { background: linear-gradient(135deg, #0f2340 0%, #1d4ed8 100%); }
+    .grad-2 { background: linear-gradient(135deg, #134e4a 0%, #0891b2 100%); }
+    .grad-3 { background: linear-gradient(135deg, #1e1b4b 0%, #7c3aed 100%); }
+    .grad-4 { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+    .grad-5 { background: linear-gradient(135deg, #431407 0%, #c2410c 100%); }
+    .grad-6 { background: linear-gradient(135deg, #4a044e 0%, #9333ea 100%); }
+    .grad-8 { background: linear-gradient(135deg, #0f172a 0%, #0891b2 100%); }
+    .exp-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+    .exp-title { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; line-height: 1.4; }
+    .exp-org { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; }
+    .exp-body ul { list-style: none; flex: 1; }
+    .exp-body li { font-size: 0.88rem; color: var(--slate); padding: 4px 0; line-height: 1.55; padding-left: 14px; position: relative; }
+    .exp-body li::before { content: '–'; color: var(--muted); position: absolute; left: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+    .tag { font-size: 0.74rem; font-weight: 500; background: var(--pale); color: var(--blue); padding: 3px 9px; border-radius: 12px; }
+
+    .about-text {
+        max-width: 820px; margin: 0 auto; color: var(--slate); font-size: 1.02rem; line-height: 1.85;
+        text-align: justify; background: var(--white); border-radius: 12px; padding: 32px 36px;
+        box-shadow: 0 4px 24px rgba(15,35,64,0.10); border: 1px solid var(--line);
+    }
+    .about-text p + p { margin-top: 18px; }
+
+    /* ── Principle cells ─────────────────────────────────────── */
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .why-cell {
+        border-radius: 10px; border: 1px solid var(--line); overflow: hidden; background: var(--white);
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .why-cell:hover { box-shadow: 0 10px 28px rgba(15,35,64,0.09); transform: translateY(-3px); }
+    .why-cell-top { height: 6px; }
+    .why-top-1 { background: linear-gradient(90deg, #0f2340, #1d4ed8); }
+    .why-top-2 { background: linear-gradient(90deg, #134e4a, #0891b2); }
+    .why-top-3 { background: linear-gradient(90deg, #1e1b4b, #7c3aed); }
+    .why-top-4 { background: linear-gradient(90deg, #14532d, #16a34a); }
+    .why-cell-body { padding: 24px 26px 26px; }
+    .why-num { display:inline-flex; width:20px; height:20px; border-radius:50%; color:#fff; font-size:0.7rem; align-items:center; justify-content:center; margin-right:8px; vertical-align:middle; }
+    .why-cell h3 {
+        font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--blue); margin-bottom: 12px;
+    }
+    .why-cell p { font-size: 0.92rem; color: var(--slate); line-height: 1.7; }
+
+    /* ── Continuum strip ─────────────────────────────────────── */
+    .continuum { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(15,35,64,0.12); }
+    .cont-step { background: var(--white); padding: 24px 20px 26px; position: relative; }
+    .cont-step + .cont-step { border-left: 1px solid #bfdbfe; }
+    .cont-step .stage {
+        font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--sky); margin-bottom: 8px;
+    }
+    .cont-step h4 { font-family: var(--serif); font-weight: 400; font-size: 1.1rem; color: var(--navy); margin-bottom: 10px; }
+    .cont-step ul { list-style: none; }
+    .cont-step li { font-size: 0.86rem; color: var(--slate); padding: 3px 0 3px 14px; position: relative; line-height: 1.5; }
+    .cont-step li::before { content: '–'; color: var(--muted); position: absolute; left: 0; }
+
+    /* ── Sample guide ────────────────────────────────────────── */
+    .guide {
+        max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden;
+        box-shadow: 0 4px 24px rgba(15,35,64,0.12); background: var(--white);
+    }
+    .guide-header {
+        background: var(--navy); padding: 26px 36px; display: flex; justify-content: space-between;
+        align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .guide-header h3 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; color: var(--white); }
+    .guide-header .badge {
+        font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+        color: rgba(147,197,253,0.9); border: 1px solid rgba(147,197,253,0.3);
+        padding: 5px 12px; border-radius: 20px; white-space: nowrap;
+    }
+    .guide-body { padding: 30px 36px 34px; }
+    .guide-flow { margin: 4px 0 22px; }
+    .guide-flow svg { width: 100%; height: auto; display: block; }
+    .guide-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 22px; line-height: 1.6; }
+    .guide-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 26px; }
+    .guide-col h4 {
+        font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+        margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    }
+    .guide-col.ok h4 { color: #16a34a; }
+    .guide-col.no h4 { color: #c2410c; }
+    .guide-col ul { list-style: none; }
+    .guide-col li { font-size: 0.9rem; color: var(--slate); padding: 4px 0 4px 18px; position: relative; line-height: 1.55; }
+    .guide-col.ok li::before { content: '✓'; color: #16a34a; position: absolute; left: 0; font-weight: 700; }
+    .guide-col.no li::before { content: '✕'; color: #c2410c; position: absolute; left: 0; font-weight: 700; }
+    .guide-block { background: var(--pale); border-radius: 8px; padding: 18px 22px; margin-top: 8px; }
+    .guide-block h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .guide-block ol { padding-left: 20px; }
+    .guide-block li { font-size: 0.9rem; color: var(--slate); padding: 3px 0; line-height: 1.55; }
+    .guide-block code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem;
+        background: var(--white); border: 1px solid #bfdbfe; padding: 1px 6px; border-radius: 4px; color: var(--navy);
+    }
+    .guide-sources { margin-top: 20px; font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    .guide-sources a { color: var(--blue); }
+    .guide-note a { color: var(--blue); }
+    .checklist { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .check {
+        border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px;
+        font-size: 0.86rem; color: var(--slate); line-height: 1.5;
+    }
+    .check strong { display: block; color: var(--navy); font-size: 0.8rem; margin-bottom: 4px; }
+
+    /* ── Ideas ───────────────────────────────────────────────── */
+    .ideas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .idea {
+        background: var(--white); border-radius: 10px; padding: 24px 26px;
+        box-shadow: 0 4px 24px rgba(15,35,64,0.10); display: flex; gap: 18px; align-items: flex-start;
+    }
+    .idea .num { font-family: var(--serif); font-size: 2rem; line-height: 1; color: #bfdbfe; flex-shrink: 0; width: 40px; }
+    .idea h3 { font-size: 0.98rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .idea p { font-size: 0.9rem; color: var(--slate); line-height: 1.65; }
+
+    /* ── Digital ─────────────────────────────────────────────── */
+    .digital-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    /* ── Contact ─────────────────────────────────────────────── */
+    .contact-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .contact-inner p { font-size: 1.02rem; color: var(--slate); margin-bottom: 36px; line-height: 1.75; }
+    .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .contact-link {
+        font-size: 0.88rem; font-weight: 500; color: var(--navy); text-decoration: none;
+        padding: 10px 20px; border: 1px solid var(--line); border-radius: 6px;
+        transition: all 0.2s ease; background: var(--white);
+    }
+    .contact-link:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 28px; font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.6); }
+
+    @media (max-width: 860px) {
+        .glance-grid { grid-template-columns: 1fr 1fr; }
+        .exp-grid, .digital-grid, .help-grid, .strand-grid, .plan { grid-template-columns: 1fr; }
+        .layers { grid-template-columns: 1fr; }
+        .strands-head { grid-template-columns: 1fr; align-items: start; }
+        .strands-quote { max-width: none; }
+        .strands-lead { grid-template-columns: 1fr; gap: 10px; }
+        .strands-band { grid-template-columns: 1fr; }
+        .strands-legend { justify-content: flex-start; max-width: none; }
+        .strands-title { font-size: 2.4rem; }
+        .continuum { grid-template-columns: 1fr 1fr; }
+        .cont-step:nth-child(3) { border-left: none; }
+        .cont-step:nth-child(n+3) { border-top: 1px solid #bfdbfe; }
+    }
+    @media (max-width: 640px) {
+        .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
+        .hero-photo { margin: 0 auto; }
+        .hero-tags, .hero-actions { justify-content: center; }
+        .glance-grid, .glance, .why-grid, .ideas-grid, .guide-cols, .checklist, .continuum { grid-template-columns: 1fr; }
+        .cont-step + .cont-step { border-left: none; border-top: 1px solid #bfdbfe; }
+        .about-text { padding: 24px 20px; text-align: left; }
+        .guide-body { padding: 22px 20px 26px; }
+        .guide-header { padding: 22px 20px; }
+        .container { padding: 0 20px; }
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet"/><link href="art-direction.css" rel="stylesheet"/></head>
 <body>
-<!-- ── HERO ──────────────────────────────────────────────────────── -->
-<header class="hero">
+<!-- ── TOP NAV ─────────────────────────────────────────────────────── -->
+<a class="skip-link" href="#main-content">Skip to content</a><nav aria-label="Primary navigation" class="topnav">
+<div class="topnav-inner">
+<a class="nav-brand" href="#main-content">Dr. Gabriella Nishizawa</a>
+<div aria-label="Site sections" class="topnav-links" id="primary-menu"><div aria-label="Open book of portfolio sections" class="navigation-book"><section aria-label="Book contents, first page" class="book-page book-page-left"><div class="menu-intro"><p class="menu-eyebrow">A field guide to</p><p class="menu-title">Libraries, information &amp; learning</p><p class="menu-note">Choose a thread and follow it.</p></div><a data-index="01" href="#at-a-glance">At a glance<small>Three programmes in thirty seconds</small></a><a data-index="02" href="#who-i-am">Who I am<small>Four roles, one person</small></a><a data-index="03" href="#beginning">Stories change us<small>Why reading comes first</small></a><a data-index="04" href="#help">In practice<small>What I can do for students, parents and teachers</small></a></section><div aria-hidden="true" class="book-spine"></div><section aria-label="Book contents, second page" class="book-page book-page-right"><p class="book-continuation">Contents · continued</p><a data-index="05" href="#literacy">Information literacy<small>Four working principles</small></a><a data-index="06" href="#built">Things I have built<small>Programmes, a module and an app</small></a><a data-index="07" href="#guide">Sample guide<small>Stay the Author! for the Extended Essay</small></a><a data-index="08" href="#reading">Reading culture<small>Four programme ideas</small></a><a data-index="09" href="#written">Things I have written<small>Four posts, four sides of the work</small></a><a data-index="10" href="#contact">Contact<small>Collaboration and guest workshops</small></a></section></div></div>
+<button aria-controls="primary-menu" aria-expanded="false" aria-label="Open site navigation" class="menu-toggle" type="button"><span class="menu-toggle-text">Menu</span><span aria-hidden="true" class="menu-toggle-glyph"><i></i><i></i><i></i></span></button></div>
+</nav>
+<!-- ── HERO ────────────────────────────────────────────────────────── -->
+<header class="hero" id="main-content" tabindex="-1"><div aria-hidden="true" class="hero-colourfield"><span class="field-shape field-teal"></span><span class="field-shape field-ochre"></span><span class="field-shape field-coral"></span><span class="field-shape field-violet"></span></div>
 <div class="hero-inner">
 <div class="hero-photo">
-<img alt="Dr. Gabriella Szilvia Nishizawa" src="assets/linkedin_v2_gray_blazer.jpg"/>
-</div>
+<div class="hero-photo-blob"><img alt="Dr. Gabriella Nishizawa" decoding="async" fetchpriority="high" loading="eager" src="assets/gabriella-portrait.jpg"/></div>
+<button aria-controls="primary-menu" aria-expanded="false" aria-label="Get to know Dr. Gabriella Nishizawa: open site navigation" class="know-me-trigger" type="button"><span class="know-me-kicker">Start here</span><span class="know-me-label">Get to know me</span><span aria-hidden="true" class="know-me-arrow">↗</span></button></div>
 <div>
-<p class="section-label">International Education & EdTech Portfolio</p>
-<h1 class="hero-name">Dr. Gabriella S. Nishizawa</h1>
-<p class="hero-title">Ph.D.  ·  M.Sc. Computer Science Education  ·  International Education &amp; Digital Learning</p>
-<p class="hero-bio">International educator based in Yokohama with over 20 years of experience across education, academic research and educational technology. My work brings together Computer Science Education, Library and Information Science, and Linguistics, with a particular interest in digital learning, information literacy, assessment, and the role of AI and robotics in education.</p>
-<div class="hero-tags">
-<span class="hero-tag">Digital Education</span>
-<span class="hero-tag">International Education</span>
-<span class="hero-tag">Assessment</span>
-<span class="hero-tag">Information Literacy</span>
-<span class="hero-tag">AI &amp; Robotics in Learning</span>
+<h1 class="hero-name">Dr. Gabriella Nishizawa</h1>
+<p class="hero-tagline">School librarian and teacher who builds reading, research and ethical AI skills, from kindergarten to the Diploma.</p>
+<p class="hero-title">Librarian &amp; Information Specialist  ·  Linguist  ·  Computer Science Educator &amp; Developer  ·  Examiner</p>
+<p class="hero-bio">I am a librarian and teacher based in Yokohama. At school the children call me Ms Gaby. All my work has been about information, seen from a different side each time: as a linguist, as a teacher of language, literature and drama, as a computer science teacher, and now as a librarian.</p>
+<p class="hero-bio">Today I work in the Kindergarten and Junior School (K/JS) library of an international school in Tokyo. I also examine research-based work for Cambridge, I have been appointed as an IB examiner, and I build my own digital learning tools. What interests me is how information becomes knowledge, and how knowledge shapes the person who uses it. Reading is not the end. It is just the beginning.</p>
+<div class="hero-actions">
+<a class="btn btn-light" href="#beginning">Stories change us</a>
+<a class="btn btn-ghost" href="#guide">Stay the Author!</a>
 </div>
 </div>
 </div>
 </header>
-<!-- wave: navy → light blue -->
 <div class="wave-divider" style="background:#0f2340;">
 <svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
 <path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#dbeafe"></path>
 </svg>
 </div>
-<!-- ── ABOUT ─────────────────────────────────────────────────────── -->
-<section class="section section-about">
+<!-- ── FOUR STRANDS ────────────────────────────────────────────────── -->
+<section class="section section-alt" id="strands" style="padding-top:60px">
 <div class="container">
-<p class="section-label" style="text-align:center">Background</p>
-<h2 class="section-heading">About Me</h2>
-<div class="divider"></div>
-<div class="about-text"><p>I have worked in education and academic research for more than 20 years, across Hungary, Germany and Japan. My academic background combines Linguistics (Ph.D.), Computer Science Education (M.Sc.) and Library and Information Science. These fields continue to shape my work in digital education, information literacy and educational technology.</p><p>My teaching experience spans humanities and technology subjects in international school settings. I am especially interested in how students understand complex information and how digital concepts can be made clear and usable in practice.</p><p>In 2026, I began working as an examiner for Cambridge Professional Development Qualifications (PDQ), specialising in Teaching and Learning and Teaching with Digital Technologies, and was appointed as an examiner for IB Digital Society. That same year, I founded Nitaii Learning Lab, an independent EdTech initiative. Focusa, a learning-support app focused on concentration, stress and self-regulation during study, is its first active project.</p><p>I am currently exploring Robot-Assisted Language Learning (RALL), with a focus on how educational and social robots can support language practice in real classroom settings. My next step is to develop small classroom pilots and evaluate where this approach adds practical value.</p></div>
+<p class="section-label" style="text-align:center">At a glance</p>
+<div class="glance" id="at-a-glance">
+<a href="#hh" style="border-top-color:#d99a2b"><div class="g-label">Early years · Reading for pleasure · Robot-assisted learning</div><h3><svg aria-hidden="true" class="g-icon" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 40 40"><rect fill="#f3d58c" height="28" rx="1.5" width="9" x="7" y="6"></rect><rect fill="#fff" height="24" rx="1.5" width="8" x="16" y="10"></rect><path d="M24,12 l8,-2 l5,24 l-8,2 z" fill="#fff"></path><path d="M11,11 v5 M20,15 v5 M30,15 l1,5"></path><path d="M4,34 h33"></path></svg>Happy Hamster</h3><p>Screen-free library lessons with a small robot, built on my own picture-book stories. The aim: a love of reading and the first steps of logical thinking for the youngest children.</p><span class="btn btn-primary g-btn">See the programme</span></a>
+<a href="#sta" style="border-top-color:#5b4a9e"><div class="g-label">Secondary · Ethical AI · Academic integrity</div><h3><svg aria-hidden="true" class="g-icon" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 40 40"><path d="M20,4 v10"></path><path d="M20,14 c-7,4 -9,10 -9,16 l9,6 l9,-6 c0,-6 -2,-12 -9,-16 z" fill="#fff"></path><path d="M20,36 v-12"></path><circle cx="20" cy="23" fill="#5b4a9e" r="2" stroke="none"></circle><path d="M11,30 l-5,5 M29,30 l5,5"></path></svg>Stay the Author!</h3><p>Ethical AI use for secondary students: a research guide and workshops on how to remain the author of your own work.</p><span class="btn btn-primary g-btn">See the programme and the guide</span></a>
+<a href="#chapter" style="border-top-color:#1f8a87"><div class="g-label">For professionals · Learning spaces · Development</div><h3><svg aria-hidden="true" class="g-icon" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 40 40"><rect fill="#fff" height="24" rx="2" width="20" x="5" y="9"></rect><path d="M10,15 h10 M10,20 h10 M10,25 h6"></path><rect fill="#8fcac6" height="22" rx="2.5" width="13" x="22" y="5"></rect><path d="M26,8 h5"></path><path d="M28.5,16 l-3,3 l3,3 M31,16 l3,3 l-3,3"></path></svg>Learning Space Design and Focusa</h3><p>An online module for librarians and teachers about designing learning spaces in libraries and schools, and a study-focus app written in Swift.</p><span class="btn btn-primary g-btn">See what I have built</span></a>
 </div>
+<div class="strands-head" id="who-i-am">
+<div>
+<p class="section-label">Who I am professionally</p>
+<h2 class="strands-title">Four roles,<br/><em>one person</em></h2>
+</div>
+<p class="strands-quote">Teaching and librarianship are the same work. The teacher stands close to the learner, the librarian a step further away.</p>
+</div>
+<div class="strands-lead">
+<figure class="strands-art"><svg viewBox="0 0 1400 1441" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A figure made of four woven ribbons, surrounded by four layers labelled from the inside out: twelve years of teaching, five years in libraries, computer science teacher and app developer, and examiner"><defs><path id="lay0" d="M519.1,407.7 A181,181 0 0 1 880.9,407.7"/><path id="lay1" d="M473.1,406.1 A227,227 0 0 1 926.9,406.1"/><path id="lay2" d="M427.2,404.5 A273,273 0 0 1 972.8,404.5"/><path id="lay3" d="M381.2,402.9 A319,319 0 0 1 1018.8,402.9"/></defs><image href="assets/four-roles-layers.jpg" x="0" y="0" width="1400" height="1441"/><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay0" startOffset="50%" text-anchor="middle">12 YEARS OF TEACHING</textPath></text><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay1" startOffset="50%" text-anchor="middle">5 YEARS IN LIBRARIES</textPath></text><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay2" startOffset="50%" text-anchor="middle">COMPUTER SCIENCE TEACHER, APP DEVELOPER</textPath></text><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay3" startOffset="50%" text-anchor="middle">EXAMINER</textPath></text></svg></figure>
+<div>
+<p class="strands-lead-kicker">Librarian. Teacher.<br/>Examiner. Developer.</p>
+<p class="strands-lead-text">In about twelve years in classrooms and five years in school libraries I have learned this: a teacher shapes information and hands it over directly. A librarian shapes the collection, the space and the guidance that help others find and use it. <strong>Examining and developing digital tools are the same craft again, from two more sides.</strong></p>
+<p class="strands-lead-text" style="margin-top:14px">The librarian is the shelves. The teacher is the open book. The examiner is the network of claims and the lines between them. The developer is the grid. They meet in one place, and that is where information becomes a person.</p>
+<p class="strands-lead-text" style="margin-top:14px">Underneath all four is a linguist. My PhD is in cognitive semantics, and Lakoff and Johnson's <em>Metaphors We Live By</em> shaped how I think about learning: we understand new things through the pictures we already carry. A library is a map. An essay is a journey. A book has a home. I teach with those pictures on purpose, and I design information so that the picture is the first thing a learner sees.</p>
+</div>
+</div>
+<div class="strand-grid">
+<div class="strand-card">
+<div class="strand-bar" style="background:#1f8a87"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Librarian</h3><span class="strand-num" style="color:#1f8a87">01 / 04</span></div>
+<p class="strand-sub" style="color:#1f8a87">BA LIS + practice</p>
+<p>Five years of daily school library work, with a Library &amp; Information Science degree: <strong>Alexandria and Oliver, MARC21 and Dewey, circulation, collection and inventory, library lessons.</strong> Today I do this in an international school in Tokyo. Most days I run the K/JS library on my own, and I plan and teach the scheduled library lessons.</p>
+</div>
+</div>
+<div class="strand-card">
+<div class="strand-bar" style="background:#d99a2b"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Teacher</h3><span class="strand-num" style="color:#b7801f">02 / 04</span></div>
+<p class="strand-sub" style="color:#b7801f">IB Diploma teacher · Extended Essay supervisor · Ages 11 to 18</p>
+<p>About twelve years of classroom teaching, as an <strong>IB Diploma Programme teacher</strong> and in the European Schools: <strong>language, literature and drama, then computer science.</strong> I supervised Extended Essays, marked internal assessments and worked on curriculum.</p>
+</div>
+</div>
+<div class="strand-card">
+<div class="strand-bar" style="background:#d9644f"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Examiner</h3><span class="strand-num" style="color:#c4503c">03 / 04</span></div>
+<p class="strand-sub" style="color:#c4503c">Cambridge · IB</p>
+<p>Examiner for Cambridge PDQ portfolios and for Global Perspectives &amp; Research, and appointed IB Digital Society examiner. In marking seasons I judge how <strong>evidence, references, authorship and AI</strong> are used in real student work.</p>
+</div>
+</div>
+<div class="strand-card">
+<div class="strand-bar" style="background:#5b4a9e"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Developer</h3><span class="strand-num" style="color:#5b4a9e">04 / 04</span></div>
+<p class="strand-sub" style="color:#5b4a9e">M.Ed. CS Ed · Swift · Web</p>
+<p>A computer science teacher who writes the code herself: <strong>an iOS study-focus app built from start to finish in Swift, websites, interactive learning materials and research guides.</strong> From the data model to the screen, with a teacher's eye for what a learner needs, and in what order.</p>
+</div>
+</div>
+</div>
+<div class="strands-band">
+<p><strong>Shared focus:</strong> creating the conditions in which people can find, judge, connect and use information with confidence.</p>
+<div class="strands-legend">
+<span><i style="background:#1f8a87"></i>Collection</span>
+<span><i style="background:#d99a2b"></i>Learning</span>
+<span><i style="background:#d9644f"></i>Judgement</span>
+<span><i style="background:#5b4a9e"></i>Making</span>
+</div>
+</div>
+<ul class="fact-strip" aria-label="Key facts">
+<li><strong>12</strong> years of teaching, IB Diploma included</li>
+<li><strong>5</strong> years in libraries</li>
+<li><strong>2</strong> examination boards</li>
+<li><strong>1</strong> app, written in Swift</li>
+</ul>
+<p class="credentials" style="text-align:center">PhD in cognitive linguistics · M.Ed. in computer science education · BA in library and information science</p>
+</div>
+
 </section>
-<!-- wave: light blue → white -->
 <div class="wave-divider" style="background:#dbeafe;">
 <svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
 <path d="M0,0 C480,90 960,90 1440,0 L1440,92 L0,92 Z" fill="#ffffff"></path>
 </svg>
 </div>
-<!-- ── PROJECTS ───────────────────────────────────────────────────── -->
-<section class="section">
+<!-- ── EXPERIENCE: LAYERS ──────────────────────────────────────────── -->
+<!-- ── WHERE IT BEGINS ─────────────────────────────────────────────── -->
+<section class="section" id="beginning" style="padding-top:0">
 <div class="container">
-<p class="section-label" style="text-align:center">Work Samples</p>
-<h2 class="section-heading">Featured Projects</h2>
+<p class="section-label" style="text-align:center">Where deep learning begins</p>
+<h2 class="section-heading">Stories change us</h2>
 <div class="divider"></div>
-<div class="projects-grid">
-<div class="project-card project-card-wide">
-<div class="project-visual grad-8">
-<span class="project-category">EdTech Initiative · Learning Research</span>
-<span class="project-num">01</span>
+<div class="story-figure">
+<svg aria-label="One ribbon from a picture book to an Extended Essay, with the stages of learning to take in information along the way" role="img" viewbox="0 0 960 300" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="story" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#d99a2b"></stop><stop offset="1" stop-color="#0f2340"></stop></lineargradient></defs>
+<path d="M90.0,150.0 L93.9,150.8 L97.8,151.6 L101.7,152.4 L105.6,153.3 L109.5,154.1 L113.4,154.9 L117.3,155.7 L121.2,156.5 L125.1,157.3 L129.0,158.0 L132.9,158.8 L136.8,159.6 L140.7,160.3 L144.6,161.1 L148.5,161.8 L152.4,162.5 L156.3,163.2 L160.2,163.9 L164.1,164.6 L168.0,165.3 L171.9,165.9 L175.8,166.6 L179.7,167.2 L183.6,167.8 L187.5,168.4 L191.4,169.0 L195.3,169.5 L199.2,170.0 L203.1,170.5 L207.0,171.0 L210.9,171.5 L214.8,172.0 L218.7,172.4 L222.6,172.8 L226.5,173.2 L230.4,173.5 L234.3,173.9 L238.2,174.2 L242.1,174.5 L246.0,174.7 L249.9,175.0 L253.8,175.2 L257.7,175.4 L261.6,175.5 L265.5,175.7 L269.4,175.8 L273.3,175.9 L277.2,175.9 L281.1,176.0 L285.0,176.0 L288.9,176.0 L292.8,175.9 L296.7,175.9 L300.6,175.8 L304.5,175.7 L308.4,175.5 L312.3,175.4 L316.2,175.2 L320.1,175.0 L324.0,174.7 L327.9,174.5 L331.8,174.2 L335.7,173.9 L339.6,173.5 L343.5,173.2 L347.4,172.8 L351.3,172.4 L355.2,172.0 L359.1,171.5 L363.0,171.0 L366.9,170.5 L370.8,170.0 L374.7,169.5 L378.6,169.0 L382.5,168.4 L386.4,167.8 L390.3,167.2 L394.2,166.6 L398.1,165.9 L402.0,165.3 L405.9,164.6 L409.8,163.9 L413.7,163.2 L417.6,162.5 L421.5,161.8 L425.4,161.1 L429.3,160.3 L433.2,159.6 L437.1,158.8 L441.0,158.0 L444.9,157.3 L448.8,156.5 L452.7,155.7 L456.6,154.9 L460.5,154.1 L464.4,153.3 L468.3,152.4 L472.2,151.6 L476.1,150.8 L480.0,150.0 L483.9,149.2 L487.8,148.4 L491.7,147.6 L495.6,146.7 L499.5,145.9 L503.4,145.1 L507.3,144.3 L511.2,143.5 L515.1,142.7 L519.0,142.0 L522.9,141.2 L526.8,140.4 L530.7,139.7 L534.6,138.9 L538.5,138.2 L542.4,137.5 L546.3,136.8 L550.2,136.1 L554.1,135.4 L558.0,134.7 L561.9,134.1 L565.8,133.4 L569.7,132.8 L573.6,132.2 L577.5,131.6 L581.4,131.0 L585.3,130.5 L589.2,130.0 L593.1,129.5 L597.0,129.0 L600.9,128.5 L604.8,128.0 L608.7,127.6 L612.6,127.2 L616.5,126.8 L620.4,126.5 L624.3,126.1 L628.2,125.8 L632.1,125.5 L636.0,125.3 L639.9,125.0 L643.8,124.8 L647.7,124.6 L651.6,124.5 L655.5,124.3 L659.4,124.2 L663.3,124.1 L667.2,124.1 L671.1,124.0 L675.0,124.0 L678.9,124.0 L682.8,124.1 L686.7,124.1 L690.6,124.2 L694.5,124.3 L698.4,124.5 L702.3,124.6 L706.2,124.8 L710.1,125.0 L714.0,125.3 L717.9,125.5 L721.8,125.8 L725.7,126.1 L729.6,126.5 L733.5,126.8 L737.4,127.2 L741.3,127.6 L745.2,128.0 L749.1,128.5 L753.0,129.0 L756.9,129.5 L760.8,130.0 L764.7,130.5 L768.6,131.0 L772.5,131.6 L776.4,132.2 L780.3,132.8 L784.2,133.4 L788.1,134.1 L792.0,134.7 L795.9,135.4 L799.8,136.1 L803.7,136.8 L807.6,137.5 L811.5,138.2 L815.4,138.9 L819.3,139.7 L823.2,140.4 L827.1,141.2 L831.0,142.0 L834.9,142.7 L838.8,143.5 L842.7,144.3 L846.6,145.1 L850.5,145.9 L854.4,146.7 L858.3,147.6 L862.2,148.4 L866.1,149.2 L870.0,150.0" fill="none" stroke="url(#story)" stroke-linecap="round" stroke-width="7"></path>
+<path d="M38,128 q22,-8 44,0 v44 q-22,-8 -44,0 z" fill="#fff" stroke="#d99a2b" stroke-width="2"></path><path d="M82,128 q22,-8 44,0 v44 q-22,-8 -44,0 z" fill="#fff" stroke="#d99a2b" stroke-width="2"></path>
+<circle cx="60" cy="150" fill="#d99a2b" opacity="0.8" r="7"></circle><path d="M90,140h26M90,150h20M90,160h24" stroke="#d99a2b" stroke-width="2"></path>
+<rect fill="#fff" height="68" rx="3" stroke="#0f2340" stroke-width="2" width="52" x="890" y="116"></rect>
+<path d="M899,128h24" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,137h34" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,146h34" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,155h24" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,164h34" opacity="0.5" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,173h34" opacity="0.5" stroke="#0f2340" stroke-width="2"></path>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9" x="930" y="178">[1]</text>
+<circle cx="170" cy="165.6" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="170" y="141.61929887018744">being read to</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="170" y="125.61929887018744">EARLY YEARS</text>
+<circle cx="300" cy="175.8" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="300" y="205.8104307265494">choosing books, and</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="300" y="219.8104307265494">abandoning some</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="300" y="237.8104307265494">ELEMENTARY</text>
+<circle cx="430" cy="160.2" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="430" y="122.19113185636195">following a question</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="430" y="136.19113185636195">into a book</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="430" y="106.19113185636195">ELEMENTARY</text>
+<circle cx="560" cy="134.4" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="560" y="164.38070112981256">holding a line of</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="560" y="178.38070112981256">thought, noticing when</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="560" y="192.38070112981256">it does not add up</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="560" y="210.38070112981256">MIDDLE SCHOOL</text>
+<circle cx="690" cy="124.2" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="690" y="86.1895692734506">tracing a claim to</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="690" y="100.1895692734506">its source</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="690" y="70.1895692734506">GRADES 9 TO 10</text>
+<circle cx="800" cy="136.1" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="800" y="166.10388852067717">arguing, and</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="800" y="180.10388852067717">acknowledging</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="800" y="198.10388852067717">DIPLOMA</text>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="14" text-anchor="middle" x="82" y="286">the near end</text><text fill="#64748b" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="82" y="298">what I see every day</text>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="14" text-anchor="middle" x="916" y="286">the far end</text><text fill="#64748b" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="916" y="298">what I examine</text>
+</svg>
+<p class="figure-caption" style="margin-top:6px">One story, two ends.</p>
 </div>
-<div class="project-content">
-<h3 class="project-title">Nitaii Learning Lab</h3>
-<p class="project-desc">An independent EdTech initiative I founded in Yokohama to develop and test learning-support tools at the intersection of education, technology and cognition. The lab provides a framework for small-scale pilots and experimental projects, with Focusa as its first active project.</p>
-<div class="project-tags">
-<span class="tag">EdTech</span>
-<span class="tag">Learning Research</span>
-<span class="tag">Student Wellbeing</span>
-<span class="tag">Educational Pilots</span>
-</div>
-<div class="project-links">
-<a class="btn btn-primary" href="https://nitaii.eu/" target="_blank">Visit Nitaii Learning Lab</a>
-</div>
-</div>
-</div>
-<div class="project-card">
-<div class="project-visual grad-1">
-<span class="project-category">Learning Support · Student Wellbeing</span>
-<span class="project-num">02</span>
-</div>
-<div class="project-content">
-<h3 class="project-title">Focusa App: Learning, Focus &amp; Wellbeing</h3>
-<p class="project-desc">A learning-support app developed within Nitaii Learning Lab to help students become more aware of concentration, stress and self-regulation during study. The project covers research, UI/UX design, Swift development and beta testing with Japanese university participants, using Polar H10 data to explore patterns related to focus and wellbeing.</p>
-<div class="project-tags">
-<span class="tag">Learning Support</span>
-<span class="tag">Student Wellbeing</span>
-<span class="tag">iOS / Swift</span>
-<span class="tag">Self-Regulation</span>
-</div>
-<p class="project-meta">Initiative: <span>Nitaii Learning Lab</span></p><p class="project-meta">Status: <span>Beta — Japanese university participants</span></p>
-<div class="project-links">
-<a class="btn btn-primary" href="assets/focusa-manual.pdf" target="_blank">View User Manual</a>
-<a class="btn btn-primary" href="https://nitaii.eu/#projects" target="_blank">Nitaii Learning Lab</a></div>
-</div>
-</div>
-<div class="project-card">
-<div class="project-visual grad-2">
-<span class="project-category">Instructional Design · Higher Ed</span>
-<span class="project-num">03</span>
-</div>
-<div class="project-content">
-<h3 class="project-title">Interactive Digital Textbook Chapter</h3>
-<p class="project-desc">A comprehensive interactive textbook chapter built with eXe Learning, combining multimedia, interactive exercises, and self-assessment activities. SCORM-compliant, hosted on GitHub Pages.</p>
-<div class="project-tags">
-<span class="tag">eXe Learning</span>
-<span class="tag">HTML5</span>
-<span class="tag">SCORM</span>
-<span class="tag">Instructional Design</span>
-</div>
-<p class="project-meta">Audience: <span>University students</span></p>
-<div class="project-links">
-<a class="btn btn-primary" href="https://nishizawagsz.github.io/exe-learning/" target="_blank">View Project</a>
+<div class="story-split">
+<figure class="story-photo"><img alt="A school library wall painted with a giant caterpillar, flowers and a butterfly, with the words Stories Change Us and a row of picture books on display" decoding="async" loading="lazy" src="assets/stories-wall.jpg"/><figcaption>A library wall that says it better than I can.</figcaption></figure>
+<div class="about-text">
+<p>Why do we read? Reading is the first and hardest way a child learns to take in information that someone else has shaped: to hold a line of thought, to follow it when it turns, to notice when something does not make sense. Everything we later call research, critical thinking or academic integrity grows from this ability to receive information carefully. It is not a technique taught in Grade 11. It is a habit formed much earlier, and the library is where it is formed.</p>
+<details class="fold"><summary>Read on: what this looks like from kindergarten to the Diploma</summary><p>Working in a Kindergarten and Junior School library has made this very real for me. A child who has been read to, who chooses books freely and may put them down again, and who has learned that a question can lead into a book, is already practising the real thing. By the Diploma years, patience with a difficult text and the habit of checking where a claim comes from are not new demands. They grow out of something that already feels natural. Without that foundation, the same demands feel like a wall.</p>
+<p>As a Diploma teacher and as an examiner I have seen the end of this road, and now I see its beginning every day. It is the same story. That is why I think of elementary and secondary library work as one job seen from two ends: from the picture-book corner to the Extended Essay.</p></details>
 </div>
 </div>
 </div>
-<div class="project-card">
-<div class="project-visual grad-4">
-<span class="project-category">Curriculum · Secondary Education</span>
-<span class="project-num">04</span>
+</section>
+<!-- ── WHO I HELP ──────────────────────────────────────────────────── -->
+<section class="section" id="help" style="padding-top:0">
+<div class="container">
+<p class="section-label" style="text-align:center">In practice</p>
+<h2 class="section-heading">What I can do for students, parents and teachers</h2>
+<div class="divider"></div>
+<div aria-label="Four roles woven into one person: teacher, librarian, examiner and developer, all information design, leading to knowledge and the person" class="strands-figure">
+<svg role="img" viewbox="0 40 960 400" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="pageGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fbf9f4"></stop><stop offset="1" stop-color="#f5f0e7"></stop></lineargradient></defs>
+<circle cx="250" cy="80" fill="#d99a37" r="5"></circle>
+<text fill="#d99a37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="74">TEACHER</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="90">shapes information and</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="105">hands it over directly</text>
+<circle cx="250" cy="170" fill="#0e7773" r="5"></circle>
+<text fill="#0e7773" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="164">LIBRARIAN</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="180">shapes how others find,</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="195">judge and use it</text>
+<circle cx="250" cy="260" fill="#bd5b4c" r="5"></circle>
+<text fill="#bd5b4c" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="254">EXAMINER</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="270">judges how it was used, in</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="285">real work</text>
+<circle cx="250" cy="350" fill="#685071" r="5"></circle>
+<text fill="#685071" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="344">DEVELOPER</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="360">builds the tools:</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="375">an app, materials, guides</text>
+<path d="M250.0,80.0 L252.2,82.8 L254.5,85.5 L256.8,88.2 L259.0,90.9 L261.2,93.5 L263.5,96.1 L265.8,98.6 L268.0,101.1 L270.2,103.5 L272.5,105.8 L274.8,108.1 L277.0,110.3 L279.2,112.3 L281.5,114.3 L283.8,116.2 L286.0,118.0 L288.2,119.7 L290.5,121.3 L292.8,122.8 L295.0,124.2 L297.2,125.5 L299.5,126.7 L301.8,127.7 L304.0,128.7 L306.2,129.5 L308.5,130.2 L310.8,130.8 L313.0,131.4 L315.2,131.8 L317.5,132.1 L319.8,132.3 L322.0,132.4 L324.2,132.4 L326.5,132.3 L328.8,132.1 L331.0,131.9 L333.2,131.6 L335.5,131.2 L337.8,130.7 L340.0,130.1 L342.2,129.5 L344.5,128.9 L346.8,128.2 L349.0,127.4 L351.2,126.6 L353.5,125.8 L355.8,125.0 L358.0,124.1 L360.2,123.2 L362.5,122.3 L364.8,121.4 L367.0,120.5 L369.2,119.7 L371.5,118.8 L373.8,117.9 L376.0,117.1 L378.2,116.3 L380.5,115.6 L382.8,114.8 L385.0,114.2 L387.2,113.5 L389.5,113.0 L391.8,112.5 L394.0,112.0 L396.2,111.6 L398.5,111.3 L400.8,111.1 L403.0,110.9 L405.2,110.8 L407.5,110.8 L409.8,110.8 L412.0,110.9 L414.2,111.2 L416.5,111.5 L418.8,111.8 L421.0,112.3 L423.2,112.8 L425.5,113.5 L427.8,114.2 L430.0,114.9 L432.2,115.8 L434.5,116.7 L436.8,117.7 L439.0,118.8 L441.2,120.0 L443.5,121.2 L445.8,122.4 L448.0,123.7 L450.2,125.1 L452.5,126.6 L454.8,128.0 L457.0,129.6 L459.2,131.1 L461.5,132.7 L463.8,134.3 L466.0,136.0 L468.2,137.6 L470.5,139.3 L472.8,141.0 L475.0,142.7 L477.2,144.4 L479.5,146.1 L481.8,147.8 L484.0,149.5 L486.2,151.2 L488.5,152.8 L490.8,154.5 L493.0,156.1 L495.2,157.6 L497.5,159.2 L499.8,160.7 L502.0,162.1 L504.2,163.5 L506.5,164.9 L508.8,166.2 L511.0,167.5 L513.2,168.7 L515.5,169.8 L517.8,170.9 L520.0,172.0 L522.2,172.9 L524.5,173.9 L526.8,174.7 L529.0,175.5 L531.2,176.2 L533.5,176.9 L535.8,177.5 L538.0,178.1 L540.2,178.6 L542.5,179.0 L544.8,179.4 L547.0,179.7 L549.2,180.0 L551.5,180.2 L553.8,180.4 L556.0,180.5 L558.2,180.6 L560.5,180.7 L562.8,180.7 L565.0,180.7 L567.2,180.6 L569.5,180.5 L571.8,180.5 L574.0,180.3 L576.2,180.2 L578.5,180.1 L580.8,179.9 L583.0,179.8 L585.2,179.6 L587.5,179.5 L589.8,179.3 L592.0,179.2 L594.2,179.1 L596.5,179.0 L598.8,178.9 L601.0,178.9 L603.2,178.9 L605.5,178.9 L607.8,178.9 L610.0,179.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,170.0 L252.2,168.3 L254.5,166.5 L256.8,164.9 L259.0,163.2 L261.2,161.6 L263.5,160.0 L265.8,158.5 L268.0,157.1 L270.2,155.7 L272.5,154.4 L274.8,153.1 L277.0,152.0 L279.2,150.9 L281.5,149.9 L283.8,149.0 L286.0,148.3 L288.2,147.6 L290.5,147.0 L292.8,146.5 L295.0,146.1 L297.2,145.8 L299.5,145.6 L301.8,145.6 L304.0,145.6 L306.2,145.8 L308.5,146.0 L310.8,146.4 L313.0,146.9 L315.2,147.4 L317.5,148.1 L319.8,148.9 L322.0,149.7 L324.2,150.7 L326.5,151.8 L328.8,152.9 L331.0,154.1 L333.2,155.4 L335.5,156.8 L337.8,158.2 L340.0,159.7 L342.2,161.3 L344.5,162.9 L346.8,164.6 L349.0,166.3 L351.2,168.0 L353.5,169.8 L355.8,171.6 L358.0,173.4 L360.2,175.2 L362.5,177.0 L364.8,178.9 L367.0,180.7 L369.2,182.5 L371.5,184.3 L373.8,186.1 L376.0,187.8 L378.2,189.6 L380.5,191.2 L382.8,192.9 L385.0,194.5 L387.2,196.0 L389.5,197.5 L391.8,198.9 L394.0,200.3 L396.2,201.6 L398.5,202.8 L400.8,204.0 L403.0,205.0 L405.2,206.0 L407.5,206.9 L409.8,207.8 L412.0,208.5 L414.2,209.2 L416.5,209.8 L418.8,210.3 L421.0,210.7 L423.2,211.0 L425.5,211.3 L427.8,211.5 L430.0,211.6 L432.2,211.6 L434.5,211.5 L436.8,211.4 L439.0,211.1 L441.2,210.9 L443.5,210.5 L445.8,210.1 L448.0,209.6 L450.2,209.1 L452.5,208.5 L454.8,207.8 L457.0,207.1 L459.2,206.4 L461.5,205.7 L463.8,204.9 L466.0,204.0 L468.2,203.2 L470.5,202.3 L472.8,201.4 L475.0,200.5 L477.2,199.6 L479.5,198.7 L481.8,197.8 L484.0,196.9 L486.2,196.1 L488.5,195.2 L490.8,194.4 L493.0,193.5 L495.2,192.8 L497.5,192.0 L499.8,191.3 L502.0,190.6 L504.2,189.9 L506.5,189.3 L508.8,188.8 L511.0,188.2 L513.2,187.8 L515.5,187.4 L517.8,187.0 L520.0,186.7 L522.2,186.5 L524.5,186.3 L526.8,186.1 L529.0,186.0 L531.2,186.0 L533.5,186.0 L535.8,186.1 L538.0,186.3 L540.2,186.5 L542.5,186.7 L544.8,187.0 L547.0,187.4 L549.2,187.7 L551.5,188.2 L553.8,188.6 L556.0,189.2 L558.2,189.7 L560.5,190.3 L562.8,190.9 L565.0,191.5 L567.2,192.2 L569.5,192.9 L571.8,193.5 L574.0,194.2 L576.2,194.9 L578.5,195.6 L580.8,196.3 L583.0,197.0 L585.2,197.7 L587.5,198.4 L589.8,199.0 L592.0,199.7 L594.2,200.3 L596.5,200.8 L598.8,201.3 L601.0,201.8 L603.2,202.2 L605.5,202.6 L607.8,202.8 L610.0,203.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,260.0 L252.2,261.7 L254.5,263.5 L256.8,265.1 L259.0,266.8 L261.2,268.4 L263.5,270.0 L265.8,271.5 L268.0,272.9 L270.2,274.3 L272.5,275.6 L274.8,276.9 L277.0,278.0 L279.2,279.1 L281.5,280.1 L283.8,281.0 L286.0,281.7 L288.2,282.4 L290.5,283.0 L292.8,283.5 L295.0,283.9 L297.2,284.2 L299.5,284.4 L301.8,284.4 L304.0,284.4 L306.2,284.2 L308.5,284.0 L310.8,283.6 L313.0,283.1 L315.2,282.6 L317.5,281.9 L319.8,281.1 L322.0,280.3 L324.2,279.3 L326.5,278.2 L328.8,277.1 L331.0,275.9 L333.2,274.6 L335.5,273.2 L337.8,271.8 L340.0,270.3 L342.2,268.7 L344.5,267.1 L346.8,265.4 L349.0,263.7 L351.2,262.0 L353.5,260.2 L355.8,258.4 L358.0,256.6 L360.2,254.8 L362.5,253.0 L364.8,251.1 L367.0,249.3 L369.2,247.5 L371.5,245.7 L373.8,243.9 L376.0,242.2 L378.2,240.4 L380.5,238.8 L382.8,237.1 L385.0,235.5 L387.2,234.0 L389.5,232.5 L391.8,231.1 L394.0,229.7 L396.2,228.4 L398.5,227.2 L400.8,226.0 L403.0,225.0 L405.2,224.0 L407.5,223.1 L409.8,222.2 L412.0,221.5 L414.2,220.8 L416.5,220.2 L418.8,219.7 L421.0,219.3 L423.2,219.0 L425.5,218.7 L427.8,218.5 L430.0,218.4 L432.2,218.4 L434.5,218.5 L436.8,218.6 L439.0,218.9 L441.2,219.1 L443.5,219.5 L445.8,219.9 L448.0,220.4 L450.2,220.9 L452.5,221.5 L454.8,222.2 L457.0,222.9 L459.2,223.6 L461.5,224.3 L463.8,225.1 L466.0,226.0 L468.2,226.8 L470.5,227.7 L472.8,228.6 L475.0,229.5 L477.2,230.4 L479.5,231.3 L481.8,232.2 L484.0,233.1 L486.2,233.9 L488.5,234.8 L490.8,235.6 L493.0,236.5 L495.2,237.2 L497.5,238.0 L499.8,238.7 L502.0,239.4 L504.2,240.1 L506.5,240.7 L508.8,241.2 L511.0,241.8 L513.2,242.2 L515.5,242.6 L517.8,243.0 L520.0,243.3 L522.2,243.5 L524.5,243.7 L526.8,243.9 L529.0,244.0 L531.2,244.0 L533.5,244.0 L535.8,243.9 L538.0,243.7 L540.2,243.5 L542.5,243.3 L544.8,243.0 L547.0,242.6 L549.2,242.3 L551.5,241.8 L553.8,241.4 L556.0,240.8 L558.2,240.3 L560.5,239.7 L562.8,239.1 L565.0,238.5 L567.2,237.8 L569.5,237.1 L571.8,236.5 L574.0,235.8 L576.2,235.1 L578.5,234.4 L580.8,233.7 L583.0,233.0 L585.2,232.3 L587.5,231.6 L589.8,231.0 L592.0,230.3 L594.2,229.7 L596.5,229.2 L598.8,228.7 L601.0,228.2 L603.2,227.8 L605.5,227.4 L607.8,227.2 L610.0,227.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,350.0 L252.2,347.2 L254.5,344.5 L256.8,341.8 L259.0,339.1 L261.2,336.5 L263.5,333.9 L265.8,331.4 L268.0,328.9 L270.2,326.5 L272.5,324.2 L274.8,321.9 L277.0,319.7 L279.2,317.7 L281.5,315.7 L283.8,313.8 L286.0,312.0 L288.2,310.3 L290.5,308.7 L292.8,307.2 L295.0,305.8 L297.2,304.5 L299.5,303.3 L301.8,302.3 L304.0,301.3 L306.2,300.5 L308.5,299.8 L310.8,299.2 L313.0,298.6 L315.2,298.2 L317.5,297.9 L319.8,297.7 L322.0,297.6 L324.2,297.6 L326.5,297.7 L328.8,297.9 L331.0,298.1 L333.2,298.4 L335.5,298.8 L337.8,299.3 L340.0,299.9 L342.2,300.5 L344.5,301.1 L346.8,301.8 L349.0,302.6 L351.2,303.4 L353.5,304.2 L355.8,305.0 L358.0,305.9 L360.2,306.8 L362.5,307.7 L364.8,308.6 L367.0,309.5 L369.2,310.3 L371.5,311.2 L373.8,312.1 L376.0,312.9 L378.2,313.7 L380.5,314.4 L382.8,315.2 L385.0,315.8 L387.2,316.5 L389.5,317.0 L391.8,317.5 L394.0,318.0 L396.2,318.4 L398.5,318.7 L400.8,318.9 L403.0,319.1 L405.2,319.2 L407.5,319.2 L409.8,319.2 L412.0,319.1 L414.2,318.8 L416.5,318.5 L418.8,318.2 L421.0,317.7 L423.2,317.2 L425.5,316.5 L427.8,315.8 L430.0,315.1 L432.2,314.2 L434.5,313.3 L436.8,312.3 L439.0,311.2 L441.2,310.0 L443.5,308.8 L445.8,307.6 L448.0,306.3 L450.2,304.9 L452.5,303.4 L454.8,302.0 L457.0,300.4 L459.2,298.9 L461.5,297.3 L463.8,295.7 L466.0,294.0 L468.2,292.4 L470.5,290.7 L472.8,289.0 L475.0,287.3 L477.2,285.6 L479.5,283.9 L481.8,282.2 L484.0,280.5 L486.2,278.8 L488.5,277.2 L490.8,275.5 L493.0,273.9 L495.2,272.4 L497.5,270.8 L499.8,269.3 L502.0,267.9 L504.2,266.5 L506.5,265.1 L508.8,263.8 L511.0,262.5 L513.2,261.3 L515.5,260.2 L517.8,259.1 L520.0,258.0 L522.2,257.1 L524.5,256.1 L526.8,255.3 L529.0,254.5 L531.2,253.8 L533.5,253.1 L535.8,252.5 L538.0,251.9 L540.2,251.4 L542.5,251.0 L544.8,250.6 L547.0,250.3 L549.2,250.0 L551.5,249.8 L553.8,249.6 L556.0,249.5 L558.2,249.4 L560.5,249.3 L562.8,249.3 L565.0,249.3 L567.2,249.4 L569.5,249.5 L571.8,249.5 L574.0,249.7 L576.2,249.8 L578.5,249.9 L580.8,250.1 L583.0,250.2 L585.2,250.4 L587.5,250.5 L589.8,250.7 L592.0,250.8 L594.2,250.9 L596.5,251.0 L598.8,251.1 L601.0,251.1 L603.2,251.1 L605.5,251.1 L607.8,251.1 L610.0,251.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,80.0 L252.2,82.8 L254.5,85.5 L256.8,88.2 L259.0,90.9 L261.2,93.5 L263.5,96.1 L265.8,98.6 L268.0,101.1 L270.2,103.5 L272.5,105.8 L274.8,108.1 L277.0,110.3 L279.2,112.3 L281.5,114.3 L283.8,116.2 L286.0,118.0 L288.2,119.7 L290.5,121.3 L292.8,122.8 L295.0,124.2 L297.2,125.5 L299.5,126.7 L301.8,127.7 L304.0,128.7 L306.2,129.5 L308.5,130.2 L310.8,130.8 L313.0,131.4 L315.2,131.8 L317.5,132.1 L319.8,132.3 L322.0,132.4 L324.2,132.4 L326.5,132.3 L328.8,132.1 L331.0,131.9 L333.2,131.6 L335.5,131.2 L337.8,130.7 L340.0,130.1 L342.2,129.5 L344.5,128.9 L346.8,128.2 L349.0,127.4 L351.2,126.6 L353.5,125.8 L355.8,125.0 L358.0,124.1 L360.2,123.2 L362.5,122.3 L364.8,121.4 L367.0,120.5 L369.2,119.7 L371.5,118.8 L373.8,117.9 L376.0,117.1 L378.2,116.3 L380.5,115.6 L382.8,114.8 L385.0,114.2 L387.2,113.5 L389.5,113.0 L391.8,112.5 L394.0,112.0 L396.2,111.6 L398.5,111.3 L400.8,111.1 L403.0,110.9 L405.2,110.8 L407.5,110.8 L409.8,110.8 L412.0,110.9 L414.2,111.2 L416.5,111.5 L418.8,111.8 L421.0,112.3 L423.2,112.8 L425.5,113.5 L427.8,114.2 L430.0,114.9 L432.2,115.8 L434.5,116.7 L436.8,117.7 L439.0,118.8 L441.2,120.0 L443.5,121.2 L445.8,122.4 L448.0,123.7 L450.2,125.1 L452.5,126.6 L454.8,128.0 L457.0,129.6 L459.2,131.1 L461.5,132.7 L463.8,134.3 L466.0,136.0 L468.2,137.6 L470.5,139.3 L472.8,141.0 L475.0,142.7 L477.2,144.4 L479.5,146.1 L481.8,147.8 L484.0,149.5 L486.2,151.2 L488.5,152.8 L490.8,154.5 L493.0,156.1 L495.2,157.6 L497.5,159.2 L499.8,160.7 L502.0,162.1 L504.2,163.5 L506.5,164.9 L508.8,166.2 L511.0,167.5 L513.2,168.7 L515.5,169.8 L517.8,170.9 L520.0,172.0 L522.2,172.9 L524.5,173.9 L526.8,174.7 L529.0,175.5 L531.2,176.2 L533.5,176.9 L535.8,177.5 L538.0,178.1 L540.2,178.6 L542.5,179.0 L544.8,179.4 L547.0,179.7 L549.2,180.0 L551.5,180.2 L553.8,180.4 L556.0,180.5 L558.2,180.6 L560.5,180.7 L562.8,180.7 L565.0,180.7 L567.2,180.6 L569.5,180.5 L571.8,180.5 L574.0,180.3 L576.2,180.2 L578.5,180.1 L580.8,179.9 L583.0,179.8 L585.2,179.6 L587.5,179.5 L589.8,179.3 L592.0,179.2 L594.2,179.1 L596.5,179.0 L598.8,178.9 L601.0,178.9 L603.2,178.9 L605.5,178.9 L607.8,178.9 L610.0,179.0" fill="none" opacity="0.95" stroke="#d99a37" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M250.0,170.0 L252.2,168.3 L254.5,166.5 L256.8,164.9 L259.0,163.2 L261.2,161.6 L263.5,160.0 L265.8,158.5 L268.0,157.1 L270.2,155.7 L272.5,154.4 L274.8,153.1 L277.0,152.0 L279.2,150.9 L281.5,149.9 L283.8,149.0 L286.0,148.3 L288.2,147.6 L290.5,147.0 L292.8,146.5 L295.0,146.1 L297.2,145.8 L299.5,145.6 L301.8,145.6 L304.0,145.6 L306.2,145.8 L308.5,146.0 L310.8,146.4 L313.0,146.9 L315.2,147.4 L317.5,148.1 L319.8,148.9 L322.0,149.7 L324.2,150.7 L326.5,151.8 L328.8,152.9 L331.0,154.1 L333.2,155.4 L335.5,156.8 L337.8,158.2 L340.0,159.7 L342.2,161.3 L344.5,162.9 L346.8,164.6 L349.0,166.3 L351.2,168.0 L353.5,169.8 L355.8,171.6 L358.0,173.4 L360.2,175.2 L362.5,177.0 L364.8,178.9 L367.0,180.7 L369.2,182.5 L371.5,184.3 L373.8,186.1 L376.0,187.8 L378.2,189.6 L380.5,191.2 L382.8,192.9 L385.0,194.5 L387.2,196.0 L389.5,197.5 L391.8,198.9 L394.0,200.3 L396.2,201.6 L398.5,202.8 L400.8,204.0 L403.0,205.0 L405.2,206.0 L407.5,206.9 L409.8,207.8 L412.0,208.5 L414.2,209.2 L416.5,209.8 L418.8,210.3 L421.0,210.7 L423.2,211.0 L425.5,211.3 L427.8,211.5 L430.0,211.6 L432.2,211.6 L434.5,211.5 L436.8,211.4 L439.0,211.1 L441.2,210.9 L443.5,210.5 L445.8,210.1 L448.0,209.6 L450.2,209.1 L452.5,208.5 L454.8,207.8 L457.0,207.1 L459.2,206.4 L461.5,205.7 L463.8,204.9 L466.0,204.0 L468.2,203.2 L470.5,202.3 L472.8,201.4 L475.0,200.5 L477.2,199.6 L479.5,198.7 L481.8,197.8 L484.0,196.9 L486.2,196.1 L488.5,195.2 L490.8,194.4 L493.0,193.5 L495.2,192.8 L497.5,192.0 L499.8,191.3 L502.0,190.6 L504.2,189.9 L506.5,189.3 L508.8,188.8 L511.0,188.2 L513.2,187.8 L515.5,187.4 L517.8,187.0 L520.0,186.7 L522.2,186.5 L524.5,186.3 L526.8,186.1 L529.0,186.0 L531.2,186.0 L533.5,186.0 L535.8,186.1 L538.0,186.3 L540.2,186.5 L542.5,186.7 L544.8,187.0 L547.0,187.4 L549.2,187.7 L551.5,188.2 L553.8,188.6 L556.0,189.2 L558.2,189.7 L560.5,190.3 L562.8,190.9 L565.0,191.5 L567.2,192.2 L569.5,192.9 L571.8,193.5 L574.0,194.2 L576.2,194.9 L578.5,195.6 L580.8,196.3 L583.0,197.0 L585.2,197.7 L587.5,198.4 L589.8,199.0 L592.0,199.7 L594.2,200.3 L596.5,200.8 L598.8,201.3 L601.0,201.8 L603.2,202.2 L605.5,202.6 L607.8,202.8 L610.0,203.0" fill="none" opacity="0.95" stroke="#0e7773" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M250.0,260.0 L252.2,261.7 L254.5,263.5 L256.8,265.1 L259.0,266.8 L261.2,268.4 L263.5,270.0 L265.8,271.5 L268.0,272.9 L270.2,274.3 L272.5,275.6 L274.8,276.9 L277.0,278.0 L279.2,279.1 L281.5,280.1 L283.8,281.0 L286.0,281.7 L288.2,282.4 L290.5,283.0 L292.8,283.5 L295.0,283.9 L297.2,284.2 L299.5,284.4 L301.8,284.4 L304.0,284.4 L306.2,284.2 L308.5,284.0 L310.8,283.6 L313.0,283.1 L315.2,282.6 L317.5,281.9 L319.8,281.1 L322.0,280.3 L324.2,279.3 L326.5,278.2 L328.8,277.1 L331.0,275.9 L333.2,274.6 L335.5,273.2 L337.8,271.8 L340.0,270.3 L342.2,268.7 L344.5,267.1 L346.8,265.4 L349.0,263.7 L351.2,262.0 L353.5,260.2 L355.8,258.4 L358.0,256.6 L360.2,254.8 L362.5,253.0 L364.8,251.1 L367.0,249.3 L369.2,247.5 L371.5,245.7 L373.8,243.9 L376.0,242.2 L378.2,240.4 L380.5,238.8 L382.8,237.1 L385.0,235.5 L387.2,234.0 L389.5,232.5 L391.8,231.1 L394.0,229.7 L396.2,228.4 L398.5,227.2 L400.8,226.0 L403.0,225.0 L405.2,224.0 L407.5,223.1 L409.8,222.2 L412.0,221.5 L414.2,220.8 L416.5,220.2 L418.8,219.7 L421.0,219.3 L423.2,219.0 L425.5,218.7 L427.8,218.5 L430.0,218.4 L432.2,218.4 L434.5,218.5 L436.8,218.6 L439.0,218.9 L441.2,219.1 L443.5,219.5 L445.8,219.9 L448.0,220.4 L450.2,220.9 L452.5,221.5 L454.8,222.2 L457.0,222.9 L459.2,223.6 L461.5,224.3 L463.8,225.1 L466.0,226.0 L468.2,226.8 L470.5,227.7 L472.8,228.6 L475.0,229.5 L477.2,230.4 L479.5,231.3 L481.8,232.2 L484.0,233.1 L486.2,233.9 L488.5,234.8 L490.8,235.6 L493.0,236.5 L495.2,237.2 L497.5,238.0 L499.8,238.7 L502.0,239.4 L504.2,240.1 L506.5,240.7 L508.8,241.2 L511.0,241.8 L513.2,242.2 L515.5,242.6 L517.8,243.0 L520.0,243.3 L522.2,243.5 L524.5,243.7 L526.8,243.9 L529.0,244.0 L531.2,244.0 L533.5,244.0 L535.8,243.9 L538.0,243.7 L540.2,243.5 L542.5,243.3 L544.8,243.0 L547.0,242.6 L549.2,242.3 L551.5,241.8 L553.8,241.4 L556.0,240.8 L558.2,240.3 L560.5,239.7 L562.8,239.1 L565.0,238.5 L567.2,237.8 L569.5,237.1 L571.8,236.5 L574.0,235.8 L576.2,235.1 L578.5,234.4 L580.8,233.7 L583.0,233.0 L585.2,232.3 L587.5,231.6 L589.8,231.0 L592.0,230.3 L594.2,229.7 L596.5,229.2 L598.8,228.7 L601.0,228.2 L603.2,227.8 L605.5,227.4 L607.8,227.2 L610.0,227.0" fill="none" opacity="0.95" stroke="#bd5b4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M250.0,350.0 L252.2,347.2 L254.5,344.5 L256.8,341.8 L259.0,339.1 L261.2,336.5 L263.5,333.9 L265.8,331.4 L268.0,328.9 L270.2,326.5 L272.5,324.2 L274.8,321.9 L277.0,319.7 L279.2,317.7 L281.5,315.7 L283.8,313.8 L286.0,312.0 L288.2,310.3 L290.5,308.7 L292.8,307.2 L295.0,305.8 L297.2,304.5 L299.5,303.3 L301.8,302.3 L304.0,301.3 L306.2,300.5 L308.5,299.8 L310.8,299.2 L313.0,298.6 L315.2,298.2 L317.5,297.9 L319.8,297.7 L322.0,297.6 L324.2,297.6 L326.5,297.7 L328.8,297.9 L331.0,298.1 L333.2,298.4 L335.5,298.8 L337.8,299.3 L340.0,299.9 L342.2,300.5 L344.5,301.1 L346.8,301.8 L349.0,302.6 L351.2,303.4 L353.5,304.2 L355.8,305.0 L358.0,305.9 L360.2,306.8 L362.5,307.7 L364.8,308.6 L367.0,309.5 L369.2,310.3 L371.5,311.2 L373.8,312.1 L376.0,312.9 L378.2,313.7 L380.5,314.4 L382.8,315.2 L385.0,315.8 L387.2,316.5 L389.5,317.0 L391.8,317.5 L394.0,318.0 L396.2,318.4 L398.5,318.7 L400.8,318.9 L403.0,319.1 L405.2,319.2 L407.5,319.2 L409.8,319.2 L412.0,319.1 L414.2,318.8 L416.5,318.5 L418.8,318.2 L421.0,317.7 L423.2,317.2 L425.5,316.5 L427.8,315.8 L430.0,315.1 L432.2,314.2 L434.5,313.3 L436.8,312.3 L439.0,311.2 L441.2,310.0 L443.5,308.8 L445.8,307.6 L448.0,306.3 L450.2,304.9 L452.5,303.4 L454.8,302.0 L457.0,300.4 L459.2,298.9 L461.5,297.3 L463.8,295.7 L466.0,294.0 L468.2,292.4 L470.5,290.7 L472.8,289.0 L475.0,287.3 L477.2,285.6 L479.5,283.9 L481.8,282.2 L484.0,280.5 L486.2,278.8 L488.5,277.2 L490.8,275.5 L493.0,273.9 L495.2,272.4 L497.5,270.8 L499.8,269.3 L502.0,267.9 L504.2,266.5 L506.5,265.1 L508.8,263.8 L511.0,262.5 L513.2,261.3 L515.5,260.2 L517.8,259.1 L520.0,258.0 L522.2,257.1 L524.5,256.1 L526.8,255.3 L529.0,254.5 L531.2,253.8 L533.5,253.1 L535.8,252.5 L538.0,251.9 L540.2,251.4 L542.5,251.0 L544.8,250.6 L547.0,250.3 L549.2,250.0 L551.5,249.8 L553.8,249.6 L556.0,249.5 L558.2,249.4 L560.5,249.3 L562.8,249.3 L565.0,249.3 L567.2,249.4 L569.5,249.5 L571.8,249.5 L574.0,249.7 L576.2,249.8 L578.5,249.9 L580.8,250.1 L583.0,250.2 L585.2,250.4 L587.5,250.5 L589.8,250.7 L592.0,250.8 L594.2,250.9 L596.5,251.0 L598.8,251.1 L601.0,251.1 L603.2,251.1 L605.5,251.1 L607.8,251.1 L610.0,251.0" fill="none" opacity="0.95" stroke="#685071" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M630,160 Q667.5,150 705.0,158 L705.0,285 Q667.5,279 630,283 Z" fill="url(#pageGrad)" stroke="#e7dfd1" stroke-width="1.5"></path>
+<path d="M780,160 Q742.5,150 705.0,158 L705.0,285 Q742.5,279 780,283 Z" fill="url(#pageGrad)" stroke="#e7dfd1" stroke-width="1.5"></path>
+<line stroke="#e7dfd1" stroke-width="1.5" x1="705.0" x2="705.0" y1="158" y2="285"></line>
+<line opacity="0.9" stroke="#d99a37" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="179" y2="179"></line>
+<line opacity="0.9" stroke="#0e7773" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="203" y2="203"></line>
+<line opacity="0.9" stroke="#bd5b4c" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="227" y2="227"></line>
+<line opacity="0.9" stroke="#685071" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="251" y2="251"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="766" y1="179" y2="179"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="748" y1="203" y2="203"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="766" y1="227" y2="227"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="748" y1="251" y2="251"></line>
+<text fill="#15212d" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.6" text-anchor="middle" x="705.0" y="136">INFORMATION DESIGN</text>
+<text fill="#15212d" font-family="'DM Serif Display', Georgia, serif" font-size="16" text-anchor="middle" x="705.0" y="311">what the reader holds</text>
+<text fill="#6b706e" font-family="Inter, sans-serif" font-size="10.5" text-anchor="middle" x="705.0" y="329">and is changed by</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="850" y="207">KNOWLEDGE</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="850" y="243">THE PERSON</text>
+<line stroke="#8a8f8c" stroke-width="2" x1="850" x2="850" y1="213" y2="227"></line>
+<path d="M845,225 L850,232 L855,225 Z" fill="#8a8f8c"></path>
+<line stroke="#8a8f8c" stroke-width="2" x1="788" x2="810" y1="215" y2="215"></line>
+<path d="M810,210 L820,215 L810,220 Z" fill="#8a8f8c"></path>
+</svg>
 </div>
-<div class="project-content">
-<h3 class="project-title">Python Programming Digital Textbook</h3>
-<p class="project-desc">A non-linear secondary curriculum bridging humanities and technology through cognitive metaphors and humour-based exercises. Student-centred and inquiry-based, created for ELTE's CS Education Methods course.</p>
-<div class="project-tags">
-<span class="tag">Prezi</span>
-<span class="tag">Python</span>
-<span class="tag">Curriculum Design</span>
-<span class="tag">Pedagogy</span>
-</div>
-<p class="project-meta">Audience: <span>Grade 9 secondary students</span></p>
-<div class="project-links">
-<a class="btn btn-primary" href="https://prezi.com/view/BNe2m3IMXsoCpkAfQQQ8/" target="_blank">View Textbook</a>
-</div>
-</div>
-</div>
-<div class="project-card">
-<div class="project-visual grad-6">
-<span class="project-category">Educational Innovation · Conference</span>
-<span class="project-num">05</span>
-</div>
-<div class="project-content">
-<h3 class="project-title">Immersive Learning: AR/VR/XR in Education</h3>
-<p class="project-desc">A 25-slide international conference presentation on VR, AR, and mixed reality in education, covering devices such as Microsoft HoloLens and Magic Leap alongside interactive walls, virtual dissection, and practical implementation strategies.</p>
-<div class="project-tags">
-<span class="tag">AR/VR/XR</span>
-<span class="tag">Immersive Learning</span>
-<span class="tag">Conference Presentation</span>
-</div>
-<p class="project-meta">Format: <span>25 slides · International conference</span></p>
-<div class="project-links">
-<a class="btn btn-primary" href="assets/ar-vr-presentation.pdf" target="_blank">View Presentation</a>
+<p class="figure-caption">Everything I do ends here: in what a reader holds, and is changed by.</p>
+<div class="help-grid">
+<div class="help-col">
+<div class="help-top" style="background:linear-gradient(90deg,#0f2340,#1d4ed8)"></div>
+<div class="help-body">
+<h3>For children and students</h3>
+<ul>
+<li>Find the book that makes a reluctant reader come back for another one.</li>
+<li>Turn a vague topic into a question that can be researched, and tell a reliable source from one that only sounds reliable.</li>
+<li>Cite, reference and declare AI use without fear, because they understand why it matters, and get real support with the Personal Project and the Extended Essay.</li>
+<li>For the youngest: learn where books live, with a story and a small robot hamster. That is Happy Hamster, the kindergarten library programme built on my own picture-book stories.</li>
+</ul>
 </div>
 </div>
+<div class="help-col">
+<div class="help-top" style="background:linear-gradient(90deg,#134e4a,#0891b2)"></div>
+<div class="help-body">
+<h3>For parents</h3>
+<ul>
+<li>Know what to read with a child at each age, and when to let them choose alone.</li>
+<li>Keep reading alive in the family language as well as in English. I raise two multilingual children myself.</li>
+<li>Understand what the school expects about research, referencing and AI, so that conversations about homework become easier.</li>
+<li>Honest advice about screens, audiobooks and e-books, and about keeping a teenager reading when school reading stops being fun.</li>
+</ul>
 </div>
-<div class="project-card project-card-wide">
-<div class="project-visual grad-7">
-<span class="project-category">Web Design · Language Education</span>
-<span class="project-num">06</span>
 </div>
-<div class="project-content">
-<h3 class="project-title">Magyar Iskola Tokió Website</h3>
-<p class="project-desc">Website created for the Tokyo Hungarian School to present its programmes, provide practical information for families, and support Hungarian language and cultural education in Japan.</p>
-<div class="project-tags">
-<span class="tag">Web Design</span>
-<span class="tag">HTML / CSS</span>
-<span class="tag">Language Education</span>
-<span class="tag">Community Education</span>
-</div>
-<div class="project-links">
-<a class="btn btn-primary" href="https://mistokio.github.io/" target="_blank">Visit Website</a>
-</div>
+<div class="help-col">
+<div class="help-top" style="background:linear-gradient(90deg,#1e1b4b,#7c3aed)"></div>
+<div class="help-body">
+<h3>For teachers</h3>
+<ul>
+<li>Plan research tasks together, so that the library lesson and the unit are one thing, not two.</li>
+<li>Source packs, reading lists and research guides made for one specific unit, as part of a shared plan for research skills across the years.</li>
+<li>Clear, age-appropriate rules about citation and declaring AI use, and an examiner's eye on student research before it is submitted.</li>
+<li>Short, practical staff sessions about digital tools, AI and information literacy. I have designed and led such workshops before.</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- wave: white → blue -->
 <div class="wave-divider" style="background:#ffffff;">
 <svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
 <path d="M0,60 C240,10 480,85 720,45 C960,5 1200,75 1440,30 L1440,92 L0,92 Z" fill="#dbeafe"></path>
 </svg>
 </div>
-<!-- ── AREAS OF EXPERTISE ─────────────────────────────────────────── -->
-<section class="section section-alt">
+<!-- ── INFORMATION LITERACY ────────────────────────────────────────── -->
+<section class="section section-alt" id="literacy">
 <div class="container">
-<p class="section-label" style="text-align:center">Professional Profile</p>
-<h2 class="section-heading">Areas of Expertise</h2>
+<p class="section-label" style="text-align:center">Approach</p>
+<h2 class="section-heading">How I think about research and information literacy</h2>
 <div class="divider"></div>
+<p class="section-intro">Four working principles. They come from supervising Extended Essays, teaching secondary students and reading hundreds of portfolios as an examiner.</p>
+<div class="story-figure" style="max-width:900px">
+<svg aria-label="A student essay page in the middle, with the four principles around it: a continuum of skills feeding in, citation shown as where an idea came from and what the student added, AI use acknowledged in a footnote, and a teacher and a librarian planning together" role="img" viewbox="0 0 980 440" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="300" rx="4" stroke="#0f2340" stroke-width="2" width="200" x="390" y="60"></rect>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="13" x="406" y="90">The student's argument</text>
+<path d="M406,112h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,124h120" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,136h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,148h120" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<rect fill="#eff6ff" height="54" rx="3" stroke="#bfdbfe" width="168" x="406" y="164"></rect>
+<path d="M418,180h120M418,192h100M418,204h130" stroke="#3b82f6" stroke-linecap="round" stroke-width="3"></path>
+<text fill="#1d4ed8" font-family="Inter, sans-serif" font-size="10.0" font-weight="700" text-anchor="end" x="566" y="174">(Author 2024)</text>
+<path d="M406,236h110" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,248h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,260h110" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,272h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,300h168" stroke="#e2e8f0" stroke-width="1"></path>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.4" x="406" y="316">1  Author (2024), p. 12</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.4" x="406" y="330">2  AI tool, 12 Oct 2026, prompt logged</text>
+<rect fill="#5b4a9e" height="13" opacity="0.9" rx="6" width="46" x="526" y="321"></rect><text fill="#fff" font-family="Inter, sans-serif" font-size="9.4" font-weight="700" text-anchor="middle" x="549" y="331">AI NAMED</text>
+<circle cx="40" cy="70" fill="#1f8a87" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="40" y="74">1</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="60" y="66">Research is a continuum</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="60" y="81">The same skill, scaled up from</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="60" y="95">Grade 6 to the Extended Essay.</text>
+<rect fill="#eff6ff" height="24" stroke="#bfdbfe" width="46" x="60" y="206"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="83" y="201">G6</text>
+<rect fill="#eff6ff" height="48" stroke="#bfdbfe" width="46" x="108" y="182"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="131" y="177">G8</text>
+<rect fill="#eff6ff" height="72" stroke="#bfdbfe" width="46" x="156" y="158"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="179" y="153">G10</text>
+<rect fill="#eff6ff" height="96" stroke="#bfdbfe" width="46" x="204" y="134"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="227" y="129">EE</text>
+<path d="M254,144 C302,144 320,100 386,100" fill="none" stroke="#1f8a87" stroke-dasharray="5 4" stroke-width="2.5"></path>
+<path d="M378,94 L388,100 L378,106 Z" fill="#1f8a87"></path>
+<circle cx="70" cy="300" fill="#d9644f" r="11"></circle><path d="M48,344 C48,318 92,318 92,344 Z" fill="#d9644f"></path>
+<text fill="#d9644f" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" text-anchor="middle" x="70" y="358">TEACHER</text>
+<circle cx="140" cy="300" fill="#1f8a87" r="11"></circle><path d="M118,344 C118,318 162,318 162,344 Z" fill="#1f8a87"></path>
+<text fill="#1f8a87" font-family="Inter, sans-serif" font-size="10.6" font-weight="700" letter-spacing="1" text-anchor="middle" x="140" y="358">LIBRARIAN</text>
+<circle cx="200" cy="300" fill="#d9644f" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="200" y="304">4</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="220" y="296">The librarian plans</text><text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="220" y="314">with teachers</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="220" y="333">Both in the room:</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="220" y="350">question + source</text>
+<path d="M170,340 C260,350 300,330 386,330" fill="none" stroke="#d9644f" stroke-dasharray="5 4" stroke-width="2"></path>
+<path d="M378,324 L388,330 L378,336 Z" fill="#d9644f"></path>
+<path d="M574,191 C614,191 614,151 654,151" fill="none" stroke="#d99a2b" stroke-width="2"></path>
+<circle cx="690" cy="151" fill="#d99a2b" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="690" y="155">2</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="710" y="147">Citation is thinking made visible</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="162">where it came from  ·  how it was</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="176">transformed  ·  what the student added</text>
+<rect fill="#bfdbfe" height="18" rx="9" width="76" x="710" y="184"></rect><text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="748" y="196">source</text>
+<rect fill="#93c5fd" height="18" rx="9" width="76" x="792" y="184"></rect><text fill="#0f2340" font-family="Inter, sans-serif" font-size="11.2" font-weight="700" text-anchor="middle" x="830" y="196">transformed</text>
+<rect fill="#1d4ed8" height="18" rx="9" width="76" x="874" y="184"></rect><text fill="#fff" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="912" y="196">added</text>
+<path d="M574,327 C614,327 614,347 654,347" fill="none" stroke="#5b4a9e" stroke-width="2"></path>
+<circle cx="690" cy="341" fill="#5b4a9e" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="690" y="345">3</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="710" y="337">AI: use it, name it, stay the author</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="352">Not whether, but for what</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="367">and how it is acknowledged.</text><text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="382">Log in the footnote.</text>
+</svg>
+</div>
 <div class="why-grid">
 <div class="why-cell">
 <div class="why-cell-top why-top-1"></div>
 <div class="why-cell-body">
-<h3>Digital Education</h3>
-<ul>
-<li>Teaching with Digital Technologies</li>
-<li>Digital learning materials and interactive content</li>
-<li>Educational technology integration</li>
-<li>AI and robotics in learning</li>
-</ul>
+<h3><span class="why-num" style="background:#1f8a87">1</span>Research is a continuum, not a unit</h3>
+<p>Judging sources in Grade 6 and defending an argument in the Extended Essay are the same skill at different levels. A library programme works when librarians and teachers agree what students should be able to do at each stage, and build towards it together.</p>
 </div>
 </div>
 <div class="why-cell">
 <div class="why-cell-top why-top-2"></div>
 <div class="why-cell-body">
-<h3>Assessment &amp; Teacher Development</h3>
-<ul>
-<li>Cambridge Professional Development Qualifications</li>
-<li>Teaching and Learning</li>
-<li>Teaching with Digital Technologies</li>
-<li>Portfolio-based assessment</li>
-</ul>
+<h3><span class="why-num" style="background:#d99a2b">2</span>Citation is thinking made visible</h3>
+<p>Referencing is not a formatting task. It shows where an idea came from, how it changed, and what the student added. Taught this way, it becomes the base of academic honesty, not a rule to enforce.</p>
 </div>
 </div>
 <div class="why-cell">
 <div class="why-cell-top why-top-3"></div>
 <div class="why-cell-body">
-<h3>Educational Technology Development</h3>
-<ul>
-<li>Swift and iOS development</li>
-<li>Python programming</li>
-<li>H5P and interactive learning content</li>
-<li>AR, VR and physical computing</li>
-</ul>
+<h3><span class="why-num" style="background:#5b4a9e">3</span>AI: use it, name it, stay the author</h3>
+<p>Students will use AI tools. The useful question is: for what, and how is it declared? As an examiner I see what undeclared AI use looks like. I would rather teach students to work openly than let them discover the problem at the wrong moment.</p>
 </div>
 </div>
 <div class="why-cell">
 <div class="why-cell-top why-top-4"></div>
 <div class="why-cell-body">
-<h3>Information &amp; Language Learning</h3>
-<ul>
-<li>Library and Information Science</li>
-<li>Information literacy</li>
-<li>Digital Society</li>
-<li>Robot-Assisted Language Learning (RALL)</li>
-</ul>
+<h3><span class="why-num" style="background:#d9644f">4</span>The librarian plans with teachers</h3>
+<p>In twelve years of teaching, no librarian ever planned a lesson with me, and I felt that gap every time I gave a research task. The library lesson I want to give is the one I wanted to receive: the teacher brings the unit and the question, the librarian brings the sources, the search strategies and the integrity checks. Both are in the room.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- wave: blue → white -->
 <div class="wave-divider" style="background:#dbeafe;">
 <svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
 <path d="M0,30 C240,85 480,5 720,50 C960,95 1200,15 1440,60 L1440,92 L0,92 Z" fill="#ffffff"></path>
 </svg>
 </div>
-<!-- ── CONTACT ────────────────────────────────────────────────────── -->
-<section class="section">
+<!-- ── WEB & DIGITAL ───────────────────────────────────────────────── -->
+<section class="section" id="built">
+<div class="container">
+<p class="section-label" style="text-align:center">Digital</p>
+<h2 class="section-heading">Things I have built</h2>
+<div class="divider"></div>
+<p class="section-intro">I build the tools myself, from a research guide to an app. A library website or a digital resource is something I make, not something I wait for.</p>
+<div class="digital-grid">
+<div class="exp-card" id="hh">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-02.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">Library pedagogy · Kindergarten</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Happy Hamster (HH)</h3>
+<p class="exp-org">Screen-free, robot-assisted library lessons for the youngest readers</p>
+<blockquote class="epigraph in-card">
+<p>&ldquo;Everybody in this country should learn how to program a computer&hellip; because it teaches you how to think.&rdquo;</p>
+<cite>Steve Jobs, in <a href="https://youtu.be/nKlu9yen5nc" target="_blank" rel="noopener">What most schools don&rsquo;t teach</a> (Code.org, 2013). He also called computer science a liberal art, something everybody should learn. Happy Hamster starts that on the kindergarten carpet.</cite>
+</blockquote>
+<ul>
+<li>A library programme for kindergarten children, built on my own picture-book stories. The first story, <em>Mr Hamster and the Crying Book</em>, is about a little blue book that a child took off the shelf, looked at and left on the floor, and about the hamster who lives on the librarian's desk and helps the book find its way home.</li>
+</ul>
+<details class="fold"><summary>More about the lesson, the robot and the status</summary><ul>
+<li>After the story, the children do tasks with a real Mr Hamster: a TaleBot Pro robot dressed as the hamster. They guide it to bring the lost book back to its place, next to its friend. The first theme is simple: a book you take off the shelf has a home, and you can take it back there.</li>
+<li>This is robot-assisted learning, not robotics. The children do not build the robot and do not learn to code. They tell Mr Hamster, step by step, how to get from the reading corner to the right shelf. That is a first, playful algorithm, and its purpose is to teach logical thinking at an age when it still feels like a game. The whole lesson is screen-free: a book, a story, a robot on the carpet and the children's own words. The robot is a character in the story and a patient helper in the lesson. The other aim is that a four-year-old leaves the library wanting the next book.</li>
+<li>Status: the first story is written and illustrated. The robot tasks are being designed for a pilot in a kindergarten library.</li>
+</ul></details>
+
+<div class="card-foot"><div class="scene" id="scene-hh"><svg class="scene-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A library shelf. A small blue book lies on the floor. Mr Hamster, a small robot, follows the children's four steps and brings the book back to its place next to its friend.">
+<rect x="0" y="0" width="640" height="300" fill="#fbf9f4"/>
+<path d="M20,250 H620" stroke="#15212d" stroke-width="2" stroke-linecap="round"/>
+<rect x="420" y="60" width="180" height="190" fill="#fff" stroke="#15212d" stroke-width="2"/>
+<path d="M420,124 h180" stroke="#15212d" stroke-width="2"/>
+<path d="M420,188 h180" stroke="#15212d" stroke-width="2"/>
+<rect x="428" y="76" width="14" height="48" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="445" y="72" width="10" height="52" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="458" y="88" width="12" height="36" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="473" y="88" width="12" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="488" y="72" width="14" height="52" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="505" y="72" width="12" height="52" rx="1.5" fill="#15212d" opacity="0.85"/>
+<rect x="520" y="82" width="10" height="42" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="533" y="82" width="10" height="42" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="546" y="76" width="16" height="48" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="565" y="72" width="12" height="52" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="428" y="152" width="12" height="36" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="443" y="136" width="12" height="52" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="458" y="146" width="12" height="42" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="473" y="152" width="10" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="486" y="146" width="12" height="42" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="529" y="146" width="12" height="42" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="544" y="146" width="12" height="42" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="559" y="140" width="16" height="48" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="578" y="140" width="10" height="48" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="428" y="208" width="16" height="42" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="447" y="202" width="12" height="48" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="462" y="202" width="10" height="48" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="475" y="214" width="14" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="492" y="214" width="14" height="36" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="509" y="202" width="14" height="48" rx="1.5" fill="#15212d" opacity="0.85"/>
+<rect x="526" y="198" width="14" height="52" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="543" y="208" width="14" height="42" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="560" y="198" width="16" height="52" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="579" y="214" width="12" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="486" y="142" width="13" height="46" rx="1.5" fill="#0e7773"/>
+<rect x="501" y="142" width="13" height="46" rx="1.5" fill="none" stroke="#d99a37" stroke-width="1.5" stroke-dasharray="3 3" class="home-slot"/>
+<text x="507" y="134" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#d99a37">HOME</text>
+<ellipse cx="110" cy="250" rx="80" ry="9" fill="#e7dfd1" stroke="#15212d" stroke-width="1.5"/>
+<text x="110" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing="1" fill="#6b706e">READING CORNER</text>
+<g class="hamster-group">
+<g class="book-blue"><rect x="-10" y="-14" width="20" height="14" rx="2" fill="#3b82f6" stroke="#15212d" stroke-width="1.5"/><path d="M-6,-10 h12 M-6,-6 h8" stroke="#fff" stroke-width="1.5"/><path class="tear" d="M-3,-2 q0,4 -2,5" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/></g>
+<g class="robot" transform="translate(0,0)"><rect x="-18" y="-40" width="36" height="30" rx="12" fill="#d99a37" stroke="#15212d" stroke-width="2"/><circle cx="-11" cy="-40" r="6" fill="#d99a37" stroke="#15212d" stroke-width="2"/><circle cx="11" cy="-40" r="6" fill="#d99a37" stroke="#15212d" stroke-width="2"/><circle cx="-6" cy="-27" r="2" fill="#15212d"/><circle cx="6" cy="-27" r="2" fill="#15212d"/><path d="M-3,-21 q3,2 6,0" stroke="#15212d" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="-9" cy="-9" r="5" fill="#15212d"/><circle cx="9" cy="-9" r="5" fill="#15212d"/></g>
+</g>
+<g class="step step-1"><rect x="40" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="56" cy="39" r="9" fill="#15212d"/><text x="56" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">1</text><text x="72" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">turn right</text></g>
+<g class="step step-2"><rect x="140" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="156" cy="39" r="9" fill="#15212d"/><text x="156" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">2</text><text x="172" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">go forward</text></g>
+<g class="step step-3"><rect x="240" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="256" cy="39" r="9" fill="#15212d"/><text x="256" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">3</text><text x="272" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">go forward</text></g>
+<g class="step step-4"><rect x="340" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="356" cy="39" r="9" fill="#15212d"/><text x="356" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">4</text><text x="372" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">lift it up</text></g>
+<text class="scene-caption" x="320" y="292" text-anchor="middle" font-family="DM Serif Display, serif" font-size="13" fill="#15212d">A book you take off the shelf has a home, and you can take it back there.</text>
+</svg></div><div class="tags"><span class="tag">Kindergarten</span><span class="tag">Own stories</span><span class="tag">Screen-free</span><span class="tag">Robot-assisted learning</span><span class="tag">TaleBot Pro</span><span class="tag">Pilot in design</span></div><div class="card-actions"><button class="scene-trigger" type="button" aria-expanded="false" aria-controls="scene-hh"><svg class="ti ti-open" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M8,7 l5,3 l-5,3 z"/></svg><svg class="ti ti-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M7,7 l6,6 M13,7 l-6,6"/></svg><span>Bring the book home</span></button></div></div>
+</div>
+</div>
+<div class="exp-card" id="sta">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-03.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">Library pedagogy · Grades 11 to 12</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Stay the Author!</h3>
+<p class="exp-org">Research writing in the age of AI, for the oldest library users</p>
+<ul>
+<li>The older brother of Happy Hamster. The kindergarten programme is about a book finding its way home. This one is about a student who remains the author of her own essay, even when machines offer to help.</li>
+<li>I know this road from both ends. As an IB Diploma teacher I supervised Extended Essays myself, and as a portfolio examiner I now read what students hand in. AI use and questions of authorship have become my special interest. As a librarian, I want to pass what I have learned from real student work on to the next generation, before they hand their own work in.</li>
+</ul>
+<details class="fold"><summary>More about the four stations and the status</summary><ul>
+<li>Four stations on the way to the Extended Essay, each one a short library workshop and a one-to-one meeting: <em>Question</em> (finding it and making it smaller), <em>Sources</em> (searching, judging, citing), <em>Voice</em> (your own sentences, and how AI use is declared), <em>Ownership</em> (which parts of your text you can defend before you hand it in).</li>
+<li>Not a ban on AI, and not a plagiarism police. The librarian as the keeper of authorship. Status: the guide below is written, and the workshop series is being designed.</li>
+</ul></details>
+
+<div class="card-foot"><div class="scene" id="scene-sta"><svg class="scene-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An essay page. A pen signs it: by you. The words and AI are crossed out. Four stations appear: Question, Sources, Voice, Ownership.">
+<rect x="0" y="0" width="640" height="300" fill="#fbf9f4"/>
+<rect x="60" y="24" width="250" height="240" rx="3" fill="#fff" stroke="#15212d" stroke-width="2"/>
+<text x="80" y="54" font-family="DM Serif Display, serif" font-size="15" fill="#15212d">Extended Essay</text>
+<path d="M80,118 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,132 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,146 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,160 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,174 h120" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,196 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,210 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,224 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,238 h120" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,92 h200" stroke="rgba(21,33,45,.22)" stroke-width="1"/>
+<text class="and-ai" x="160" y="84" font-family="Inter, sans-serif" font-size="13" fill="#6b706e">and AI</text>
+<path class="strike" d="M156,79 L208,79" stroke="#bd5b4c" stroke-width="3" stroke-linecap="round"/>
+<text class="sig" x="82" y="86" font-family="DM Serif Display, serif" font-style="italic" font-size="26" fill="#15212d">by you</text>
+<path class="sig-line" d="M82,92 C110,86 140,96 158,90" stroke="#15212d" stroke-width="2" fill="none" stroke-linecap="round"/>
+<g class="pen"><g transform="rotate(40)"><rect x="-6" y="-70" width="12" height="44" rx="5" fill="#685071"/><rect x="-6" y="-28" width="12" height="7" fill="#bd5b4c"/><path d="M-6,-21 h12 l-6,21 z" fill="#d99a37" stroke="#15212d" stroke-width="1.2" stroke-linejoin="round"/><path d="M0,-16 v12" stroke="#15212d" stroke-width="1.2"/></g></g>
+<g class="station station-1"><circle cx="356" cy="54" r="11" fill="#fff" stroke="#0e7773" stroke-width="2.5"/><text x="356" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#0e7773">1</text><text x="378" y="50" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Question</text><text x="378" y="66" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">finding it and making it smaller</text></g>
+<path class="station-link station-link-1" d="M356,66 v32" stroke="rgba(21,33,45,.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="station station-2"><circle cx="356" cy="112" r="11" fill="#fff" stroke="#d99a37" stroke-width="2.5"/><text x="356" y="116" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#d99a37">2</text><text x="378" y="108" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Sources</text><text x="378" y="124" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">searching, judging, citing</text></g>
+<path class="station-link station-link-2" d="M356,124 v32" stroke="rgba(21,33,45,.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="station station-3"><circle cx="356" cy="170" r="11" fill="#fff" stroke="#bd5b4c" stroke-width="2.5"/><text x="356" y="174" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#bd5b4c">3</text><text x="378" y="166" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Voice</text><text x="378" y="182" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">your own sentences, AI declared</text></g>
+<path class="station-link station-link-3" d="M356,182 v32" stroke="rgba(21,33,45,.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="station station-4"><circle cx="356" cy="228" r="11" fill="#fff" stroke="#685071" stroke-width="2.5"/><text x="356" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#685071">4</text><text x="378" y="224" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Ownership</text><text x="378" y="240" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">what you can defend</text></g>
+<text class="scene-caption" x="320" y="292" text-anchor="middle" font-family="DM Serif Display, serif" font-size="13" fill="#15212d">Your name is on the essay. Make sure it belongs there.</text>
+</svg></div><div class="tags"><span class="tag">Grades 11 to 12</span><span class="tag">Extended Essay</span><span class="tag">AI and authorship</span><span class="tag">In design</span></div><div class="card-actions"><button class="scene-trigger" type="button" aria-expanded="false" aria-controls="scene-sta"><svg class="ti ti-open" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M8,7 l5,3 l-5,3 z"/></svg><svg class="ti ti-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M7,7 l6,6 M13,7 l-6,6"/></svg><span>Sign your essay</span></button> <a class="btn btn-primary" href="#guide">Read the guide</a></div></div>
+</div>
+</div>
+<div class="exp-card" id="chapter">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-04.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">Instructional design</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Learning Space Design: an interactive module</h3>
+<p class="exp-org">For librarians and teachers · eXe Learning · SCORM</p>
+<ul>
+<li>A professional development module for librarians and teachers about how learning spaces in libraries and schools are designed: the research behind the idea, the principles of arranging a space, the main types from amphitheatre to cave, and a gallery of real examples.</li>
+<li>Eight lessons with a self-check exercise and a quiz, in English and Hungarian. I wrote and built it in eXe Learning, so it can be added to any learning platform as a SCORM package.</li>
+</ul>
+
+<div class="card-foot"><div class="tags"><span class="tag">eXe Learning</span><span class="tag">HTML5</span></div><div class="card-actions"><a class="btn btn-primary" href="https://nishizawagsz.github.io/exe-learning/en/" target="_blank">View chapter (English)</a> <a class="btn btn-outline" href="https://nishizawagsz.github.io/exe-learning/" lang="hu" target="_blank">Magyar</a></div></div>
+</div>
+</div>
+<div class="exp-card" id="nitaii">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-05.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">EdTech initiative</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Nitaii Learning Lab</h3>
+<p class="exp-org">Independent EdTech initiative, Yokohama</p>
+<ul>
+<li>Tools that support learning, where education, technology and cognition meet.</li>
+<li>The first project is Focusa, an iOS app I wrote in Swift for students who find it hard to stay focused. It reads simple signals from the body during study and shows the student when attention is slipping and a break is due.</li>
+</ul>
+
+<div class="card-foot"><div class="tags"><span class="tag">Student wellbeing</span><span class="tag">iOS / Swift</span></div><div class="card-actions"><a class="btn btn-primary" href="https://nitaii.eu/" target="_blank">Visit Nitaii</a></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── SAMPLE GUIDE ────────────────────────────────────────────────── -->
+<section class="section section-alt" id="guide">
+<div class="container">
+<p class="section-label" style="text-align:center">Work sample</p>
+<h2 class="section-heading">Sample research guide</h2>
+<div class="divider"></div>
+<p class="section-intro">An example of the one-page guide I would write for students, developed together with supervisors and in line with the school's academic integrity and AI policies.</p>
+<div class="guide">
+<div class="guide-header">
+<h3>Stay the Author!</h3>
+<span class="badge">Using AI in the Extended Essay · Grades 11 to 12</span>
+</div>
+<div class="guide-body">
+<div class="guide-flow">
+<svg aria-label="An essay page showing where AI belongs: not in the byline, in the body only as a cited quotation, and yes in the footnotes, the bibliography and the research log" role="img" viewbox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#dbeafe" height="440" rx="4" width="330" x="66" y="38"></rect>
+<rect fill="#fff" height="440" rx="4" stroke="#0f2340" stroke-width="1.8" width="330" x="60" y="30"></rect>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="17" x="84" y="74">Extended Essay</text>
+<path d="M84,88h200M84,100h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#fff7ed" height="26" rx="13" stroke="#d99a2b" stroke-width="1.5" width="150" x="78" y="116"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="12" x="92" y="133">by <tspan font-weight="700">you</tspan></text>
+<text fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" x="152" y="134">and AI</text>
+<path d="M148,130 L198,130" stroke="#c2410c" stroke-width="2.2"></path>
+<path d="M84,166h270" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,179h250" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,192h280" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#eff6ff" height="40" rx="3" stroke="#bfdbfe" width="282" x="84" y="212"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="10" x="92" y="226">"…a sentence an AI tool wrote, in quotation marks…"</text>
+<text fill="#1d4ed8" font-family="Inter, sans-serif" font-size="10" font-weight="700" x="92" y="242">(ChatGPT 2026) [2]</text>
+<path d="M84,274h260" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,287h280" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,300h240" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,313h200" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,348h120" stroke="#94a3b8" stroke-width="1"></path>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" x="84" y="364">1  Author (2024), p. 12</text>
+<rect fill="#f3f0fa" height="18" rx="3" stroke="#5b4a9e" stroke-width="1.2" width="294" x="78" y="372"></rect>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="9.5" x="84" y="385">2  ChatGPT (GPT-5), OpenAI, 12 Oct 2026, prompt: "…", URL</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" x="84" y="414">Bibliography</text>
+<path d="M84,424h230" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<rect fill="#f3f0fa" height="14" rx="3" stroke="#5b4a9e" stroke-width="1.2" width="200" x="78" y="431"></rect>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="8.5" x="84" y="441">OpenAI (2026) ChatGPT … [AI tool]</text>
+<rect fill="#fff" height="96" rx="6" stroke="#5b4a9e" stroke-width="1.6" width="120" x="440" y="372"></rect>
+<rect fill="#5b4a9e" height="96" rx="6" width="14" x="440" y="372"></rect>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="10" font-weight="700" x="466" y="394">AI log</text>
+<path d="M466,408h70" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M466,422h60" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M466,436h50" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M466,450h40" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M230,129 C280,129 550,60 600,60" fill="none" stroke="#c2410c" stroke-width="1.8"></path>
+<circle cx="230" cy="129" fill="#c2410c" r="4"></circle>
+<text fill="#c2410c" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="64">Not in the byline.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="82">The essay has one author. AI is not it,</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="97">and the IB will not count its words as yours.</text>
+<path d="M368,232 C418,232 550,160 600,160" fill="none" stroke="#1d4ed8" stroke-width="1.8"></path>
+<circle cx="368" cy="232" fill="#1d4ed8" r="4"></circle>
+<text fill="#1d4ed8" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="164">In the body only as a quotation.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="182">Quotation marks, an in-text citation,</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="197">and it counts as a quote, not as your work.</text>
+<path d="M372,381 C422,381 550,262 600,262" fill="none" stroke="#5b4a9e" stroke-width="1.8"></path>
+<circle cx="372" cy="381" fill="#5b4a9e" r="4"></circle>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="266">In the footnotes and the bibliography.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="284">Tool and version, date, URL, prompt.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="299">Same as any other source.</text>
+<path d="M560,412 C610,412 550,372 600,372" fill="none" stroke="#5b4a9e" stroke-width="1.8"></path>
+<circle cx="560" cy="412" fill="#5b4a9e" r="4"></circle>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="376">And in your research log.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="394">What you asked, when, and what you did</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="409">with the answer. Ready for the viva.</text>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="15" text-anchor="end" x="880" y="488">Where AI belongs on your page, and where it does not.</text>
+</svg>
+</div>
+<p class="guide-note"><a href="https://ibo.org/news/news-about-the-ib/statement-from-the-ib-about-chatgpt-and-artificial-intelligence-in-assessment-and-education/" rel="noopener" target="_blank">The IB does not ban AI tools.</a> Its position is that any AI-generated text, image or graph you include must be credited in the body of your essay and referenced in the bibliography, and that the IB "does not regard any work produced, even only in part, by such tools, to be their own". In other words: you can quote it and cite it, but it will not count as your work. Your school's academic integrity and AI policies and your supervisor's guidance always come first. Check both before you start.</p>
+<div class="guide-cols">
+<div class="guide-col ok">
+<h4>Where AI can help</h4>
+<ul>
+<li>Exploring angles on a topic before you choose a research question</li>
+<li>Explaining a difficult concept you have met in your reading</li>
+<li>Checking the grammar of a paragraph <em>you</em> wrote</li>
+<li>Generating practice questions to test your understanding</li>
+<li>Summarising an article you have already read, to check you understood it</li>
+</ul>
+</div>
+<div class="guide-col no">
+<h4>Where it will let you down</h4>
+<ul>
+<li>Finding sources. AI invents citations, so verify every reference in a real database or catalogue.</li>
+<li>Writing your paragraphs. The essay must be your argument in your words.</li>
+<li>Analysing your data or your primary source for you</li>
+<li>Replacing the reading. Summaries miss what makes a source worth citing.</li>
+</ul>
+</div>
+</div>
+<details class="fold"><summary>Read the full guide: how to acknowledge AI use, the checklist and the sources</summary>
+<div class="guide-block">
+<h4>How to acknowledge AI use</h4>
+<ol>
+<li>If AI-generated text appears in your essay, put it in quotation marks and cite it in the text and in the bibliography.</li>
+<li>If you used an AI idea or explanation, paraphrase it and cite it the same way.</li>
+<li>Record the tool and version, the date, the URL (of the conversation if you can) and the prompt, for example: <code>ChatGPT (GPT-5), OpenAI, 12 Oct 2026, prompt: "Explain the difference between…", https://chatgpt.com/...</code></li>
+<li>Keep a short AI log alongside your research log. Your supervisor may ask about it in the reflection sessions.</li>
+</ol>
+</div>
+<div class="checklist">
+<div class="check"><strong>Before you submit, ask yourself:</strong>Could I explain every claim in this essay without the tool?</div>
+<div class="check"><strong>Sources</strong>Have I opened and read every source in my bibliography myself?</div>
+<div class="check"><strong>Acknowledgement</strong>Is every piece of AI help I relied on visible to the reader?</div>
+</div>
+<p class="guide-sources">Source: International Baccalaureate Organization (2023) <em>Statement from the IB about ChatGPT and artificial intelligence in assessment and education</em>. <a href="https://ibo.org/news/news-about-the-ib/statement-from-the-ib-about-chatgpt-and-artificial-intelligence-in-assessment-and-education/" rel="noopener" target="_blank">ibo.org</a> (accessed 31 October 2026). See also the IB <em>Academic integrity policy</em>, section on artificial intelligence tools, available to schools via the IB Programme Resource Centre.</p>
+</details>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#dbeafe;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,0 C480,90 960,90 1440,0 L1440,92 L0,92 Z" fill="#ffffff"></path>
+</svg>
+</div>
+<!-- ── READING CULTURE ─────────────────────────────────────────────── -->
+<section class="section" id="reading">
+<div class="container">
+<p class="section-label" style="text-align:center">Programme ideas</p>
+<h2 class="section-heading">Reading culture in a school library</h2>
+<div class="divider"></div>
+<p class="section-intro">Ideas I keep returning to. Some come from what I see working now, some I would like to try with students and colleagues.</p>
+<div class="story-figure" style="max-width:900px;margin:8px auto 28px">
+<svg aria-label="One library wall with four corners: a home-languages shelf with parent notes, a student book talk and library council board, a reading corner for reluctant readers, and an author and translator in conversation" role="img" viewbox="0 0 960 330" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ar" markerheight="8" markerwidth="8" orient="auto" refx="6" refy="4"><path d="M0,0 L8,4 L0,8 z" fill="#0f2340"></path></marker></defs>
+<path d="M20,236 H940" stroke="#0f2340" stroke-linecap="round" stroke-width="2"></path>
+<rect fill="#fff" height="158" stroke="#0f2340" stroke-width="2" width="180" x="50" y="78"></rect>
+<path d="M50,134 h180" stroke="#0f2340" stroke-width="2"></path>
+<path d="M50,190 h180" stroke="#0f2340" stroke-width="2"></path>
+<rect fill="#1f8a87" height="48" opacity="0.85" rx="1.5" width="15" x="58" y="86"></rect>
+<rect fill="#d99a2b" height="40" opacity="0.85" rx="1.5" width="15" x="76" y="94"></rect>
+<rect fill="#d9644f" height="48" opacity="0.85" rx="1.5" width="11" x="94" y="86"></rect>
+<rect fill="#5b4a9e" height="34" opacity="0.85" rx="1.5" width="11" x="108" y="100"></rect>
+<rect fill="#3b82f6" height="44" opacity="0.85" rx="1.5" width="15" x="122" y="90"></rect>
+<rect fill="#0f2340" height="34" opacity="0.85" rx="1.5" width="11" x="140" y="100"></rect>
+<rect fill="#93c5fd" height="48" opacity="0.85" rx="1.5" width="9" x="154" y="86"></rect>
+<rect fill="#1f8a87" height="40" opacity="0.85" rx="1.5" width="15" x="166" y="94"></rect>
+<rect fill="#d99a2b" height="34" opacity="0.85" rx="1.5" width="9" x="184" y="100"></rect>
+<rect fill="#d9644f" height="34" opacity="0.85" rx="1.5" width="9" x="196" y="100"></rect>
+<rect fill="#5b4a9e" height="40" opacity="0.85" rx="1.5" width="11" x="208" y="94"></rect>
+<rect fill="#1f8a87" height="48" opacity="0.85" rx="1.5" width="9" x="58" y="142"></rect>
+<rect fill="#d99a2b" height="48" opacity="0.85" rx="1.5" width="13" x="70" y="142"></rect>
+<rect fill="#d9644f" height="40" opacity="0.85" rx="1.5" width="11" x="86" y="150"></rect>
+<rect fill="#5b4a9e" height="48" opacity="0.85" rx="1.5" width="13" x="100" y="142"></rect>
+<rect fill="#3b82f6" height="34" opacity="0.85" rx="1.5" width="9" x="116" y="156"></rect>
+<rect fill="#0f2340" height="44" opacity="0.85" rx="1.5" width="15" x="128" y="146"></rect>
+<rect fill="#93c5fd" height="34" opacity="0.85" rx="1.5" width="15" x="146" y="156"></rect>
+<rect fill="#1f8a87" height="44" opacity="0.85" rx="1.5" width="13" x="164" y="146"></rect>
+<rect fill="#d99a2b" height="44" opacity="0.85" rx="1.5" width="11" x="180" y="146"></rect>
+<rect fill="#d9644f" height="34" opacity="0.85" rx="1.5" width="9" x="194" y="156"></rect>
+<rect fill="#5b4a9e" height="48" opacity="0.85" rx="1.5" width="9" x="206" y="142"></rect>
+<rect fill="#1f8a87" height="44" opacity="0.85" rx="1.5" width="9" x="58" y="192"></rect>
+<rect fill="#d99a2b" height="34" opacity="0.85" rx="1.5" width="15" x="70" y="202"></rect>
+<rect fill="#d9644f" height="34" opacity="0.85" rx="1.5" width="9" x="88" y="202"></rect>
+<rect fill="#5b4a9e" height="40" opacity="0.85" rx="1.5" width="11" x="100" y="196"></rect>
+<rect fill="#3b82f6" height="48" opacity="0.85" rx="1.5" width="9" x="114" y="188"></rect>
+<rect fill="#0f2340" height="48" opacity="0.85" rx="1.5" width="15" x="126" y="188"></rect>
+<rect fill="#93c5fd" height="34" opacity="0.85" rx="1.5" width="15" x="144" y="202"></rect>
+<rect fill="#1f8a87" height="44" opacity="0.85" rx="1.5" width="11" x="162" y="192"></rect>
+<rect fill="#d99a2b" height="34" opacity="0.85" rx="1.5" width="13" x="176" y="202"></rect>
+<rect fill="#d9644f" height="44" opacity="0.85" rx="1.5" width="13" x="192" y="192"></rect>
+<rect fill="#5b4a9e" height="48" opacity="0.85" rx="1.5" width="9" x="208" y="188"></rect>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="58" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="73" y="137.5">HU</text>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="101" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="116" y="137.5">JA</text>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="144" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="159" y="137.5">DE</text>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="187" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="202" y="137.5">KO</text>
+<g transform="rotate(5 262 112)"><rect fill="#fff" height="40" rx="3" stroke="#d99a2b" stroke-width="2" width="52" x="236" y="92"></rect><path d="M244,103h36M244,111h30M244,119h36" opacity="0.8" stroke="#d99a2b" stroke-width="2"></path></g>
+<circle cx="262" cy="94" fill="#d99a2b" r="3"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="262" y="150">a note for</text><text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="262" y="162">parents</text>
+<circle cx="366" cy="141" fill="#0f2340" r="11"></circle>
+<rect fill="#0f2340" height="8" width="8" x="362" y="150"></rect>
+<rect fill="#0f2340" height="52" rx="12" width="34" x="349" y="158"></rect>
+<path d="M357,208 v28 M375,208 v28" stroke="#0f2340" stroke-linecap="round" stroke-width="9"></path>
+<path d="M353,236 h-4 M379,236 h4" stroke="#0f2340" stroke-linecap="round" stroke-width="5"></path>
+<path d="M380,168 L404,150" stroke="#0f2340" stroke-linecap="round" stroke-width="8"></path>
+<path d="M352,168 L346,196" stroke="#0f2340" stroke-linecap="round" stroke-width="8"></path>
+<g transform="rotate(-20 408 142)"><path d="M398,132 q10,-4 20,0 v22 q-10,-4 -20,0 z" fill="#fff" stroke="#d9644f" stroke-width="2"></path><path d="M418,132 q10,-4 20,0 v22 q-10,-4 -20,0 z" fill="#fff" stroke="#d9644f" stroke-width="2"></path></g>
+<path d="M312,82 h66 a8,8 0 0 1 8,8 v22 a8,8 0 0 1 -8,8 h-22 l-8,12 v-12 h-36 a8,8 0 0 1 -8,-8 v-22 a8,8 0 0 1 8,-8 z" fill="#fff" stroke="#0f2340" stroke-width="2"></path>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" text-anchor="middle" x="345" y="103">five minutes</text>
+<circle cx="440" cy="198" fill="#0f2340" opacity="0.55" r="8"></circle><path d="M426,236 v-16 a14,14 0 0 1 28,0 v16 z" fill="#0f2340" opacity="0.55"></path>
+<circle cx="468" cy="198" fill="#0f2340" opacity="0.55" r="8"></circle><path d="M454,236 v-16 a14,14 0 0 1 28,0 v16 z" fill="#0f2340" opacity="0.55"></path>
+<circle cx="496" cy="198" fill="#0f2340" opacity="0.55" r="8"></circle><path d="M482,236 v-16 a14,14 0 0 1 28,0 v16 z" fill="#0f2340" opacity="0.55"></path>
+<rect fill="#fff" height="60" rx="3" stroke="#0f2340" stroke-width="2" width="104" x="420" y="66"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" text-anchor="middle" x="472" y="80">LIBRARY COUNCIL</text>
+<rect fill="#1f8a87" height="12" opacity="0.75" rx="1.5" width="20" x="428" y="88"></rect>
+<rect fill="#d99a2b" height="12" opacity="0.75" rx="1.5" width="20" x="452" y="90"></rect>
+<rect fill="#5b4a9e" height="12" opacity="0.75" rx="1.5" width="20" x="476" y="87"></rect>
+<rect fill="#d9644f" height="12" opacity="0.75" rx="1.5" width="20" x="500" y="90"></rect>
+<rect fill="#3b82f6" height="12" opacity="0.75" rx="1.5" width="20" x="440" y="106"></rect>
+<rect fill="#1f8a87" height="12" opacity="0.75" rx="1.5" width="20" x="466" y="108"></rect>
+<rect fill="#d99a2b" height="12" opacity="0.75" rx="1.5" width="20" x="492" y="105"></rect>
+<path d="M552,236 c-6,-40 30,-66 80,-62 c46,4 70,30 62,62 z" fill="#dbeafe" stroke="#0f2340" stroke-width="2"></path>
+<circle cx="652" cy="170" fill="#0f2340" r="11"></circle><path d="M640,168 a12,12 0 0 1 24,0" fill="none" stroke="#0f2340" stroke-width="3"></path><rect fill="#0f2340" height="10" rx="2" width="6" x="637" y="166"></rect><rect fill="#0f2340" height="10" rx="2" width="6" x="661" y="166"></rect><g transform="rotate(10 650 206)"><rect fill="#0f2340" height="48" rx="11" width="32" x="634" y="182"></rect></g><path d="M640,226 L606,228 L590,236" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path><path d="M640,196 L620,208" stroke="#0f2340" stroke-linecap="round" stroke-width="7"></path><g transform="rotate(-14 612 212)"><rect fill="#fff" height="28" rx="2" stroke="#5b4a9e" stroke-width="2" width="40" x="592" y="198"></rect><path d="M612,198 v28 M592,212 h40" stroke="#5b4a9e" stroke-width="1.5"></path><circle cx="602" cy="205" fill="#5b4a9e" opacity="0.6" r="3"></circle><path d="M617,219 h11" stroke="#5b4a9e" stroke-width="2"></path></g>
+<rect fill="#3b82f6" height="10" opacity="0.85" rx="1.5" width="40" x="704" y="226"></rect><rect fill="#1f8a87" height="9" opacity="0.85" rx="1.5" width="34" x="708" y="216"></rect><rect fill="#d99a2b" height="9" opacity="0.85" rx="1.5" width="36" x="706" y="206"></rect>
+<circle cx="724" cy="186" fill="#fff" r="10" stroke="#0f2340" stroke-width="1.8"></circle><path d="M721,181 l8,5 l-8,5 z" fill="#0f2340"></path>
+<path d="M768,172 v36 M768,208 h40 M772,208 v28 M804,208 v28" stroke="#0f2340" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="786" cy="154" fill="#0f2340" r="11"></circle>
+<rect fill="#0f2340" height="7" width="8" x="782" y="163"></rect>
+<path d="M772,170 h28 a6,6 0 0 1 6,6 v26 a6,6 0 0 1 -6,6 h-28 a6,6 0 0 1 -6,-6 v-26 a6,6 0 0 1 6,-6 z" fill="#0f2340"></path>
+<path d="M786,204 h24 v32" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+<path d="M796,180 l14,10" stroke="#0f2340" stroke-linecap="round" stroke-width="7"></path>
+<path d="M922,172 v36 M922,208 h-40 M918,208 v28 M886,208 v28" stroke="#0f2340" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="904" cy="154" fill="#0f2340" r="11"></circle>
+<rect fill="#0f2340" height="7" width="8" x="900" y="163"></rect>
+<path d="M890,170 h28 a6,6 0 0 1 6,6 v26 a6,6 0 0 1 -6,6 h-28 a6,6 0 0 1 -6,-6 v-26 a6,6 0 0 1 6,-6 z" fill="#0f2340"></path>
+<path d="M904,204 h-24 v32" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+<path d="M894,180 l-14,10" stroke="#0f2340" stroke-linecap="round" stroke-width="7"></path>
+<path d="M740,86 h70 a8,8 0 0 1 8,8 v28 a8,8 0 0 1 -8,8 h-24 l-8,10 v-10 h-38 a8,8 0 0 1 -8,-8 v-28 a8,8 0 0 1 8,-8 z" fill="#fff" stroke="#1f8a87" stroke-width="2"></path>
+<path d="M748,100h46M748,110h52M748,120h38" opacity="0.8" stroke="#1f8a87" stroke-width="2"></path>
+<path d="M868,86 h70 a8,8 0 0 1 8,8 v28 a8,8 0 0 1 -8,8 h-36 l-8,10 v-10 h-26 a8,8 0 0 1 -8,-8 v-28 a8,8 0 0 1 8,-8 z" fill="#fff" stroke="#d9644f" stroke-width="2"></path>
+<text fill="#d9644f" font-family="Inter, sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="903" y="108">あ · Á · A</text><path d="M878,120h50" opacity="0.8" stroke="#d9644f" stroke-width="2"></path>
+<path d="M822,108 h40" marker-end="url(#ar)" stroke="#0f2340" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="845" y="70">one book, two voices</text>
+<circle cx="140" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="140" y="266">01</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="140" y="292">Home and family languages shelf</text>
+<circle cx="400" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="400" y="266">02</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="400" y="292">Book talks and a Library Council</text>
+<circle cx="640" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="640" y="266">03</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="640" y="292">Reading corner, no pressure</text>
+<circle cx="845" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="845" y="266">04</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="845" y="292">Authors and translators</text>
+<text fill="#0f2340" font-family="DM Serif Display, serif" font-size="14" text-anchor="middle" x="480" y="320">One library, four corners. The point of each is the same: a reader who comes back.</text>
+</svg>
+</div>
+<div class="ideas-grid">
+<div class="idea">
+<div class="num">01</div>
+<div>
+<h3>Home and Family Languages shelf with parent notes</h3>
+<p>A visible, well-chosen section for the languages that families really speak at home, with short reading notes for parents in those languages. As a Hungarian-speaking parent in Japan I know how much one familiar shelf can mean, and how rarely parents are told what to do with it.</p>
+</div>
+</div>
+<div class="idea">
+<div class="num">02</div>
+<div>
+<h3>Student-led book talks and a Library Council</h3>
+<p>Five-minute book recommendations by students at the start of English and Language lessons, recorded as short clips for the library website. A Library Council chooses the themes, runs the displays and helps shape the collection.</p>
+</div>
+</div>
+<div class="idea">
+<div class="num">03</div>
+<div>
+<h3>Reading sessions for reluctant and developing readers</h3>
+<p>Regular, relaxed reading sessions for Middle School, built around choice: graphic novels, audiobooks, short fiction and non-fiction in several languages, so that the first step is never a page full of text. It brings the freedom of the Junior School library corner into the secondary years.</p>
+</div>
+</div>
+<div class="idea">
+<div class="num">04</div>
+<div>
+<h3>Author and translator visits</h3>
+<p>Inviting translators together with authors turns a reading event into a conversation about language itself. It suits a multilingual school, and it shows students that reading in more than one language is a skill worth celebrating.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,40 C360,80 1080,10 1440,50 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── WRITTEN ─────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="written">
+<div class="container">
+<p class="section-label" style="text-align:center">Notes</p>
+<h2 class="section-heading">Things I have written</h2>
+<div class="divider"></div>
+<p class="section-intro">A few of my LinkedIn posts, the ones I would hand to someone who wants to know how I think. The rest are on my profile.</p>
+<div class="notes-grid">
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An open window in a brick wall" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="22" width="92" height="76" fill="#fbf9f4"/>
+<path d="M14,40 h92 M14,58 h92 M14,76 h92 M36,22 v18 M60,40 v18 M36,58 v18 M60,76 v22 M84,22 v18 M84,58 v18" stroke="#15212d" stroke-opacity=".35"/>
+<rect x="44" y="34" width="40" height="46" rx="2" fill="#fff"/>
+<path d="M44,57 h40 M64,34 v46"/>
+<path d="M46,36 l16,0 l0,19 l-16,0 z" fill="#0e7773" stroke="none" opacity=".9"/>
+<path d="M66,36 l16,0 l0,19 l-16,0 z" fill="#d99a37" stroke="none" opacity=".9"/>
+<path d="M46,59 l16,0 l0,19 l-16,0 z" fill="#d99a37" stroke="none" opacity=".55"/>
+<path d="M66,59 l16,0 l0,19 l-16,0 z" fill="#0e7773" stroke="none" opacity=".55"/>
+<path d="M84,36 l12,-6 v52 l-12,-6" fill="#fff"/>
+<path d="M50,44 c3,-3 6,-3 9,0 M70,44 c3,-3 6,-3 9,0" stroke="#fff" stroke-width="1.4"/></svg></div>
+<div class="note-body">
+<p class="note-kicker">Languages · AI · Cognitive linguistics</p>
+<h3>Why learn languages when AI can translate everything?</h3>
+<p>After five months in Japan with a translation app in my pocket, I noticed something: the apps translated every sign, and I still felt a constant, quiet stress. My brain, unable to process the language around me, had built a wall. AI opens a window into a culture, but it does not tear down that wall for you. Drawing on my research in cognitive linguistics, I argue for language teaching that builds linguistic agency, the freedom to take part, not just to understand. It starts with fifteen unfiltered minutes a day.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7414553984465711104/" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Read on LinkedIn</a></div>
+</div></article>
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rescue capsule closing its door as a wave approaches" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8,96 c14,-16 26,-16 40,0 c14,16 26,16 40,0 c8,-9 16,-12 24,-8" stroke="#0e7773" stroke-width="2.2"/>
+<path d="M4,106 c14,-14 26,-14 40,0 c14,14 26,14 40,0 c10,-10 20,-12 30,-6" stroke="#0e7773" stroke-width="1.6" opacity=".55"/>
+<rect x="34" y="34" width="52" height="46" rx="23" fill="#fbf9f4"/>
+<rect x="60" y="40" width="20" height="34" rx="4" fill="#bd5b4c" stroke="none" opacity=".9"/>
+<path d="M60,40 v34" />
+<circle cx="74" cy="57" r="1.8" fill="#15212d" stroke="none"/>
+<path d="M22,30 a16,16 0 0 1 16,-14 M26,34 a11,11 0 0 1 11,-10 M30,38 a6,6 0 0 1 6,-5" stroke="#d99a37" stroke-width="1.8"/>
+<circle cx="37" cy="40" r="2" fill="#d99a37" stroke="none"/></svg></div>
+<div class="note-body">
+<p class="note-kicker">Physical computing · Educators' workshop</p>
+<h3>When the tsunami comes, there is no time to close the door</h3>
+<p>At a robotics workshop for educators, a colleague and I built a working model of an automated tsunami rescue capsule from an Artec kit: a sensor picks up the alarm, a servo motor closes and locks the door. This is what I like most about physical computing. The code does not just run on a screen, it makes something happen in the real world. And living in Japan, a tsunami is not a textbook example.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7493624109847699456/" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Read on LinkedIn</a></div>
+</div></article>
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A cardboard robot with a cat face, decorated with paint spots" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="56" height="48" rx="4" fill="#efe3c9"/>
+<path d="M30,30 l8,-8 h56 l-8,8 M86,30 l8,-8 v48 l-8,8" fill="#e4d4b2"/>
+<path d="M40,46 l5,-7 l5,7 M66,46 l5,-7 l5,7"/>
+<circle cx="46" cy="54" r="2" fill="#15212d" stroke="none"/><circle cx="70" cy="54" r="2" fill="#15212d" stroke="none"/>
+<path d="M54,60 l4,3 l4,-3 M50,64 c4,3 12,3 16,0"/>
+<path d="M44,66 h-10 M44,70 h-8 M72,66 h10 M72,70 h8" stroke="#15212d" stroke-opacity=".6"/>
+<circle cx="42" cy="86" r="6" fill="#685071" stroke="none"/><circle cx="74" cy="86" r="6" fill="#685071" stroke="none"/>
+<path d="M58,30 v-10"/><circle cx="58" cy="17" r="3" fill="#bd5b4c" stroke="none"/>
+<circle cx="100" cy="92" r="5" fill="#d99a37" stroke="none"/><circle cx="108" cy="80" r="3.5" fill="#0e7773" stroke="none"/><circle cx="16" cy="90" r="4" fill="#bd5b4c" stroke="none"/></svg></div>
+<div class="note-body">
+<p class="note-kicker">Programming · Elementary school</p>
+<h3>What if you could build your own robot in half an hour?</h3>
+<p>A cardboard robot changes who wants to program. The body is paper: light, safe, cheap, and decorated by the child, so the same kit becomes a cat, a squirrel or a dinosaur. The motor and the sensors go inside, and the children program it with blocks, like Scratch, but with code that is easier to read and to extend later. Half an hour, one robot, and a room of eight-year-olds who think programming is theirs.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://lnkd.in/p/gzhAzBMV" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Read on LinkedIn</a></div>
+</div></article>
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A small dog sitting on an open book, and a laugh" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18,88 c20,-8 36,-8 42,0 c6,-8 22,-8 42,0 v-56 c-20,-8 -36,-8 -42,0 c-6,-8 -22,-8 -42,0 z" fill="#fbf9f4"/>
+<path d="M60,32 v56"/>
+<path d="M26,46 h22 M26,54 h18 M26,62 h22 M26,70 h14" stroke="#15212d" stroke-opacity=".35"/>
+<path d="M72,70 h22 M72,76 h16" stroke="#15212d" stroke-opacity=".35"/>
+<path d="M72,64 c0,-8 4,-14 12,-14 c3,0 6,1 8,3 l4,-8 c2,-1 4,0 4,2 v10 c0,2 -1,4 -3,5 v4 c0,-3 -2,-6 -5,-6 h-6 c-4,0 -6,3 -6,6 h-8 z" fill="#d99a37" stroke="#15212d" stroke-width="1.4"/>
+<circle cx="91" cy="53" r="1.3" fill="#15212d" stroke="none"/><circle cx="98" cy="52" r="1.6" fill="#15212d" stroke="none"/>
+<path d="M72,60 c-4,-1 -7,2 -6,6" stroke="#15212d" stroke-width="1.4"/>
+<path d="M66,22 h22 a5,5 0 0 1 5,5 v8 a5,5 0 0 1 -5,5 h-4 l-4,5 v-5 h-14 a5,5 0 0 1 -5,-5 v-8 a5,5 0 0 1 5,-5 z" fill="#fff" stroke="#bd5b4c"/>
+<text x="77" y="34" text-anchor="middle" font-family="DM Serif Display, serif" font-style="italic" font-size="11" fill="#bd5b4c" stroke="none">ha!</text></svg></div>
+<div class="note-body">
+<p class="note-kicker">From the library desk</p>
+<h3>One of the unexpected pleasures of cataloguing</h3>
+<p>Finding a new book that makes you laugh out loud at the desk. <em>We Are Definitely Human</em> by X. Fang did exactly that. The longer I looked, the funnier it got. Especially the dog.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://lnkd.in/p/g-Bg_urf" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Read on LinkedIn</a></div>
+</div></article>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,60 C240,10 480,85 720,45 C960,5 1200,75 1440,30 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── CONTACT ─────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="contact">
 <div class="container">
 <p class="section-label" style="text-align:center">Contact</p>
-<h2 class="section-heading">Get In Touch</h2>
+<h2 class="section-heading">Get in touch</h2>
 <div class="divider"></div>
 <div class="contact-inner">
-<p>I welcome professional connections and collaborations at the intersection of education, technology, assessment, and research.</p>
+<p>Based in Yokohama. I am open to working with schools and fellow professionals wherever we can create something of value together: a reading programme, a research skills plan, an AI policy that students understand.</p>
+<p>I also bring my workshops to other schools as a guest: <strong>Stay the Author!</strong> for secondary students and their teachers, and <strong>Happy Hamster</strong> for kindergarten and junior school libraries. Every workshop is designed for the group that will take part, so the content, the format and the length (usually two to three hours) depend on the students and on what the school needs. Write to me and we will find a date.</p>
 <div class="contact-links">
 <a class="contact-link" href="mailto:nishizawagsz@gmail.com">nishizawagsz@gmail.com</a>
 <a class="contact-link" href="https://linkedin.com/in/gabriella-nishizawa" target="_blank">LinkedIn</a>
@@ -807,15 +1349,13 @@
 </div>
 </div>
 </section>
-<!-- wave: white → navy -->
-<div class="wave-divider" style="background:#ffffff;">
+<div class="wave-divider" style="background:#dbeafe;">
 <svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
 <path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#0f2340"></path>
 </svg>
 </div>
-<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
 <footer>
-<p>© 2026 Dr. Gabriella Szilvia Nishizawa  ·  Yokohama, Japan</p>
+<p>© 2026 Dr. Gabriella Nishizawa  ·  Yokohama, Japan</p>
 </footer>
-</body>
+<script defer="" src="site.js"></script></body>
 </html>

@@ -6,6 +6,13 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Dr. Gabriella Nishizawa, librarian and information specialist, linguist, computer science educator and developer, and examiner based in Yokohama: school libraries, reading culture, research and information literacy, academic integrity and responsible AI use." name="description"/>
 <link rel="canonical" href="https://nishizawagsz.github.io/"/>
+<link rel="alternate" hreflang="en" href="https://nishizawagsz.github.io/"/>
+<link rel="alternate" hreflang="hu" href="https://nishizawagsz.github.io/?lang=hu"/>
+<link rel="alternate" hreflang="x-default" href="https://nishizawagsz.github.io/"/>
+<style>.lang-pending #site{visibility:hidden}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Gabriella Nishizawa","honorificPrefix":"Dr.","alternateName":["Dr. Gabriella Nishizawa","Nishizawa Gabriella"],"url":"https://nishizawagsz.github.io/","image":"https://nishizawagsz.github.io/assets/gabriella-portrait.jpg","jobTitle":["School librarian","Teacher","Examiner","Developer"],"description":"School librarian and teacher in Yokohama who builds reading, research and ethical AI skills, from kindergarten to the IB Diploma. Cambridge and IB examiner, computer science educator and iOS developer.","knowsAbout":["School libraries","Information literacy","Academic integrity","Responsible AI use in education","Reading promotion","Extended Essay supervision","Cognitive linguistics","Computer science education"],"knowsLanguage":["en","hu","de","ru"],"address":{"@type":"PostalAddress","addressLocality":"Yokohama","addressCountry":"JP"},"email":"mailto:nishizawagsz@gmail.com","sameAs":["https://linkedin.com/in/gabriella-nishizawa","https://nitaii.eu/","https://github.com/nishizawagsz"]}
+</script>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Dr. Gabriella Nishizawa · Libraries, Information and Learning"/>
 <meta property="og:description" content="School librarian and teacher who builds reading, research and ethical AI skills, from kindergarten to the Diploma."/>
@@ -445,9 +452,11 @@
   var saved=null; try{saved=sessionStorage.getItem('site-lang');}catch(e){}
   var lang=(q==='hu'||q==='en')?q:(saved==='hu'?'hu':'en');
   var titles={en:"Dr. Gabriella Nishizawa \u00b7 Libraries, Information and Learning",hu:"Dr. Gabriella Nishizawa \u00b7 K\u00f6nyvt\u00e1rak, inform\u00e1ci\u00f3 \u00e9s tanul\u00e1s"}, descs={en:"Dr. Gabriella Nishizawa, librarian and information specialist, linguist, computer science educator and developer, and examiner based in Yokohama: school libraries, reading culture, research and information literacy, academic integrity and responsible AI use.",hu:"Dr. Nishizawa Gabriella, k\u00f6nyvt\u00e1ros \u00e9s inform\u00e1ci\u00f3s szakember, nyelv\u00e9sz, informatikatan\u00e1r \u00e9s fejleszt\u0151, vizsg\u00e1ztat\u00f3, Jokohama: iskolai k\u00f6nyvt\u00e1rak, olvas\u00e1skult\u00fara, kutat\u00e1si \u00e9s inform\u00e1ci\u00f3s m\u0171velts\u00e9g, tudom\u00e1nyos tisztess\u00e9g \u00e9s felel\u0151s AI-haszn\u00e1lat."};
+  if(lang==='hu'){ document.documentElement.classList.add('lang-pending'); }
   function mount(l){
-    var tpl=document.getElementById('lang-'+l); var site=document.getElementById('site');
-    site.innerHTML=''; site.appendChild(tpl.content.cloneNode(true));
+    var site=document.getElementById('site');
+    if(l!=='en'){ var tpl=document.getElementById('lang-'+l); site.innerHTML=''; site.appendChild(tpl.content.cloneNode(true)); }
+    document.documentElement.classList.remove('lang-pending');
     document.documentElement.lang=l; document.title=titles[l];
     var m=document.querySelector('meta[name=description]'); if(m) m.setAttribute('content',descs[l]);
     site.querySelectorAll('.lang-switch [data-lang]').forEach(function(b){
@@ -464,8 +473,7 @@
 })();
 </script></head>
 <body>
-<div id="site"></div>
-<template id="lang-en">
+<div id="site">
 <!-- ── TOP NAV ─────────────────────────────────────────────────────── -->
 <a class="skip-link" href="#main-content">Skip to content</a><nav aria-label="Primary navigation" class="topnav">
 <div class="topnav-inner">
@@ -1383,7 +1391,7 @@
 <footer>
 <p>© 2026 Dr. Gabriella Nishizawa  ·  Yokohama, Japan</p>
 </footer>
-</template>
+</div>
 <template id="lang-hu">
 <!-- ── TOP NAV ─────────────────────────────────────────────────────── -->
 <a class="skip-link" href="#main-content">Ugrás a tartalomra</a><nav aria-label="Fő navigáció" class="topnav">

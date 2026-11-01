@@ -1692,3 +1692,9 @@ nav.topnav > .topnav-inner > a.nav-brand:first-child {
 .note:nth-child(3) .note-art-wrap { border-color: #685071; }
 .note:nth-child(4) .note-art-wrap { border-color: #bd5b4c; }
 @media (max-width: 560px) { .note { flex-direction: column; } .note-art-wrap { width: 84px; height: 84px; flex-basis: auto; } }
+
+/* Revision 23: language switch. */
+.lang-switch { display: inline-flex; align-items: center; gap: 10px; margin-left: auto; margin-right: 18px; font: 500 .7rem/1 var(--mono); letter-spacing: .12em; }
+.lang-switch a { color: rgba(251,249,244,.62); text-decoration: none; }
+.lang-switch a:hover { color: var(--paper-light); }
+.lang-switch span { color: var(--paper-light); border-bottom: 1px solid var(--ochre); padding-bottom: 2px; }

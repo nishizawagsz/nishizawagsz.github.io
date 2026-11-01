@@ -1704,5 +1704,7 @@ nav.topnav > .topnav-inner > a.nav-brand:first-child {
 .lang-switch button[aria-current="true"] { color: var(--paper-light); border-bottom: 1px solid var(--ochre); }
 
 /* Revision 24: language switch sits beside the menu button in the fixed nav. */
-.lang-switch { pointer-events: auto; position: fixed; top: 24px; right: 150px; z-index: 101; margin: 0; }
-@media (max-width: 760px) { .lang-switch { top: 20px; right: 118px; } }
+.lang-switch { pointer-events: auto; position: relative; z-index: 102; margin: 0 0 0 22px; padding-left: 22px; border-left: 1px solid rgba(245,240,231,.42); }
+.topnav-inner { display: flex; align-items: center; }
+.topnav-inner .menu-toggle { margin-left: auto; }
+@media (max-width: 760px) { .lang-switch { margin-left: 14px; padding-left: 14px; } }

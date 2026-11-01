@@ -1698,3 +1698,11 @@ nav.topnav > .topnav-inner > a.nav-brand:first-child {
 .lang-switch a { color: rgba(251,249,244,.62); text-decoration: none; }
 .lang-switch a:hover { color: var(--paper-light); }
 .lang-switch span { color: var(--paper-light); border-bottom: 1px solid var(--ochre); padding-bottom: 2px; }
+
+.lang-switch button { background: none; border: 0; padding: 0 0 2px; cursor: pointer; font: inherit; color: rgba(251,249,244,.62); letter-spacing: inherit; }
+.lang-switch button:hover { color: var(--paper-light); }
+.lang-switch button[aria-current="true"] { color: var(--paper-light); border-bottom: 1px solid var(--ochre); }
+
+/* Revision 24: language switch sits beside the menu button in the fixed nav. */
+.lang-switch { pointer-events: auto; position: fixed; top: 24px; right: 150px; z-index: 101; margin: 0; }
+@media (max-width: 760px) { .lang-switch { top: 20px; right: 118px; } }

@@ -437,14 +437,41 @@
         .container { padding: 0 20px; }
     }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet"/><link href="art-direction.css" rel="stylesheet"/></head>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet"/><link href="art-direction.css" rel="stylesheet"/>
+<script src="site.js"></script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search).get('lang');
+  var saved=null; try{saved=localStorage.getItem('site-lang');}catch(e){}
+  var lang=(q==='hu'||q==='en')?q:(saved==='hu'?'hu':'en');
+  var titles={en:"Dr. Gabriella Nishizawa \u00b7 Libraries, Information and Learning",hu:"Dr. Gabriella Nishizawa \u00b7 K\u00f6nyvt\u00e1rak, inform\u00e1ci\u00f3 \u00e9s tanul\u00e1s"}, descs={en:"Dr. Gabriella Nishizawa, librarian and information specialist, linguist, computer science educator and developer, and examiner based in Yokohama: school libraries, reading culture, research and information literacy, academic integrity and responsible AI use.",hu:"Dr. Nishizawa Gabriella, k\u00f6nyvt\u00e1ros \u00e9s inform\u00e1ci\u00f3s szakember, nyelv\u00e9sz, informatikatan\u00e1r \u00e9s fejleszt\u0151, vizsg\u00e1ztat\u00f3, Jokohama: iskolai k\u00f6nyvt\u00e1rak, olvas\u00e1skult\u00fara, kutat\u00e1si \u00e9s inform\u00e1ci\u00f3s m\u0171velts\u00e9g, tudom\u00e1nyos tisztess\u00e9g \u00e9s felel\u0151s AI-haszn\u00e1lat."};
+  function mount(l){
+    var tpl=document.getElementById('lang-'+l); var site=document.getElementById('site');
+    site.innerHTML=''; site.appendChild(tpl.content.cloneNode(true));
+    document.documentElement.lang=l; document.title=titles[l];
+    var m=document.querySelector('meta[name=description]'); if(m) m.setAttribute('content',descs[l]);
+    site.querySelectorAll('.lang-switch [data-lang]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var to=b.getAttribute('data-lang'); if(to===l) return;
+        try{localStorage.setItem('site-lang',to);}catch(e){}
+        var u=new URL(location.href); u.searchParams.delete('lang'); if(to==='hu') u.searchParams.set('lang','hu'); u.hash='';
+        location.replace(u.toString());
+      });
+    });
+    if(window.initSite) window.initSite();
+  }
+  document.addEventListener('DOMContentLoaded',function(){ mount(lang); if(location.hash){ var el=document.querySelector(location.hash); if(el) el.scrollIntoView(); } });
+})();
+</script></head>
 <body>
+<div id="site"></div>
+<template id="lang-en">
 <!-- ── TOP NAV ─────────────────────────────────────────────────────── -->
 <a class="skip-link" href="#main-content">Skip to content</a><nav aria-label="Primary navigation" class="topnav">
 <div class="topnav-inner">
 <a class="nav-brand" href="#main-content">Dr. Gabriella Nishizawa</a>
 <div aria-label="Site sections" class="topnav-links" id="primary-menu"><div aria-label="Open book of portfolio sections" class="navigation-book"><section aria-label="Book contents, first page" class="book-page book-page-left"><div class="menu-intro"><p class="menu-eyebrow">A field guide to</p><p class="menu-title">Libraries, information &amp; learning</p><p class="menu-note">Choose a thread and follow it.</p></div><a data-index="01" href="#at-a-glance">At a glance<small>Three programmes in thirty seconds</small></a><a data-index="02" href="#who-i-am">Who I am<small>Four roles, one person</small></a><a data-index="03" href="#beginning">Stories change us<small>Why reading comes first</small></a><a data-index="04" href="#help">In practice<small>What I can do for students, parents and teachers</small></a></section><div aria-hidden="true" class="book-spine"></div><section aria-label="Book contents, second page" class="book-page book-page-right"><p class="book-continuation">Contents · continued</p><a data-index="05" href="#literacy">Information literacy<small>Four working principles</small></a><a data-index="06" href="#built">Things I have built<small>Programmes, a module and an app</small></a><a data-index="07" href="#guide">Sample guide<small>Stay the Author! for the Extended Essay</small></a><a data-index="08" href="#reading">Reading culture<small>Four programme ideas</small></a><a data-index="09" href="#written">Things I have written<small>Four posts, four sides of the work</small></a><a data-index="10" href="#contact">Contact<small>Collaboration and guest workshops</small></a></section></div></div>
-<div class="lang-switch" aria-label="Language"><span aria-current="page">EN</span><a href="hu/" hreflang="hu" lang="hu">HU</a></div><button aria-controls="primary-menu" aria-expanded="false" aria-label="Open site navigation" class="menu-toggle" type="button"><span class="menu-toggle-text">Menu</span><span aria-hidden="true" class="menu-toggle-glyph"><i></i><i></i><i></i></span></button></div>
+<div class="lang-switch" aria-label="Language"><button type="button" data-lang="en" aria-current="true">EN</button><button type="button" data-lang="hu">HU</button></div><button aria-controls="primary-menu" aria-expanded="false" aria-label="Open site navigation" class="menu-toggle" type="button"><span class="menu-toggle-text">Menu</span><span aria-hidden="true" class="menu-toggle-glyph"><i></i><i></i><i></i></span></button></div>
 </nav>
 <!-- ── HERO ────────────────────────────────────────────────────────── -->
 <header class="hero" id="main-content" tabindex="-1"><div aria-hidden="true" class="hero-colourfield"><span class="field-shape field-teal"></span><span class="field-shape field-ochre"></span><span class="field-shape field-coral"></span><span class="field-shape field-violet"></span></div>
@@ -1356,5 +1383,924 @@
 <footer>
 <p>© 2026 Dr. Gabriella Nishizawa  ·  Yokohama, Japan</p>
 </footer>
-<script defer="" src="site.js"></script></body>
-</html>
+</template>
+<template id="lang-hu">
+<!-- ── TOP NAV ─────────────────────────────────────────────────────── -->
+<a class="skip-link" href="#main-content">Ugrás a tartalomra</a><nav aria-label="Fő navigáció" class="topnav">
+<div class="topnav-inner">
+<a class="nav-brand" href="#main-content">Dr. Gabriella Nishizawa</a>
+<div aria-label="Az oldal részei" class="topnav-links" id="primary-menu"><div aria-label="A portfólió fejezeteinek nyitott könyve" class="navigation-book"><section aria-label="Tartalomjegyzék, első oldal" class="book-page book-page-left"><div class="menu-intro"><p class="menu-eyebrow">Útikalauz a</p><p class="menu-title">könyvtárak, az információ és a tanulás világához</p><p class="menu-note">Válassz egy szálat, és kövesd végig</p></div><a data-index="01" href="#at-a-glance">Egy pillantásra<small>Három program harminc másodpercben</small></a><a data-index="02" href="#who-i-am">Ki vagyok<small>Négy szerep, egy ember</small></a><a data-index="03" href="#beginning">A történetek megváltoztatnak<small>Miért az olvasás az első</small></a><a data-index="04" href="#help">A gyakorlatban<small>Mit tudok adni a diákoknak, a szülőknek és a tanároknak</small></a></section><div aria-hidden="true" class="book-spine"></div><section aria-label="Tartalomjegyzék, második oldal" class="book-page book-page-right"><p class="book-continuation">Tartalom · folytatás</p><a data-index="05" href="#literacy">Információs műveltség<small>Négy munkaelv</small></a><a data-index="06" href="#built">Amit építettem<small>Programok, egy tananyag és egy app</small></a><a data-index="07" href="#guide">Mintaútmutató<small>Stay the Author! az Extended Essay-hez</small></a><a data-index="08" href="#reading">Olvasáskultúra<small>Négy programötlet</small></a><a data-index="09" href="#written">Amit írtam<small>Négy poszt, a munka négy oldala</small></a><a data-index="10" href="#contact">Kapcsolat<small>Együttműködés és vendégworkshopok</small></a></section></div></div>
+<div class="lang-switch" aria-label="Nyelv"><button type="button" data-lang="en">EN</button><button type="button" data-lang="hu" aria-current="true">HU</button></div><button aria-controls="primary-menu" aria-expanded="false" aria-label="Navigáció megnyitása" class="menu-toggle" type="button"><span class="menu-toggle-text">Menü</span><span aria-hidden="true" class="menu-toggle-glyph"><i></i><i></i><i></i></span></button></div>
+</nav>
+<!-- ── HERO ────────────────────────────────────────────────────────── -->
+<header class="hero" id="main-content" tabindex="-1"><div aria-hidden="true" class="hero-colourfield"><span class="field-shape field-teal"></span><span class="field-shape field-ochre"></span><span class="field-shape field-coral"></span><span class="field-shape field-violet"></span></div>
+<div class="hero-inner">
+<div class="hero-photo">
+<div class="hero-photo-blob"><img alt="Dr. Gabriella Nishizawa" decoding="async" fetchpriority="high" loading="eager" src="assets/gabriella-portrait.jpg"/></div>
+<button aria-controls="primary-menu" aria-expanded="false" aria-label="Ismerd meg Dr. Nishizawa Gabriellát: navigáció megnyitása" class="know-me-trigger" type="button"><span class="know-me-kicker">Kezdd itt</span><span class="know-me-label">Ismerj meg</span><span aria-hidden="true" class="know-me-arrow">↗</span></button></div>
+<div>
+<h1 class="hero-name">Dr. Gabriella Nishizawa</h1>
+<p class="hero-tagline">Iskolai könyvtáros és tanár, aki az olvasást, a kutatást és az etikus AI-használatot tanítja, az óvodától a nemzetközi érettségiig</p>
+<p class="hero-title">Könyvtáros és információs szakember  ·  Nyelvész  ·  Informatikatanár és fejlesztő  ·  Vizsgáztató</p>
+<p class="hero-bio">Könyvtáros és tanár vagyok, Jokohamában élek. Az iskolában a gyerekek Ms Gabynak hívnak. Minden munkám az információról szólt, mindig más oldalról nézve: nyelvészként, nyelv-, irodalom- és drámatanárként, informatikatanárként, most pedig könyvtárosként.</p>
+<p class="hero-bio">Ma egy tokiói nemzetközi iskola óvodai és alsó tagozatos (K/JS) könyvtárában dolgozom. Emellett a Cambridge nemzetközi vizsgaközpont vizsgáztatójaként kutatásalapú portfóliókat értékelek, kinevezett IB-vizsgáztató vagyok, és saját digitális tanulási eszközöket fejlesztek. Az érdekel, hogyan lesz az információból tudás, és a tudás hogyan formálja azt, aki használja. Az olvasás nem a vége valaminek. Csak a kezdete.</p>
+<div class="hero-actions">
+<a class="btn btn-light" href="#beginning">A történetek megváltoztatnak</a>
+<a class="btn btn-ghost" href="#guide">Stay the Author!</a>
+</div>
+</div>
+</div>
+</header>
+<div class="wave-divider" style="background:#0f2340;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── FOUR STRANDS ────────────────────────────────────────────────── -->
+<section class="section section-alt" id="strands" style="padding-top:60px">
+<div class="container">
+<p class="section-label" style="text-align:center">Egy pillantásra</p>
+<div class="glance" id="at-a-glance">
+<a href="#hh" style="border-top-color:#d99a2b"><div class="g-label">Óvoda · Olvasás örömből · Robot-asszisztált tanulás</div><h3><svg aria-hidden="true" class="g-icon" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 40 40"><rect fill="#f3d58c" height="28" rx="1.5" width="9" x="7" y="6"></rect><rect fill="#fff" height="24" rx="1.5" width="8" x="16" y="10"></rect><path d="M24,12 l8,-2 l5,24 l-8,2 z" fill="#fff"></path><path d="M11,11 v5 M20,15 v5 M30,15 l1,5"></path><path d="M4,34 h33"></path></svg>Happy Hamster</h3><p>Képernyőmentes könyvtári foglalkozások egy kis robottal, saját képeskönyv-meséimre építve. A cél: az olvasás megszerettetése és a logikus gondolkodás első lépései a legkisebbeknek.</p><span class="btn btn-primary g-btn">A program</span></a>
+<a href="#sta" style="border-top-color:#5b4a9e"><div class="g-label">Középiskola · Etikus AI · Tudományos tisztesség</div><h3><svg aria-hidden="true" class="g-icon" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 40 40"><path d="M20,4 v10"></path><path d="M20,14 c-7,4 -9,10 -9,16 l9,6 l9,-6 c0,-6 -2,-12 -9,-16 z" fill="#fff"></path><path d="M20,36 v-12"></path><circle cx="20" cy="23" fill="#5b4a9e" r="2" stroke="none"></circle><path d="M11,30 l-5,5 M29,30 l5,5"></path></svg>Stay the Author!</h3><p>Etikus AI-használat középiskolásoknak: kutatási útmutató és workshopok arról, hogyan maradhatsz a saját munkád szerzője.</p><span class="btn btn-primary g-btn">A program és az útmutató</span></a>
+<a href="#chapter" style="border-top-color:#1f8a87"><div class="g-label">Szakembereknek · Tanulási terek · Fejlesztés</div><h3><svg aria-hidden="true" class="g-icon" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 40 40"><rect fill="#fff" height="24" rx="2" width="20" x="5" y="9"></rect><path d="M10,15 h10 M10,20 h10 M10,25 h6"></path><rect fill="#8fcac6" height="22" rx="2.5" width="13" x="22" y="5"></rect><path d="M26,8 h5"></path><path d="M28.5,16 l-3,3 l3,3 M31,16 l3,3 l-3,3"></path></svg>Tanulási térdesign és a Focusa</h3><p>Online tananyag könyvtárosoknak és tanároknak a könyvtári és iskolai tanulási terek tervezéséről, valamint egy Swiftben írt, a tanulás közbeni figyelmet segítő app.</p><span class="btn btn-primary g-btn">Amit építettem</span></a>
+</div>
+<div class="strands-head" id="who-i-am">
+<div>
+<p class="section-label">Ki vagyok szakmailag</p>
+<h2 class="strands-title">Négy szerep,<br/><em>egy ember</em></h2>
+</div>
+<p class="strands-quote">A tanítás és a könyvtárosság ugyanaz a munka. A tanár közel áll a tanulóhoz, a könyvtáros egy lépéssel távolabb.</p>
+</div>
+<div class="strands-lead">
+<figure class="strands-art"><svg viewBox="0 0 1400 1441" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Négy összefonódó szalagból álló alak, körülötte négy réteg, belülről kifelé: tizenkét év tanítás, öt év könyvtárban, informatikatanár és appfejlesztő, vizsgáztató"><defs><path id="lay0" d="M519.1,407.7 A181,181 0 0 1 880.9,407.7"/><path id="lay1" d="M473.1,406.1 A227,227 0 0 1 926.9,406.1"/><path id="lay2" d="M427.2,404.5 A273,273 0 0 1 972.8,404.5"/><path id="lay3" d="M381.2,402.9 A319,319 0 0 1 1018.8,402.9"/></defs><image href="assets/four-roles-layers.jpg" x="0" y="0" width="1400" height="1441"/><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay0" startOffset="50%" text-anchor="middle">12 ÉV TANÍTÁS</textPath></text><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay1" startOffset="50%" text-anchor="middle">5 ÉV KÖNYVTÁRBAN</textPath></text><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay2" startOffset="50%" text-anchor="middle">INFORMATIKATANÁR, APPFEJLESZTŐ</textPath></text><text font-family="Inter, sans-serif" font-size="25" font-weight="700" letter-spacing="2.5" fill="#15212d" opacity="0.85"><textPath href="#lay3" startOffset="50%" text-anchor="middle">VIZSGÁZTATÓ</textPath></text></svg></figure>
+<div>
+<p class="strands-lead-kicker">Könyvtáros. Tanár.<br/>Vizsgáztató. Fejlesztő.</p>
+<p class="strands-lead-text">Nagyjából tizenkét év tanítás és öt év iskolai könyvtári munka tanított meg erre: a tanár megformálja az információt, és közvetlenül adja át. A könyvtáros a gyűjteményt, a teret és az útmutatást formálja, amelyek segítségével mások megtalálják és használják. <strong>A vizsgáztatás és a digitális eszközök fejlesztése ugyanez a mesterség, két további oldalról.</strong></p>
+<p class="strands-lead-text" style="margin-top:14px">A könyvtáros a polcok. A tanár a nyitott könyv. A vizsgáztató az állítások hálója és a köztük futó vonalak. A fejlesztő a rács. Egy pontban találkoznak, és ott lesz az információból ember.</p>
+<p class="strands-lead-text" style="margin-top:14px">Mind a négy alatt egy nyelvész van. A doktorimat kognitív szemantikából írtam, és Lakoff és Johnson <em>Metaphors We Live By</em> című könyve alakította, ahogyan a tanulásról gondolkodom: az újat a már bennünk élő képeken keresztül értjük meg. A könyvtár térkép. Az esszé utazás. A könyvnek otthona van. Szándékosan ezekkel a képekkel tanítok, és úgy tervezem az információt, hogy a kép legyen az első, amit a tanuló meglát.</p>
+</div>
+</div>
+<div class="strand-grid">
+<div class="strand-card">
+<div class="strand-bar" style="background:#1f8a87"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Könyvtáros</h3><span class="strand-num" style="color:#1f8a87">01 / 04</span></div>
+<p class="strand-sub" style="color:#1f8a87">Könyvtáros BA + gyakorlat</p>
+<p>Öt év mindennapos iskolai könyvtári munka, könyvtár- és információtudományi diplomával: <strong>Alexandria és Oliver, MARC21 és Dewey, kölcsönzés, gyűjtemény és leltár, könyvtári órák.</strong> Ma mindezt egy tokiói nemzetközi iskolában csinálom. A legtöbb napon egyedül viszem a K/JS könyvtárat, és én tervezem és tartom az órarendi könyvtári órákat.</p>
+</div>
+</div>
+<div class="strand-card">
+<div class="strand-bar" style="background:#d99a2b"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Tanár</h3><span class="strand-num" style="color:#b7801f">02 / 04</span></div>
+<p class="strand-sub" style="color:#b7801f">IB Diploma Programme tanár · Extended Essay témavezető · 11–18 évesek</p>
+<p>Nagyjából tizenkét év osztálytermi tanítás, <strong>IB Diploma Programme tanárként</strong> és az Európai Iskolákban: <strong>nyelv, irodalom és dráma, majd informatika.</strong> Extended Essay-ket vezettem, belső értékeléseket javítottam és tantervet fejlesztettem.</p>
+</div>
+</div>
+<div class="strand-card">
+<div class="strand-bar" style="background:#d9644f"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Vizsgáztató</h3><span class="strand-num" style="color:#c4503c">03 / 04</span></div>
+<p class="strand-sub" style="color:#c4503c">Cambridge · IB</p>
+<p>A Cambridge nemzetközi vizsgaközpont vizsgáztatója a PDQ tanári portfóliókban és a Global Perspectives &amp; Research tárgyban, kinevezett IB Digital Society vizsgáztató. A javítási időszakokban azt ítélem meg, hogyan használják <strong>a bizonyítékokat, a hivatkozásokat, a szerzőséget és az AI-t</strong> valódi diákmunkákban.</p>
+</div>
+</div>
+<div class="strand-card">
+<div class="strand-bar" style="background:#5b4a9e"></div>
+<div class="strand-body">
+<div class="strand-top"><h3>Fejlesztő</h3><span class="strand-num" style="color:#5b4a9e">04 / 04</span></div>
+<p class="strand-sub" style="color:#5b4a9e">Informatikatanár MSc · Swift · Web</p>
+<p>Informatikatanár, aki maga írja a kódot: <strong>egy elejétől a végéig Swiftben megírt iOS fókusz-app, weboldalak, interaktív tananyagok és kutatási útmutatók.</strong> Az adatmodelltől a képernyőig, tanári szemmel arra, mire van szüksége a tanulónak, és milyen sorrendben.</p>
+</div>
+</div>
+</div>
+<div class="strands-band">
+<p><strong>Közös fókusz:</strong> olyan feltételek megteremtése, amelyek között az emberek magabiztosan találják meg, ítélik meg, kapcsolják össze és használják az információt.</p>
+<div class="strands-legend">
+<span><i style="background:#1f8a87"></i>Gyűjtemény</span>
+<span><i style="background:#d99a2b"></i>Tanulás</span>
+<span><i style="background:#d9644f"></i>Ítélet</span>
+<span><i style="background:#5b4a9e"></i>Alkotás</span>
+</div>
+</div>
+<ul class="fact-strip" aria-label="Fő adatok">
+<li><strong>12</strong> év tanítás, az IB Diploma Programme-ban is</li>
+<li><strong>5</strong> év könyvtárban</li>
+<li><strong>2</strong> vizsgaközpont</li>
+<li><strong>1</strong> app, Swiftben írva</li>
+</ul>
+<p class="credentials" style="text-align:center">PhD kognitív nyelvészetből · informatikatanár MSc · könyvtár- és információtudományi BA</p>
+</div>
+
+</section>
+<div class="wave-divider" style="background:#dbeafe;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,0 C480,90 960,90 1440,0 L1440,92 L0,92 Z" fill="#ffffff"></path>
+</svg>
+</div>
+<!-- ── EXPERIENCE: LAYERS ──────────────────────────────────────────── -->
+<!-- ── WHERE IT BEGINS ─────────────────────────────────────────────── -->
+<section class="section" id="beginning" style="padding-top:0">
+<div class="container">
+<p class="section-label" style="text-align:center">Ahol a mély tanulás kezdődik</p>
+<h2 class="section-heading">A történetek megváltoztatnak</h2>
+<div class="divider"></div>
+<div class="story-figure">
+<svg aria-label="Egy szalag a képeskönyvtől az Extended Essay-ig, útközben az információbefogadás tanulásának állomásaival" role="img" viewbox="0 0 960 300" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="story" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#d99a2b"></stop><stop offset="1" stop-color="#0f2340"></stop></lineargradient></defs>
+<path d="M90.0,150.0 L93.9,150.8 L97.8,151.6 L101.7,152.4 L105.6,153.3 L109.5,154.1 L113.4,154.9 L117.3,155.7 L121.2,156.5 L125.1,157.3 L129.0,158.0 L132.9,158.8 L136.8,159.6 L140.7,160.3 L144.6,161.1 L148.5,161.8 L152.4,162.5 L156.3,163.2 L160.2,163.9 L164.1,164.6 L168.0,165.3 L171.9,165.9 L175.8,166.6 L179.7,167.2 L183.6,167.8 L187.5,168.4 L191.4,169.0 L195.3,169.5 L199.2,170.0 L203.1,170.5 L207.0,171.0 L210.9,171.5 L214.8,172.0 L218.7,172.4 L222.6,172.8 L226.5,173.2 L230.4,173.5 L234.3,173.9 L238.2,174.2 L242.1,174.5 L246.0,174.7 L249.9,175.0 L253.8,175.2 L257.7,175.4 L261.6,175.5 L265.5,175.7 L269.4,175.8 L273.3,175.9 L277.2,175.9 L281.1,176.0 L285.0,176.0 L288.9,176.0 L292.8,175.9 L296.7,175.9 L300.6,175.8 L304.5,175.7 L308.4,175.5 L312.3,175.4 L316.2,175.2 L320.1,175.0 L324.0,174.7 L327.9,174.5 L331.8,174.2 L335.7,173.9 L339.6,173.5 L343.5,173.2 L347.4,172.8 L351.3,172.4 L355.2,172.0 L359.1,171.5 L363.0,171.0 L366.9,170.5 L370.8,170.0 L374.7,169.5 L378.6,169.0 L382.5,168.4 L386.4,167.8 L390.3,167.2 L394.2,166.6 L398.1,165.9 L402.0,165.3 L405.9,164.6 L409.8,163.9 L413.7,163.2 L417.6,162.5 L421.5,161.8 L425.4,161.1 L429.3,160.3 L433.2,159.6 L437.1,158.8 L441.0,158.0 L444.9,157.3 L448.8,156.5 L452.7,155.7 L456.6,154.9 L460.5,154.1 L464.4,153.3 L468.3,152.4 L472.2,151.6 L476.1,150.8 L480.0,150.0 L483.9,149.2 L487.8,148.4 L491.7,147.6 L495.6,146.7 L499.5,145.9 L503.4,145.1 L507.3,144.3 L511.2,143.5 L515.1,142.7 L519.0,142.0 L522.9,141.2 L526.8,140.4 L530.7,139.7 L534.6,138.9 L538.5,138.2 L542.4,137.5 L546.3,136.8 L550.2,136.1 L554.1,135.4 L558.0,134.7 L561.9,134.1 L565.8,133.4 L569.7,132.8 L573.6,132.2 L577.5,131.6 L581.4,131.0 L585.3,130.5 L589.2,130.0 L593.1,129.5 L597.0,129.0 L600.9,128.5 L604.8,128.0 L608.7,127.6 L612.6,127.2 L616.5,126.8 L620.4,126.5 L624.3,126.1 L628.2,125.8 L632.1,125.5 L636.0,125.3 L639.9,125.0 L643.8,124.8 L647.7,124.6 L651.6,124.5 L655.5,124.3 L659.4,124.2 L663.3,124.1 L667.2,124.1 L671.1,124.0 L675.0,124.0 L678.9,124.0 L682.8,124.1 L686.7,124.1 L690.6,124.2 L694.5,124.3 L698.4,124.5 L702.3,124.6 L706.2,124.8 L710.1,125.0 L714.0,125.3 L717.9,125.5 L721.8,125.8 L725.7,126.1 L729.6,126.5 L733.5,126.8 L737.4,127.2 L741.3,127.6 L745.2,128.0 L749.1,128.5 L753.0,129.0 L756.9,129.5 L760.8,130.0 L764.7,130.5 L768.6,131.0 L772.5,131.6 L776.4,132.2 L780.3,132.8 L784.2,133.4 L788.1,134.1 L792.0,134.7 L795.9,135.4 L799.8,136.1 L803.7,136.8 L807.6,137.5 L811.5,138.2 L815.4,138.9 L819.3,139.7 L823.2,140.4 L827.1,141.2 L831.0,142.0 L834.9,142.7 L838.8,143.5 L842.7,144.3 L846.6,145.1 L850.5,145.9 L854.4,146.7 L858.3,147.6 L862.2,148.4 L866.1,149.2 L870.0,150.0" fill="none" stroke="url(#story)" stroke-linecap="round" stroke-width="7"></path>
+<path d="M38,128 q22,-8 44,0 v44 q-22,-8 -44,0 z" fill="#fff" stroke="#d99a2b" stroke-width="2"></path><path d="M82,128 q22,-8 44,0 v44 q-22,-8 -44,0 z" fill="#fff" stroke="#d99a2b" stroke-width="2"></path>
+<circle cx="60" cy="150" fill="#d99a2b" opacity="0.8" r="7"></circle><path d="M90,140h26M90,150h20M90,160h24" stroke="#d99a2b" stroke-width="2"></path>
+<rect fill="#fff" height="68" rx="3" stroke="#0f2340" stroke-width="2" width="52" x="890" y="116"></rect>
+<path d="M899,128h24" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,137h34" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,146h34" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,155h24" opacity="0.9" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,164h34" opacity="0.5" stroke="#0f2340" stroke-width="2"></path>
+<path d="M899,173h34" opacity="0.5" stroke="#0f2340" stroke-width="2"></path>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9" x="930" y="178">[1]</text>
+<circle cx="170" cy="165.6" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="186" y="141.61929887018744">felolvasnak neki</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="186" y="125.61929887018744">ÓVODA</text>
+<circle cx="300" cy="175.8" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="300" y="205.8104307265494">könyvet választ, és</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="300" y="219.8104307265494">néhányat félretesz</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="300" y="237.8104307265494">ALSÓ TAGOZAT</text>
+<circle cx="430" cy="160.2" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="430" y="122.19113185636195">egy kérdést követ</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="430" y="136.19113185636195">egy könyvbe</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="430" y="106.19113185636195">ALSÓ TAGOZAT</text>
+<circle cx="560" cy="134.4" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="560" y="164.38070112981256">végigviszi a</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="560" y="178.38070112981256">gondolatot, észreveszi,</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="560" y="192.38070112981256">ha nem áll össze</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="560" y="210.38070112981256">FELSŐ TAGOZAT</text>
+<circle cx="690" cy="124.2" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="690" y="86.1895692734506">egy állítást visszavezet</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="690" y="100.1895692734506">a forrásához</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="690" y="70.1895692734506">9–10. ÉVFOLYAM</text>
+<circle cx="800" cy="136.1" fill="#fff" r="7" stroke="#0f2340" stroke-width="2.5"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="800" y="166.10388852067717">érvel, és</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="800" y="180.10388852067717">hivatkozik</text>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" x="800" y="198.10388852067717">IB DIPLOMA PROGRAMME</text>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="14" text-anchor="middle" x="82" y="286">a közeli vég</text><text fill="#64748b" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="82" y="298">amit minden nap látok</text>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="14" text-anchor="middle" x="908" y="286">a távoli vég</text><text fill="#64748b" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="908" y="298">amit vizsgáztatok</text>
+</svg>
+<p class="figure-caption" style="margin-top:6px">Egy történet, két vége.</p>
+</div>
+<div class="story-split">
+<figure class="story-photo"><img alt="Iskolai könyvtári fal óriás hernyóval, virágokkal és pillangóval, a Stories Change Us felirattal és egy sor kiállított képeskönyvvel" decoding="async" loading="lazy" src="assets/stories-wall.jpg"/><figcaption>Egy könyvtári fal, amely jobban elmondja, mint én.</figcaption></figure>
+<div class="about-text">
+<p>Miért olvasunk? Az olvasás az első és legnehezebb módja annak, hogy egy gyerek megtanuljon befogadni valaki más által megformált információt: végigvinni egy gondolatot, követni, amikor fordul, és észrevenni, ha valami nem áll össze. Minden, amit később kutatásnak, kritikus gondolkodásnak vagy tudományos tisztességnek hívunk, ebből a figyelmes befogadásból nő ki. Ez nem egy 11. évfolyamon tanított technika. Sokkal korábban kialakuló szokás, és a könyvtár az a hely, ahol kialakul.</p>
+<details class="fold"><summary>Tovább: hogyan néz ki ez az óvodától az IB Diploma Programme-ig</summary><p>Az óvodai és alsós könyvtárban végzett munka nagyon kézzelfoghatóvá tette ezt számomra. Az a gyerek, akinek felolvastak, aki szabadon választ könyvet, és le is teheti, és aki megtanulta, hogy egy kérdés elvezethet egy könyvbe, már a lényeget gyakorolja. Mire az IB Diploma Programme évei jönnek, nem új elvárás, hogy türelmesen olvasson egy nehéz szöveget, és hogy utánanézzen, honnan jön egy állítás. Ez természetesen következik abból, amit már kicsiként megtanult. Ha ez az alap hiányzik, ugyanezek az elvárások falként állnak a diák elé.</p>
+<p>Az IB Diploma Programme tanáraként és vizsgáztatóként láttam ennek az útnak a végét, most pedig minden nap az elejét látom. Ugyanaz a történet. Ezért gondolok az alsós és a középiskolai könyvtári munkára egyetlen munkaként, két végéről nézve: a képeskönyv-saroktól az Extended Essay-ig.</p></details>
+</div>
+</div>
+</div>
+</section>
+<!-- ── WHO I HELP ──────────────────────────────────────────────────── -->
+<section class="section" id="help" style="padding-top:0">
+<div class="container">
+<p class="section-label" style="text-align:center">A gyakorlatban</p>
+<h2 class="section-heading">Mit tudok adni a diákoknak, a szülőknek és a tanároknak</h2>
+<div class="divider"></div>
+<div aria-label="Négy szerep egy emberbe fonva: tanár, könyvtáros, vizsgáztató és fejlesztő, mind információtervezés, amely a tudáshoz és az emberhez vezet" class="strands-figure">
+<svg role="img" viewbox="0 40 960 400" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="pageGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fbf9f4"></stop><stop offset="1" stop-color="#f5f0e7"></stop></lineargradient></defs>
+<circle cx="250" cy="80" fill="#d99a37" r="5"></circle>
+<text fill="#d99a37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="74">TANÁR</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="90">megformálja az információt,</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="105">és közvetlenül átadja</text>
+<circle cx="250" cy="170" fill="#0e7773" r="5"></circle>
+<text fill="#0e7773" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="164">KÖNYVTÁROS</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="180">alakítja, hogyan találják meg,</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="195">ítélik meg és használják mások</text>
+<circle cx="250" cy="260" fill="#bd5b4c" r="5"></circle>
+<text fill="#bd5b4c" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="254">VIZSGÁZTATÓ</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="270">megítéli, hogyan használták,</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="285">valódi munkákban</text>
+<circle cx="250" cy="350" fill="#685071" r="5"></circle>
+<text fill="#685071" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" text-anchor="end" x="234" y="344">FEJLESZTŐ</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="360">megépíti az eszközöket:</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11.5" text-anchor="end" x="234" y="375">app, tananyagok, útmutatók</text>
+<path d="M250.0,80.0 L252.2,82.8 L254.5,85.5 L256.8,88.2 L259.0,90.9 L261.2,93.5 L263.5,96.1 L265.8,98.6 L268.0,101.1 L270.2,103.5 L272.5,105.8 L274.8,108.1 L277.0,110.3 L279.2,112.3 L281.5,114.3 L283.8,116.2 L286.0,118.0 L288.2,119.7 L290.5,121.3 L292.8,122.8 L295.0,124.2 L297.2,125.5 L299.5,126.7 L301.8,127.7 L304.0,128.7 L306.2,129.5 L308.5,130.2 L310.8,130.8 L313.0,131.4 L315.2,131.8 L317.5,132.1 L319.8,132.3 L322.0,132.4 L324.2,132.4 L326.5,132.3 L328.8,132.1 L331.0,131.9 L333.2,131.6 L335.5,131.2 L337.8,130.7 L340.0,130.1 L342.2,129.5 L344.5,128.9 L346.8,128.2 L349.0,127.4 L351.2,126.6 L353.5,125.8 L355.8,125.0 L358.0,124.1 L360.2,123.2 L362.5,122.3 L364.8,121.4 L367.0,120.5 L369.2,119.7 L371.5,118.8 L373.8,117.9 L376.0,117.1 L378.2,116.3 L380.5,115.6 L382.8,114.8 L385.0,114.2 L387.2,113.5 L389.5,113.0 L391.8,112.5 L394.0,112.0 L396.2,111.6 L398.5,111.3 L400.8,111.1 L403.0,110.9 L405.2,110.8 L407.5,110.8 L409.8,110.8 L412.0,110.9 L414.2,111.2 L416.5,111.5 L418.8,111.8 L421.0,112.3 L423.2,112.8 L425.5,113.5 L427.8,114.2 L430.0,114.9 L432.2,115.8 L434.5,116.7 L436.8,117.7 L439.0,118.8 L441.2,120.0 L443.5,121.2 L445.8,122.4 L448.0,123.7 L450.2,125.1 L452.5,126.6 L454.8,128.0 L457.0,129.6 L459.2,131.1 L461.5,132.7 L463.8,134.3 L466.0,136.0 L468.2,137.6 L470.5,139.3 L472.8,141.0 L475.0,142.7 L477.2,144.4 L479.5,146.1 L481.8,147.8 L484.0,149.5 L486.2,151.2 L488.5,152.8 L490.8,154.5 L493.0,156.1 L495.2,157.6 L497.5,159.2 L499.8,160.7 L502.0,162.1 L504.2,163.5 L506.5,164.9 L508.8,166.2 L511.0,167.5 L513.2,168.7 L515.5,169.8 L517.8,170.9 L520.0,172.0 L522.2,172.9 L524.5,173.9 L526.8,174.7 L529.0,175.5 L531.2,176.2 L533.5,176.9 L535.8,177.5 L538.0,178.1 L540.2,178.6 L542.5,179.0 L544.8,179.4 L547.0,179.7 L549.2,180.0 L551.5,180.2 L553.8,180.4 L556.0,180.5 L558.2,180.6 L560.5,180.7 L562.8,180.7 L565.0,180.7 L567.2,180.6 L569.5,180.5 L571.8,180.5 L574.0,180.3 L576.2,180.2 L578.5,180.1 L580.8,179.9 L583.0,179.8 L585.2,179.6 L587.5,179.5 L589.8,179.3 L592.0,179.2 L594.2,179.1 L596.5,179.0 L598.8,178.9 L601.0,178.9 L603.2,178.9 L605.5,178.9 L607.8,178.9 L610.0,179.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,170.0 L252.2,168.3 L254.5,166.5 L256.8,164.9 L259.0,163.2 L261.2,161.6 L263.5,160.0 L265.8,158.5 L268.0,157.1 L270.2,155.7 L272.5,154.4 L274.8,153.1 L277.0,152.0 L279.2,150.9 L281.5,149.9 L283.8,149.0 L286.0,148.3 L288.2,147.6 L290.5,147.0 L292.8,146.5 L295.0,146.1 L297.2,145.8 L299.5,145.6 L301.8,145.6 L304.0,145.6 L306.2,145.8 L308.5,146.0 L310.8,146.4 L313.0,146.9 L315.2,147.4 L317.5,148.1 L319.8,148.9 L322.0,149.7 L324.2,150.7 L326.5,151.8 L328.8,152.9 L331.0,154.1 L333.2,155.4 L335.5,156.8 L337.8,158.2 L340.0,159.7 L342.2,161.3 L344.5,162.9 L346.8,164.6 L349.0,166.3 L351.2,168.0 L353.5,169.8 L355.8,171.6 L358.0,173.4 L360.2,175.2 L362.5,177.0 L364.8,178.9 L367.0,180.7 L369.2,182.5 L371.5,184.3 L373.8,186.1 L376.0,187.8 L378.2,189.6 L380.5,191.2 L382.8,192.9 L385.0,194.5 L387.2,196.0 L389.5,197.5 L391.8,198.9 L394.0,200.3 L396.2,201.6 L398.5,202.8 L400.8,204.0 L403.0,205.0 L405.2,206.0 L407.5,206.9 L409.8,207.8 L412.0,208.5 L414.2,209.2 L416.5,209.8 L418.8,210.3 L421.0,210.7 L423.2,211.0 L425.5,211.3 L427.8,211.5 L430.0,211.6 L432.2,211.6 L434.5,211.5 L436.8,211.4 L439.0,211.1 L441.2,210.9 L443.5,210.5 L445.8,210.1 L448.0,209.6 L450.2,209.1 L452.5,208.5 L454.8,207.8 L457.0,207.1 L459.2,206.4 L461.5,205.7 L463.8,204.9 L466.0,204.0 L468.2,203.2 L470.5,202.3 L472.8,201.4 L475.0,200.5 L477.2,199.6 L479.5,198.7 L481.8,197.8 L484.0,196.9 L486.2,196.1 L488.5,195.2 L490.8,194.4 L493.0,193.5 L495.2,192.8 L497.5,192.0 L499.8,191.3 L502.0,190.6 L504.2,189.9 L506.5,189.3 L508.8,188.8 L511.0,188.2 L513.2,187.8 L515.5,187.4 L517.8,187.0 L520.0,186.7 L522.2,186.5 L524.5,186.3 L526.8,186.1 L529.0,186.0 L531.2,186.0 L533.5,186.0 L535.8,186.1 L538.0,186.3 L540.2,186.5 L542.5,186.7 L544.8,187.0 L547.0,187.4 L549.2,187.7 L551.5,188.2 L553.8,188.6 L556.0,189.2 L558.2,189.7 L560.5,190.3 L562.8,190.9 L565.0,191.5 L567.2,192.2 L569.5,192.9 L571.8,193.5 L574.0,194.2 L576.2,194.9 L578.5,195.6 L580.8,196.3 L583.0,197.0 L585.2,197.7 L587.5,198.4 L589.8,199.0 L592.0,199.7 L594.2,200.3 L596.5,200.8 L598.8,201.3 L601.0,201.8 L603.2,202.2 L605.5,202.6 L607.8,202.8 L610.0,203.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,260.0 L252.2,261.7 L254.5,263.5 L256.8,265.1 L259.0,266.8 L261.2,268.4 L263.5,270.0 L265.8,271.5 L268.0,272.9 L270.2,274.3 L272.5,275.6 L274.8,276.9 L277.0,278.0 L279.2,279.1 L281.5,280.1 L283.8,281.0 L286.0,281.7 L288.2,282.4 L290.5,283.0 L292.8,283.5 L295.0,283.9 L297.2,284.2 L299.5,284.4 L301.8,284.4 L304.0,284.4 L306.2,284.2 L308.5,284.0 L310.8,283.6 L313.0,283.1 L315.2,282.6 L317.5,281.9 L319.8,281.1 L322.0,280.3 L324.2,279.3 L326.5,278.2 L328.8,277.1 L331.0,275.9 L333.2,274.6 L335.5,273.2 L337.8,271.8 L340.0,270.3 L342.2,268.7 L344.5,267.1 L346.8,265.4 L349.0,263.7 L351.2,262.0 L353.5,260.2 L355.8,258.4 L358.0,256.6 L360.2,254.8 L362.5,253.0 L364.8,251.1 L367.0,249.3 L369.2,247.5 L371.5,245.7 L373.8,243.9 L376.0,242.2 L378.2,240.4 L380.5,238.8 L382.8,237.1 L385.0,235.5 L387.2,234.0 L389.5,232.5 L391.8,231.1 L394.0,229.7 L396.2,228.4 L398.5,227.2 L400.8,226.0 L403.0,225.0 L405.2,224.0 L407.5,223.1 L409.8,222.2 L412.0,221.5 L414.2,220.8 L416.5,220.2 L418.8,219.7 L421.0,219.3 L423.2,219.0 L425.5,218.7 L427.8,218.5 L430.0,218.4 L432.2,218.4 L434.5,218.5 L436.8,218.6 L439.0,218.9 L441.2,219.1 L443.5,219.5 L445.8,219.9 L448.0,220.4 L450.2,220.9 L452.5,221.5 L454.8,222.2 L457.0,222.9 L459.2,223.6 L461.5,224.3 L463.8,225.1 L466.0,226.0 L468.2,226.8 L470.5,227.7 L472.8,228.6 L475.0,229.5 L477.2,230.4 L479.5,231.3 L481.8,232.2 L484.0,233.1 L486.2,233.9 L488.5,234.8 L490.8,235.6 L493.0,236.5 L495.2,237.2 L497.5,238.0 L499.8,238.7 L502.0,239.4 L504.2,240.1 L506.5,240.7 L508.8,241.2 L511.0,241.8 L513.2,242.2 L515.5,242.6 L517.8,243.0 L520.0,243.3 L522.2,243.5 L524.5,243.7 L526.8,243.9 L529.0,244.0 L531.2,244.0 L533.5,244.0 L535.8,243.9 L538.0,243.7 L540.2,243.5 L542.5,243.3 L544.8,243.0 L547.0,242.6 L549.2,242.3 L551.5,241.8 L553.8,241.4 L556.0,240.8 L558.2,240.3 L560.5,239.7 L562.8,239.1 L565.0,238.5 L567.2,237.8 L569.5,237.1 L571.8,236.5 L574.0,235.8 L576.2,235.1 L578.5,234.4 L580.8,233.7 L583.0,233.0 L585.2,232.3 L587.5,231.6 L589.8,231.0 L592.0,230.3 L594.2,229.7 L596.5,229.2 L598.8,228.7 L601.0,228.2 L603.2,227.8 L605.5,227.4 L607.8,227.2 L610.0,227.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,350.0 L252.2,347.2 L254.5,344.5 L256.8,341.8 L259.0,339.1 L261.2,336.5 L263.5,333.9 L265.8,331.4 L268.0,328.9 L270.2,326.5 L272.5,324.2 L274.8,321.9 L277.0,319.7 L279.2,317.7 L281.5,315.7 L283.8,313.8 L286.0,312.0 L288.2,310.3 L290.5,308.7 L292.8,307.2 L295.0,305.8 L297.2,304.5 L299.5,303.3 L301.8,302.3 L304.0,301.3 L306.2,300.5 L308.5,299.8 L310.8,299.2 L313.0,298.6 L315.2,298.2 L317.5,297.9 L319.8,297.7 L322.0,297.6 L324.2,297.6 L326.5,297.7 L328.8,297.9 L331.0,298.1 L333.2,298.4 L335.5,298.8 L337.8,299.3 L340.0,299.9 L342.2,300.5 L344.5,301.1 L346.8,301.8 L349.0,302.6 L351.2,303.4 L353.5,304.2 L355.8,305.0 L358.0,305.9 L360.2,306.8 L362.5,307.7 L364.8,308.6 L367.0,309.5 L369.2,310.3 L371.5,311.2 L373.8,312.1 L376.0,312.9 L378.2,313.7 L380.5,314.4 L382.8,315.2 L385.0,315.8 L387.2,316.5 L389.5,317.0 L391.8,317.5 L394.0,318.0 L396.2,318.4 L398.5,318.7 L400.8,318.9 L403.0,319.1 L405.2,319.2 L407.5,319.2 L409.8,319.2 L412.0,319.1 L414.2,318.8 L416.5,318.5 L418.8,318.2 L421.0,317.7 L423.2,317.2 L425.5,316.5 L427.8,315.8 L430.0,315.1 L432.2,314.2 L434.5,313.3 L436.8,312.3 L439.0,311.2 L441.2,310.0 L443.5,308.8 L445.8,307.6 L448.0,306.3 L450.2,304.9 L452.5,303.4 L454.8,302.0 L457.0,300.4 L459.2,298.9 L461.5,297.3 L463.8,295.7 L466.0,294.0 L468.2,292.4 L470.5,290.7 L472.8,289.0 L475.0,287.3 L477.2,285.6 L479.5,283.9 L481.8,282.2 L484.0,280.5 L486.2,278.8 L488.5,277.2 L490.8,275.5 L493.0,273.9 L495.2,272.4 L497.5,270.8 L499.8,269.3 L502.0,267.9 L504.2,266.5 L506.5,265.1 L508.8,263.8 L511.0,262.5 L513.2,261.3 L515.5,260.2 L517.8,259.1 L520.0,258.0 L522.2,257.1 L524.5,256.1 L526.8,255.3 L529.0,254.5 L531.2,253.8 L533.5,253.1 L535.8,252.5 L538.0,251.9 L540.2,251.4 L542.5,251.0 L544.8,250.6 L547.0,250.3 L549.2,250.0 L551.5,249.8 L553.8,249.6 L556.0,249.5 L558.2,249.4 L560.5,249.3 L562.8,249.3 L565.0,249.3 L567.2,249.4 L569.5,249.5 L571.8,249.5 L574.0,249.7 L576.2,249.8 L578.5,249.9 L580.8,250.1 L583.0,250.2 L585.2,250.4 L587.5,250.5 L589.8,250.7 L592.0,250.8 L594.2,250.9 L596.5,251.0 L598.8,251.1 L601.0,251.1 L603.2,251.1 L605.5,251.1 L607.8,251.1 L610.0,251.0" fill="none" stroke="#efe8db" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"></path>
+<path d="M250.0,80.0 L252.2,82.8 L254.5,85.5 L256.8,88.2 L259.0,90.9 L261.2,93.5 L263.5,96.1 L265.8,98.6 L268.0,101.1 L270.2,103.5 L272.5,105.8 L274.8,108.1 L277.0,110.3 L279.2,112.3 L281.5,114.3 L283.8,116.2 L286.0,118.0 L288.2,119.7 L290.5,121.3 L292.8,122.8 L295.0,124.2 L297.2,125.5 L299.5,126.7 L301.8,127.7 L304.0,128.7 L306.2,129.5 L308.5,130.2 L310.8,130.8 L313.0,131.4 L315.2,131.8 L317.5,132.1 L319.8,132.3 L322.0,132.4 L324.2,132.4 L326.5,132.3 L328.8,132.1 L331.0,131.9 L333.2,131.6 L335.5,131.2 L337.8,130.7 L340.0,130.1 L342.2,129.5 L344.5,128.9 L346.8,128.2 L349.0,127.4 L351.2,126.6 L353.5,125.8 L355.8,125.0 L358.0,124.1 L360.2,123.2 L362.5,122.3 L364.8,121.4 L367.0,120.5 L369.2,119.7 L371.5,118.8 L373.8,117.9 L376.0,117.1 L378.2,116.3 L380.5,115.6 L382.8,114.8 L385.0,114.2 L387.2,113.5 L389.5,113.0 L391.8,112.5 L394.0,112.0 L396.2,111.6 L398.5,111.3 L400.8,111.1 L403.0,110.9 L405.2,110.8 L407.5,110.8 L409.8,110.8 L412.0,110.9 L414.2,111.2 L416.5,111.5 L418.8,111.8 L421.0,112.3 L423.2,112.8 L425.5,113.5 L427.8,114.2 L430.0,114.9 L432.2,115.8 L434.5,116.7 L436.8,117.7 L439.0,118.8 L441.2,120.0 L443.5,121.2 L445.8,122.4 L448.0,123.7 L450.2,125.1 L452.5,126.6 L454.8,128.0 L457.0,129.6 L459.2,131.1 L461.5,132.7 L463.8,134.3 L466.0,136.0 L468.2,137.6 L470.5,139.3 L472.8,141.0 L475.0,142.7 L477.2,144.4 L479.5,146.1 L481.8,147.8 L484.0,149.5 L486.2,151.2 L488.5,152.8 L490.8,154.5 L493.0,156.1 L495.2,157.6 L497.5,159.2 L499.8,160.7 L502.0,162.1 L504.2,163.5 L506.5,164.9 L508.8,166.2 L511.0,167.5 L513.2,168.7 L515.5,169.8 L517.8,170.9 L520.0,172.0 L522.2,172.9 L524.5,173.9 L526.8,174.7 L529.0,175.5 L531.2,176.2 L533.5,176.9 L535.8,177.5 L538.0,178.1 L540.2,178.6 L542.5,179.0 L544.8,179.4 L547.0,179.7 L549.2,180.0 L551.5,180.2 L553.8,180.4 L556.0,180.5 L558.2,180.6 L560.5,180.7 L562.8,180.7 L565.0,180.7 L567.2,180.6 L569.5,180.5 L571.8,180.5 L574.0,180.3 L576.2,180.2 L578.5,180.1 L580.8,179.9 L583.0,179.8 L585.2,179.6 L587.5,179.5 L589.8,179.3 L592.0,179.2 L594.2,179.1 L596.5,179.0 L598.8,178.9 L601.0,178.9 L603.2,178.9 L605.5,178.9 L607.8,178.9 L610.0,179.0" fill="none" opacity="0.95" stroke="#d99a37" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M250.0,170.0 L252.2,168.3 L254.5,166.5 L256.8,164.9 L259.0,163.2 L261.2,161.6 L263.5,160.0 L265.8,158.5 L268.0,157.1 L270.2,155.7 L272.5,154.4 L274.8,153.1 L277.0,152.0 L279.2,150.9 L281.5,149.9 L283.8,149.0 L286.0,148.3 L288.2,147.6 L290.5,147.0 L292.8,146.5 L295.0,146.1 L297.2,145.8 L299.5,145.6 L301.8,145.6 L304.0,145.6 L306.2,145.8 L308.5,146.0 L310.8,146.4 L313.0,146.9 L315.2,147.4 L317.5,148.1 L319.8,148.9 L322.0,149.7 L324.2,150.7 L326.5,151.8 L328.8,152.9 L331.0,154.1 L333.2,155.4 L335.5,156.8 L337.8,158.2 L340.0,159.7 L342.2,161.3 L344.5,162.9 L346.8,164.6 L349.0,166.3 L351.2,168.0 L353.5,169.8 L355.8,171.6 L358.0,173.4 L360.2,175.2 L362.5,177.0 L364.8,178.9 L367.0,180.7 L369.2,182.5 L371.5,184.3 L373.8,186.1 L376.0,187.8 L378.2,189.6 L380.5,191.2 L382.8,192.9 L385.0,194.5 L387.2,196.0 L389.5,197.5 L391.8,198.9 L394.0,200.3 L396.2,201.6 L398.5,202.8 L400.8,204.0 L403.0,205.0 L405.2,206.0 L407.5,206.9 L409.8,207.8 L412.0,208.5 L414.2,209.2 L416.5,209.8 L418.8,210.3 L421.0,210.7 L423.2,211.0 L425.5,211.3 L427.8,211.5 L430.0,211.6 L432.2,211.6 L434.5,211.5 L436.8,211.4 L439.0,211.1 L441.2,210.9 L443.5,210.5 L445.8,210.1 L448.0,209.6 L450.2,209.1 L452.5,208.5 L454.8,207.8 L457.0,207.1 L459.2,206.4 L461.5,205.7 L463.8,204.9 L466.0,204.0 L468.2,203.2 L470.5,202.3 L472.8,201.4 L475.0,200.5 L477.2,199.6 L479.5,198.7 L481.8,197.8 L484.0,196.9 L486.2,196.1 L488.5,195.2 L490.8,194.4 L493.0,193.5 L495.2,192.8 L497.5,192.0 L499.8,191.3 L502.0,190.6 L504.2,189.9 L506.5,189.3 L508.8,188.8 L511.0,188.2 L513.2,187.8 L515.5,187.4 L517.8,187.0 L520.0,186.7 L522.2,186.5 L524.5,186.3 L526.8,186.1 L529.0,186.0 L531.2,186.0 L533.5,186.0 L535.8,186.1 L538.0,186.3 L540.2,186.5 L542.5,186.7 L544.8,187.0 L547.0,187.4 L549.2,187.7 L551.5,188.2 L553.8,188.6 L556.0,189.2 L558.2,189.7 L560.5,190.3 L562.8,190.9 L565.0,191.5 L567.2,192.2 L569.5,192.9 L571.8,193.5 L574.0,194.2 L576.2,194.9 L578.5,195.6 L580.8,196.3 L583.0,197.0 L585.2,197.7 L587.5,198.4 L589.8,199.0 L592.0,199.7 L594.2,200.3 L596.5,200.8 L598.8,201.3 L601.0,201.8 L603.2,202.2 L605.5,202.6 L607.8,202.8 L610.0,203.0" fill="none" opacity="0.95" stroke="#0e7773" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M250.0,260.0 L252.2,261.7 L254.5,263.5 L256.8,265.1 L259.0,266.8 L261.2,268.4 L263.5,270.0 L265.8,271.5 L268.0,272.9 L270.2,274.3 L272.5,275.6 L274.8,276.9 L277.0,278.0 L279.2,279.1 L281.5,280.1 L283.8,281.0 L286.0,281.7 L288.2,282.4 L290.5,283.0 L292.8,283.5 L295.0,283.9 L297.2,284.2 L299.5,284.4 L301.8,284.4 L304.0,284.4 L306.2,284.2 L308.5,284.0 L310.8,283.6 L313.0,283.1 L315.2,282.6 L317.5,281.9 L319.8,281.1 L322.0,280.3 L324.2,279.3 L326.5,278.2 L328.8,277.1 L331.0,275.9 L333.2,274.6 L335.5,273.2 L337.8,271.8 L340.0,270.3 L342.2,268.7 L344.5,267.1 L346.8,265.4 L349.0,263.7 L351.2,262.0 L353.5,260.2 L355.8,258.4 L358.0,256.6 L360.2,254.8 L362.5,253.0 L364.8,251.1 L367.0,249.3 L369.2,247.5 L371.5,245.7 L373.8,243.9 L376.0,242.2 L378.2,240.4 L380.5,238.8 L382.8,237.1 L385.0,235.5 L387.2,234.0 L389.5,232.5 L391.8,231.1 L394.0,229.7 L396.2,228.4 L398.5,227.2 L400.8,226.0 L403.0,225.0 L405.2,224.0 L407.5,223.1 L409.8,222.2 L412.0,221.5 L414.2,220.8 L416.5,220.2 L418.8,219.7 L421.0,219.3 L423.2,219.0 L425.5,218.7 L427.8,218.5 L430.0,218.4 L432.2,218.4 L434.5,218.5 L436.8,218.6 L439.0,218.9 L441.2,219.1 L443.5,219.5 L445.8,219.9 L448.0,220.4 L450.2,220.9 L452.5,221.5 L454.8,222.2 L457.0,222.9 L459.2,223.6 L461.5,224.3 L463.8,225.1 L466.0,226.0 L468.2,226.8 L470.5,227.7 L472.8,228.6 L475.0,229.5 L477.2,230.4 L479.5,231.3 L481.8,232.2 L484.0,233.1 L486.2,233.9 L488.5,234.8 L490.8,235.6 L493.0,236.5 L495.2,237.2 L497.5,238.0 L499.8,238.7 L502.0,239.4 L504.2,240.1 L506.5,240.7 L508.8,241.2 L511.0,241.8 L513.2,242.2 L515.5,242.6 L517.8,243.0 L520.0,243.3 L522.2,243.5 L524.5,243.7 L526.8,243.9 L529.0,244.0 L531.2,244.0 L533.5,244.0 L535.8,243.9 L538.0,243.7 L540.2,243.5 L542.5,243.3 L544.8,243.0 L547.0,242.6 L549.2,242.3 L551.5,241.8 L553.8,241.4 L556.0,240.8 L558.2,240.3 L560.5,239.7 L562.8,239.1 L565.0,238.5 L567.2,237.8 L569.5,237.1 L571.8,236.5 L574.0,235.8 L576.2,235.1 L578.5,234.4 L580.8,233.7 L583.0,233.0 L585.2,232.3 L587.5,231.6 L589.8,231.0 L592.0,230.3 L594.2,229.7 L596.5,229.2 L598.8,228.7 L601.0,228.2 L603.2,227.8 L605.5,227.4 L607.8,227.2 L610.0,227.0" fill="none" opacity="0.95" stroke="#bd5b4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M250.0,350.0 L252.2,347.2 L254.5,344.5 L256.8,341.8 L259.0,339.1 L261.2,336.5 L263.5,333.9 L265.8,331.4 L268.0,328.9 L270.2,326.5 L272.5,324.2 L274.8,321.9 L277.0,319.7 L279.2,317.7 L281.5,315.7 L283.8,313.8 L286.0,312.0 L288.2,310.3 L290.5,308.7 L292.8,307.2 L295.0,305.8 L297.2,304.5 L299.5,303.3 L301.8,302.3 L304.0,301.3 L306.2,300.5 L308.5,299.8 L310.8,299.2 L313.0,298.6 L315.2,298.2 L317.5,297.9 L319.8,297.7 L322.0,297.6 L324.2,297.6 L326.5,297.7 L328.8,297.9 L331.0,298.1 L333.2,298.4 L335.5,298.8 L337.8,299.3 L340.0,299.9 L342.2,300.5 L344.5,301.1 L346.8,301.8 L349.0,302.6 L351.2,303.4 L353.5,304.2 L355.8,305.0 L358.0,305.9 L360.2,306.8 L362.5,307.7 L364.8,308.6 L367.0,309.5 L369.2,310.3 L371.5,311.2 L373.8,312.1 L376.0,312.9 L378.2,313.7 L380.5,314.4 L382.8,315.2 L385.0,315.8 L387.2,316.5 L389.5,317.0 L391.8,317.5 L394.0,318.0 L396.2,318.4 L398.5,318.7 L400.8,318.9 L403.0,319.1 L405.2,319.2 L407.5,319.2 L409.8,319.2 L412.0,319.1 L414.2,318.8 L416.5,318.5 L418.8,318.2 L421.0,317.7 L423.2,317.2 L425.5,316.5 L427.8,315.8 L430.0,315.1 L432.2,314.2 L434.5,313.3 L436.8,312.3 L439.0,311.2 L441.2,310.0 L443.5,308.8 L445.8,307.6 L448.0,306.3 L450.2,304.9 L452.5,303.4 L454.8,302.0 L457.0,300.4 L459.2,298.9 L461.5,297.3 L463.8,295.7 L466.0,294.0 L468.2,292.4 L470.5,290.7 L472.8,289.0 L475.0,287.3 L477.2,285.6 L479.5,283.9 L481.8,282.2 L484.0,280.5 L486.2,278.8 L488.5,277.2 L490.8,275.5 L493.0,273.9 L495.2,272.4 L497.5,270.8 L499.8,269.3 L502.0,267.9 L504.2,266.5 L506.5,265.1 L508.8,263.8 L511.0,262.5 L513.2,261.3 L515.5,260.2 L517.8,259.1 L520.0,258.0 L522.2,257.1 L524.5,256.1 L526.8,255.3 L529.0,254.5 L531.2,253.8 L533.5,253.1 L535.8,252.5 L538.0,251.9 L540.2,251.4 L542.5,251.0 L544.8,250.6 L547.0,250.3 L549.2,250.0 L551.5,249.8 L553.8,249.6 L556.0,249.5 L558.2,249.4 L560.5,249.3 L562.8,249.3 L565.0,249.3 L567.2,249.4 L569.5,249.5 L571.8,249.5 L574.0,249.7 L576.2,249.8 L578.5,249.9 L580.8,250.1 L583.0,250.2 L585.2,250.4 L587.5,250.5 L589.8,250.7 L592.0,250.8 L594.2,250.9 L596.5,251.0 L598.8,251.1 L601.0,251.1 L603.2,251.1 L605.5,251.1 L607.8,251.1 L610.0,251.0" fill="none" opacity="0.95" stroke="#685071" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<path d="M630,160 Q667.5,150 705.0,158 L705.0,285 Q667.5,279 630,283 Z" fill="url(#pageGrad)" stroke="#e7dfd1" stroke-width="1.5"></path>
+<path d="M780,160 Q742.5,150 705.0,158 L705.0,285 Q742.5,279 780,283 Z" fill="url(#pageGrad)" stroke="#e7dfd1" stroke-width="1.5"></path>
+<line stroke="#e7dfd1" stroke-width="1.5" x1="705.0" x2="705.0" y1="158" y2="285"></line>
+<line opacity="0.9" stroke="#d99a37" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="179" y2="179"></line>
+<line opacity="0.9" stroke="#0e7773" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="203" y2="203"></line>
+<line opacity="0.9" stroke="#bd5b4c" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="227" y2="227"></line>
+<line opacity="0.9" stroke="#685071" stroke-linecap="round" stroke-width="4" x1="610" x2="693.0" y1="251" y2="251"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="766" y1="179" y2="179"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="748" y1="203" y2="203"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="766" y1="227" y2="227"></line>
+<line stroke="#d9d0c0" stroke-linecap="round" stroke-width="3.5" x1="717.0" x2="748" y1="251" y2="251"></line>
+<text fill="#15212d" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.6" text-anchor="middle" x="705.0" y="136">INFORMÁCIÓTERVEZÉS</text>
+<text fill="#15212d" font-family="'DM Serif Display', Georgia, serif" font-size="16" text-anchor="middle" x="705.0" y="311">amit az olvasó a kezében tart</text>
+<text fill="#6b706e" font-family="Inter, sans-serif" font-size="10.5" text-anchor="middle" x="705.0" y="329">és ami megváltoztatja</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="850" y="207">TUDÁS</text>
+<text fill="#293948" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="850" y="243">AZ EMBER</text>
+<line stroke="#8a8f8c" stroke-width="2" x1="850" x2="850" y1="213" y2="227"></line>
+<path d="M845,225 L850,232 L855,225 Z" fill="#8a8f8c"></path>
+<line stroke="#8a8f8c" stroke-width="2" x1="788" x2="810" y1="215" y2="215"></line>
+<path d="M810,210 L820,215 L810,220 Z" fill="#8a8f8c"></path>
+</svg>
+</div>
+<p class="figure-caption">Minden, amit csinálok, itt ér véget: abban, amit az olvasó a kezében tart, és ami megváltoztatja.</p>
+<div class="help-grid">
+<div class="help-col">
+<div class="help-top" style="background:linear-gradient(90deg,#0f2340,#1d4ed8)"></div>
+<div class="help-body">
+<h3>Gyerekeknek és diákoknak</h3>
+<ul>
+<li>Megtalálni azt a könyvet, amiért a vonakodó olvasó visszajön egy másikért.</li>
+<li>Egy homályos témából kutatható kérdést csinálni, és megkülönböztetni a megbízható forrást attól, amelyik csak annak hangzik.</li>
+<li>Félelem nélkül idézni, hivatkozni és jelezni az AI-használatot, mert értik, miért számít, és valódi segítséget kapni a Personal Projecthez és az Extended Essay-hez.</li>
+<li>A legkisebbeknek: megtanulni, hol laknak a könyvek, egy mesével és egy kis robothörcsöggel. Ez a Happy Hamster, a saját képeskönyv-meséimre épülő óvodai könyvtári program.</li>
+</ul>
+</div>
+</div>
+<div class="help-col">
+<div class="help-top" style="background:linear-gradient(90deg,#134e4a,#0891b2)"></div>
+<div class="help-body">
+<h3>Szülőknek</h3>
+<ul>
+<li>Tudni, mit érdemes olvasni a gyerekkel az egyes életkorokban, és mikor engedjük, hogy egyedül válasszon.</li>
+<li>Életben tartani az olvasást a családi nyelven is, nem csak angolul. Magam is két többnyelvű gyereket nevelek.</li>
+<li>Érteni, mit vár el az iskola a kutatásban, a hivatkozásban és az AI-használatban, hogy könnyebb legyen a házi feladatról beszélgetni.</li>
+<li>Őszinte tanács a képernyőkről, a hangoskönyvekről és az e-könyvekről, és arról, hogyan maradjon olvasó egy kamasz, amikor az iskolai olvasás már nem élvezet.</li>
+</ul>
+</div>
+</div>
+<div class="help-col">
+<div class="help-top" style="background:linear-gradient(90deg,#1e1b4b,#7c3aed)"></div>
+<div class="help-body">
+<h3>Tanároknak</h3>
+<ul>
+<li>Közösen tervezni a kutatási feladatokat, hogy a könyvtári óra és a tananyagegység egy dolog legyen, ne kettő.</li>
+<li>Egy adott egységhez készült forráscsomagok, olvasmánylisták és kutatási útmutatók, az évfolyamokon átívelő közös kutatási készségterv részeként.</li>
+<li>Világos, életkornak megfelelő szabályok a hivatkozásról és az AI-használat jelzéséről, és egy vizsgáztató szeme a diákok kutatásán, még a leadás előtt.</li>
+<li>Rövid, gyakorlatias tanári foglalkozások a digitális eszközökről, az AI-ról és az információs műveltségről. Terveztem és vezettem már ilyen workshopokat.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,60 C240,10 480,85 720,45 C960,5 1200,75 1440,30 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── INFORMATION LITERACY ────────────────────────────────────────── -->
+<section class="section section-alt" id="literacy">
+<div class="container">
+<p class="section-label" style="text-align:center">Szemlélet</p>
+<h2 class="section-heading">Hogyan gondolkodom a kutatásról és az információs műveltségről</h2>
+<div class="divider"></div>
+<p class="section-intro">Négy munkaelv. Extended Essay-k témavezetéséből, középiskolások tanításából és több száz portfólió vizsgáztatói olvasásából születtek.</p>
+<div class="story-figure" style="max-width:900px">
+<svg aria-label="Középen egy diákesszé oldala, körülötte a négy elv: a készségek folytonossága, a hivatkozás mint a gondolat eredete és a diák hozzáadása, az AI-használat jelzése lábjegyzetben, és egy tanár és egy könyvtáros közös tervezése" role="img" viewbox="0 0 1010 440" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="300" rx="4" stroke="#0f2340" stroke-width="2" width="200" x="390" y="60"></rect>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="13" x="406" y="90">A diák érvelése</text>
+<path d="M406,112h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,124h120" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,136h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,148h120" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<rect fill="#eff6ff" height="54" rx="3" stroke="#bfdbfe" width="168" x="406" y="164"></rect>
+<path d="M418,180h120M418,192h100M418,204h130" stroke="#3b82f6" stroke-linecap="round" stroke-width="3"></path>
+<text fill="#1d4ed8" font-family="Inter, sans-serif" font-size="10.0" font-weight="700" text-anchor="end" x="566" y="174">(Szerző 2024)</text>
+<path d="M406,236h110" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,248h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,260h110" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,272h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<path d="M406,300h168" stroke="#e2e8f0" stroke-width="1"></path>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.4" x="406" y="316">1  Szerző (2024), 12. o.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.4" x="406" y="330">2  AI-eszköz, 2026. okt. 12., prompt naplózva</text>
+<rect fill="#5b4a9e" height="14" opacity="0.9" rx="7" width="92" x="406" y="338"></rect><text fill="#fff" font-family="Inter, sans-serif" font-size="8.6" font-weight="700" letter-spacing="0.6" text-anchor="middle" x="452" y="348">AI MEGNEVEZVE</text>
+<circle cx="40" cy="70" fill="#1f8a87" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="40" y="74">1</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="60" y="66">A kutatás folytonosság</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="60" y="81">Ugyanaz a készség, felnagyítva</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="60" y="95">a 6. osztálytól az Extended Essay-ig.</text>
+<rect fill="#eff6ff" height="24" stroke="#bfdbfe" width="46" x="60" y="206"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="83" y="201">G6</text>
+<rect fill="#eff6ff" height="48" stroke="#bfdbfe" width="46" x="108" y="182"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="131" y="177">G8</text>
+<rect fill="#eff6ff" height="72" stroke="#bfdbfe" width="46" x="156" y="158"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="179" y="153">G10</text>
+<rect fill="#eff6ff" height="96" stroke="#bfdbfe" width="46" x="204" y="134"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="227" y="129">EE</text>
+<path d="M254,144 C302,144 320,100 386,100" fill="none" stroke="#1f8a87" stroke-dasharray="5 4" stroke-width="2.5"></path>
+<path d="M378,94 L388,100 L378,106 Z" fill="#1f8a87"></path>
+<circle cx="70" cy="300" fill="#d9644f" r="11"></circle><path d="M48,344 C48,318 92,318 92,344 Z" fill="#d9644f"></path>
+<text fill="#d9644f" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" text-anchor="middle" x="70" y="358">TANÁR</text>
+<circle cx="140" cy="300" fill="#1f8a87" r="11"></circle><path d="M118,344 C118,318 162,318 162,344 Z" fill="#1f8a87"></path>
+<text fill="#1f8a87" font-family="Inter, sans-serif" font-size="10.6" font-weight="700" letter-spacing="1" text-anchor="middle" x="140" y="358">KÖNYVTÁROS</text>
+<circle cx="200" cy="275" fill="#d9644f" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="200" y="279">4</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="220" y="270">A könyvtáros a tanárral</text><text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="220" y="288">együtt tervez</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="220" y="306">Mindketten a teremben:</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="220" y="322">kérdés + forrás</text>
+<path d="M170,340 C260,350 300,330 386,330" fill="none" stroke="#d9644f" stroke-dasharray="5 4" stroke-width="2"></path>
+<path d="M378,324 L388,330 L378,336 Z" fill="#d9644f"></path>
+<path d="M574,191 C614,191 614,151 654,151" fill="none" stroke="#d99a2b" stroke-width="2"></path>
+<circle cx="690" cy="151" fill="#d99a2b" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="690" y="155">2</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="710" y="140">A hivatkozás láthatóvá</text><text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="710" y="157">tett gondolkodás</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="173">honnan jött  ·  hogyan</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="188">alakult át  ·  mit tett hozzá a diák</text>
+<rect fill="#bfdbfe" height="18" rx="9" width="76" x="710" y="196"></rect><text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="748" y="208">forrás</text>
+<rect fill="#93c5fd" height="18" rx="9" width="84" x="792" y="196"></rect><text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="834" y="208">átalakítva</text>
+<rect fill="#1d4ed8" height="18" rx="9" width="84" x="882" y="196"></rect><text fill="#fff" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="924" y="208">hozzáadva</text>
+<path d="M574,327 C614,327 614,347 654,347" fill="none" stroke="#5b4a9e" stroke-width="2"></path>
+<circle cx="690" cy="341" fill="#5b4a9e" r="12"></circle><text fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="690" y="345">3</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="710" y="330">AI: használd, nevezd meg,</text><text fill="#0f2340" font-family="Inter, sans-serif" font-size="16.1" font-weight="700" x="710" y="347">maradj a szerző</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="364">Nem az, hogy használd-e, hanem mire,</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="379">és hogyan jelzed.</text><text fill="#475569" font-family="Inter, sans-serif" font-size="14.7" x="710" y="394">Napló a lábjegyzetben.</text>
+</svg>
+</div>
+<div class="why-grid">
+<div class="why-cell">
+<div class="why-cell-top why-top-1"></div>
+<div class="why-cell-body">
+<h3><span class="why-num" style="background:#1f8a87">1</span>A kutatás folytonosság, nem egy tananyagegység</h3>
+<p>A források megítélése hatodikban és egy érvelés megvédése az Extended Essay-ben ugyanaz a készség, más szinten. A könyvtári program akkor működik, ha könyvtárosok és tanárok megegyeznek abban, mit kell tudnia a diáknak az egyes szakaszokban, és együtt építenek felé.</p>
+</div>
+</div>
+<div class="why-cell">
+<div class="why-cell-top why-top-2"></div>
+<div class="why-cell-body">
+<h3><span class="why-num" style="background:#d99a2b">2</span>A hivatkozás láthatóvá tett gondolkodás</h3>
+<p>A hivatkozás nem formázási feladat. Megmutatja, honnan jött egy gondolat, hogyan változott, és mit tett hozzá a diák. Így tanítva a tudományos tisztesség alapja lesz, nem betartatandó szabály.</p>
+</div>
+</div>
+<div class="why-cell">
+<div class="why-cell-top why-top-3"></div>
+<div class="why-cell-body">
+<h3><span class="why-num" style="background:#5b4a9e">3</span>AI: használd, nevezd meg, maradj a szerző</h3>
+<p>A diákok használni fogják az AI-eszközöket. A hasznos kérdés az: mire, és hogyan jelzik? Vizsgáztatóként látom, hogyan néz ki a jelöletlen AI-használat. Inkább megtanítom a diákokat nyíltan dolgozni, mint hogy a rossz pillanatban szembesüljenek a problémával.</p>
+</div>
+</div>
+<div class="why-cell">
+<div class="why-cell-top why-top-4"></div>
+<div class="why-cell-body">
+<h3><span class="why-num" style="background:#d9644f">4</span>A könyvtáros a tanárokkal tervez</h3>
+<p>Tizenkét év tanítás alatt egyetlen könyvtáros sem tervezett velem órát, és minden kutatási feladatnál éreztem ezt a hiányt. Azt a könyvtári órát szeretném adni, amit én kaptam volna szívesen: a tanár hozza a tananyagot és a kérdést, a könyvtáros a forrásokat, a keresési stratégiákat és a tisztességi ellenőrzőpontokat. Mindketten a teremben vannak.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#dbeafe;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,85 480,5 720,50 C960,95 1200,15 1440,60 L1440,92 L0,92 Z" fill="#ffffff"></path>
+</svg>
+</div>
+<!-- ── WEB & DIGITAL ───────────────────────────────────────────────── -->
+<section class="section" id="built">
+<div class="container">
+<p class="section-label" style="text-align:center">Digitális</p>
+<h2 class="section-heading">Amit építettem</h2>
+<div class="divider"></div>
+<p class="section-intro">Az eszközöket magam építem, a kutatási útmutatótól az appig. Egy könyvtári weboldal vagy egy digitális forrás olyasmi, amit megcsinálok, nem olyasmi, amire várok.</p>
+<div class="digital-grid">
+<div class="exp-card" id="hh">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-02.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">Könyvtárpedagógia · Óvoda</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Happy Hamster (HH)</h3>
+<p class="exp-org">Képernyőmentes, robot-asszisztált könyvtári foglalkozások a legkisebb olvasóknak</p>
+<blockquote class="epigraph in-card">
+<p>„Ebben az országban mindenkinek meg kellene tanulnia programozni… mert megtanít gondolkodni.”</p>
+<cite>Steve Jobs, a <a href="https://youtu.be/nKlu9yen5nc" target="_blank" rel="noopener">What most schools don’t teach</a> című videóban (Code.org, 2013). Az informatikát szabad művészetnek is nevezte, amit mindenkinek tanulnia kellene. A Happy Hamster ezt az óvodai szőnyegen kezdi el.</cite>
+</blockquote>
+<ul>
+<li>Óvodásoknak szóló könyvtári program, saját képeskönyv-meséimre építve. Az első mese, a <em>Mr Hamster és a síró könyv</em>, egy kis kék könyvről szól, amelyet egy gyerek levett a polcról, megnézett és a padlón hagyott, és a hörcsögről, aki a könyvtáros asztalán lakik, és segít a könyvnek hazatalálni.</li>
+</ul>
+<details class="fold"><summary>Bővebben a foglalkozásról, a robotról és a státuszról</summary><ul>
+<li>A mese után a gyerekek egy igazi Mr Hamsterrel dolgoznak: egy hörcsögnek öltöztetett TaleBot Pro robottal. Úgy irányítják, hogy visszavigye az elveszett könyvet a helyére, a barátja mellé. Az első téma egyszerű: a polcról levett könyvnek otthona van, és vissza lehet vinni oda.</li>
+<li>Ez robot-asszisztált tanulás, nem robotika. A gyerekek nem építik meg a robotot, és nem tanulnak kódolni. Lépésről lépésre elmondják Mr Hamsternek, hogyan jusson el az olvasósarokból a megfelelő polcig. Ez egy első, játékos algoritmus, és a célja az, hogy a logikus gondolkodást tanítsa abban a korban, amikor ez még játéknak tűnik. Az egész foglalkozás képernyőmentes: egy könyv, egy mese, egy robot a szőnyegen és a gyerekek saját szavai. A robot a mese szereplője és türelmes segítő a foglalkozáson. A másik cél, hogy a négyéves úgy menjen el a könyvtárból, hogy a következő könyvet is akarja.</li>
+</ul></details>
+
+<div class="card-foot"><div class="scene" id="scene-hh"><svg class="scene-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Egy könyvtári polc. Egy kis kék könyv fekszik a padlón. Mr Hamster, a kis robot, a gyerekek négy lépését követve visszaviszi a könyvet a helyére, a barátja mellé.">
+<rect x="0" y="0" width="640" height="300" fill="#fbf9f4"/>
+<path d="M20,250 H620" stroke="#15212d" stroke-width="2" stroke-linecap="round"/>
+<rect x="420" y="60" width="180" height="190" fill="#fff" stroke="#15212d" stroke-width="2"/>
+<path d="M420,124 h180" stroke="#15212d" stroke-width="2"/>
+<path d="M420,188 h180" stroke="#15212d" stroke-width="2"/>
+<rect x="428" y="76" width="14" height="48" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="445" y="72" width="10" height="52" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="458" y="88" width="12" height="36" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="473" y="88" width="12" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="488" y="72" width="14" height="52" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="505" y="72" width="12" height="52" rx="1.5" fill="#15212d" opacity="0.85"/>
+<rect x="520" y="82" width="10" height="42" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="533" y="82" width="10" height="42" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="546" y="76" width="16" height="48" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="565" y="72" width="12" height="52" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="428" y="152" width="12" height="36" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="443" y="136" width="12" height="52" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="458" y="146" width="12" height="42" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="473" y="152" width="10" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="486" y="146" width="12" height="42" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="529" y="146" width="12" height="42" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="544" y="146" width="12" height="42" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="559" y="140" width="16" height="48" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="578" y="140" width="10" height="48" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="428" y="208" width="16" height="42" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="447" y="202" width="12" height="48" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="462" y="202" width="10" height="48" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="475" y="214" width="14" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="492" y="214" width="14" height="36" rx="1.5" fill="#93c5fd" opacity="0.85"/>
+<rect x="509" y="202" width="14" height="48" rx="1.5" fill="#15212d" opacity="0.85"/>
+<rect x="526" y="198" width="14" height="52" rx="1.5" fill="#0e7773" opacity="0.85"/>
+<rect x="543" y="208" width="14" height="42" rx="1.5" fill="#d99a37" opacity="0.85"/>
+<rect x="560" y="198" width="16" height="52" rx="1.5" fill="#bd5b4c" opacity="0.85"/>
+<rect x="579" y="214" width="12" height="36" rx="1.5" fill="#685071" opacity="0.85"/>
+<rect x="486" y="142" width="13" height="46" rx="1.5" fill="#0e7773"/>
+<rect x="501" y="142" width="13" height="46" rx="1.5" fill="none" stroke="#d99a37" stroke-width="1.5" stroke-dasharray="3 3" class="home-slot"/>
+<text x="507" y="134" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#d99a37">OTTHON</text>
+<ellipse cx="110" cy="250" rx="80" ry="9" fill="#e7dfd1" stroke="#15212d" stroke-width="1.5"/>
+<text x="110" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing="1" fill="#6b706e">OLVASÓSAROK</text>
+<g class="hamster-group">
+<g class="book-blue"><rect x="-10" y="-14" width="20" height="14" rx="2" fill="#3b82f6" stroke="#15212d" stroke-width="1.5"/><path d="M-6,-10 h12 M-6,-6 h8" stroke="#fff" stroke-width="1.5"/><path class="tear" d="M-3,-2 q0,4 -2,5" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/></g>
+<g class="robot" transform="translate(0,0)"><rect x="-18" y="-40" width="36" height="30" rx="12" fill="#d99a37" stroke="#15212d" stroke-width="2"/><circle cx="-11" cy="-40" r="6" fill="#d99a37" stroke="#15212d" stroke-width="2"/><circle cx="11" cy="-40" r="6" fill="#d99a37" stroke="#15212d" stroke-width="2"/><circle cx="-6" cy="-27" r="2" fill="#15212d"/><circle cx="6" cy="-27" r="2" fill="#15212d"/><path d="M-3,-21 q3,2 6,0" stroke="#15212d" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="-9" cy="-9" r="5" fill="#15212d"/><circle cx="9" cy="-9" r="5" fill="#15212d"/></g>
+</g>
+<g class="step step-1"><rect x="40" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="56" cy="39" r="9" fill="#15212d"/><text x="56" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">1</text><text x="72" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">fordulj jobbra</text></g>
+<g class="step step-2"><rect x="140" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="156" cy="39" r="9" fill="#15212d"/><text x="156" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">2</text><text x="172" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">menj előre</text></g>
+<g class="step step-3"><rect x="240" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="256" cy="39" r="9" fill="#15212d"/><text x="256" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">3</text><text x="272" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">menj előre</text></g>
+<g class="step step-4"><rect x="340" y="22" width="92" height="34" rx="6" fill="#fff" stroke="#15212d" stroke-width="1.5"/><circle cx="356" cy="39" r="9" fill="#15212d"/><text x="356" y="42.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#fff">4</text><text x="372" y="43" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#15212d">emeld fel</text></g>
+<text class="scene-caption" x="320" y="292" text-anchor="middle" font-family="DM Serif Display, serif" font-size="13" fill="#15212d">A polcról levett könyvnek otthona van, és vissza lehet vinni oda.</text>
+</svg></div><div class="tags"><span class="tag">Óvoda</span><span class="tag">Saját mesék</span><span class="tag">Képernyőmentes</span><span class="tag">Robot-asszisztált tanulás</span><span class="tag">TaleBot Pro</span><span class="tag">Pilot tervezés alatt</span></div><div class="card-actions"><button class="scene-trigger" type="button" aria-expanded="false" aria-controls="scene-hh"><svg class="ti ti-open" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M8,7 l5,3 l-5,3 z"/></svg><svg class="ti ti-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M7,7 l6,6 M13,7 l-6,6"/></svg><span>Vidd haza a könyvet</span></button></div></div>
+</div>
+</div>
+<div class="exp-card" id="sta">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-03.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">Könyvtárpedagógia · 11–12. évfolyam</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Stay the Author!</h3>
+<p class="exp-org">Kutatási írás az AI korában, a legidősebb könyvtárhasználóknak</p>
+<ul>
+<li>A Happy Hamster nagyobb testvére. Az óvodai program arról szól, hogy egy könyv hazatalál. Ez arról, hogy a diák a saját esszéjének szerzője marad akkor is, amikor gépek ajánlják fel a segítségüket.</li>
+<li>Ezt az utat mindkét végéről ismerem. Az IB Diploma Programme tanáraként magam is vezettem Extended Essay-ket, portfólió-vizsgáztatóként pedig most azt olvasom, amit a diákok beadnak. Az AI-használat és a szerzőség kérdései kiemelt érdeklődési területemmé váltak. Könyvtárosként azt szeretném, hogy amit valódi diákmunkákból tanultam, azt a következő nemzedéknek adjam át, még mielőtt beadják a saját munkájukat.</li>
+</ul>
+<details class="fold"><summary>Bővebben a négy állomásról és a státuszról</summary><ul>
+<li>Négy állomás az Extended Essay felé vezető úton, mindegyik egy rövid könyvtári workshop és egy egyéni megbeszélés: <em>Kérdés</em> (megtalálni és leszűkíteni), <em>Források</em> (keresni, megítélni, hivatkozni), <em>Hang</em> (a saját mondataid, és hogyan jelzed az AI-használatot), <em>Szerzőség</em> (a szöveged mely részeit tudod megvédeni a leadás előtt).</li>
+<li>Nem AI-tilalom, és nem plágiumrendőrség. A könyvtáros mint a szerzőség őre.</li>
+</ul></details>
+
+<div class="card-foot"><div class="scene" id="scene-sta"><svg class="scene-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Egy esszéoldal. Egy toll aláírja: by you. Az „és az AI” szavak át vannak húzva. Négy állomás jelenik meg: Kérdés, Források, Hang, Szerzőség.">
+<rect x="0" y="0" width="640" height="300" fill="#fbf9f4"/>
+<rect x="60" y="24" width="250" height="240" rx="3" fill="#fff" stroke="#15212d" stroke-width="2"/>
+<text x="80" y="54" font-family="DM Serif Display, serif" font-size="15" fill="#15212d">Extended Essay</text>
+<path d="M80,118 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,132 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,146 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,160 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,174 h120" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,196 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,210 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,224 h200" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,238 h120" stroke="#d9d0c0" stroke-width="4" stroke-linecap="round"/>
+<path d="M80,92 h200" stroke="rgba(21,33,45,.22)" stroke-width="1"/>
+<text class="and-ai" x="160" y="84" font-family="Inter, sans-serif" font-size="13" fill="#6b706e">és az AI</text>
+<path class="strike" d="M156,79 L208,79" stroke="#bd5b4c" stroke-width="3" stroke-linecap="round"/>
+<text class="sig" x="82" y="86" font-family="DM Serif Display, serif" font-style="italic" font-size="26" fill="#15212d">by you</text>
+<path class="sig-line" d="M82,92 C110,86 140,96 158,90" stroke="#15212d" stroke-width="2" fill="none" stroke-linecap="round"/>
+<g class="pen"><g transform="rotate(40)"><rect x="-6" y="-70" width="12" height="44" rx="5" fill="#685071"/><rect x="-6" y="-28" width="12" height="7" fill="#bd5b4c"/><path d="M-6,-21 h12 l-6,21 z" fill="#d99a37" stroke="#15212d" stroke-width="1.2" stroke-linejoin="round"/><path d="M0,-16 v12" stroke="#15212d" stroke-width="1.2"/></g></g>
+<g class="station station-1"><circle cx="356" cy="54" r="11" fill="#fff" stroke="#0e7773" stroke-width="2.5"/><text x="356" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#0e7773">1</text><text x="378" y="50" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Kérdés</text><text x="378" y="66" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">megtalálni és leszűkíteni</text></g>
+<path class="station-link station-link-1" d="M356,66 v32" stroke="rgba(21,33,45,.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="station station-2"><circle cx="356" cy="112" r="11" fill="#fff" stroke="#d99a37" stroke-width="2.5"/><text x="356" y="116" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#d99a37">2</text><text x="378" y="108" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Források</text><text x="378" y="124" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">keresni, megítélni, hivatkozni</text></g>
+<path class="station-link station-link-2" d="M356,124 v32" stroke="rgba(21,33,45,.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="station station-3"><circle cx="356" cy="170" r="11" fill="#fff" stroke="#bd5b4c" stroke-width="2.5"/><text x="356" y="174" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#bd5b4c">3</text><text x="378" y="166" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Hang</text><text x="378" y="182" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">a saját mondataid, AI jelezve</text></g>
+<path class="station-link station-link-3" d="M356,182 v32" stroke="rgba(21,33,45,.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="station station-4"><circle cx="356" cy="228" r="11" fill="#fff" stroke="#685071" stroke-width="2.5"/><text x="356" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#685071">4</text><text x="378" y="224" font-family="DM Serif Display, serif" font-size="16" fill="#15212d">Szerzőség</text><text x="378" y="240" font-family="Inter, sans-serif" font-size="10.5" fill="#6b706e">amit meg tudsz védeni</text></g>
+<text class="scene-caption" x="320" y="292" text-anchor="middle" font-family="DM Serif Display, serif" font-size="13" fill="#15212d">A te neved áll az esszén. Gondoskodj róla, hogy ott is legyen a helye.</text>
+</svg></div><div class="tags"><span class="tag">11–12. évfolyam</span><span class="tag">Extended Essay</span><span class="tag">AI és szerzőség</span><span class="tag">Tervezés alatt</span></div><div class="card-actions"><button class="scene-trigger" type="button" aria-expanded="false" aria-controls="scene-sta"><svg class="ti ti-open" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M8,7 l5,3 l-5,3 z"/></svg><svg class="ti ti-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M7,7 l6,6 M13,7 l-6,6"/></svg><span>Írd alá az esszéd</span></button> <a class="btn btn-primary" href="#guide">Az útmutató</a></div></div>
+</div>
+</div>
+<div class="exp-card" id="chapter">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-04.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">Oktatástervezés</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Tanulási térdesign: interaktív tananyag</h3>
+<p class="exp-org">Könyvtárosoknak és tanároknak · eXe Learning · SCORM</p>
+<ul>
+<li>Szakmai továbbképző tananyag könyvtárosoknak és tanároknak arról, hogyan tervezik a könyvtári és iskolai tanulási tereket: a gondolat mögötti kutatás, a térrendezés elvei, a fő típusok az amfiteátrumtól a barlangig, és valódi példák galériája.</li>
+<li>Nyolc lecke önellenőrző feladattal és teszttel, angolul és magyarul. eXe Learningben írtam és építettem, így SCORM-csomagként bármely tanulási platformhoz hozzáadható.</li>
+</ul>
+
+<div class="card-foot"><div class="tags"><span class="tag">eXe Learning</span><span class="tag">HTML5</span></div><div class="card-actions"><a class="btn btn-primary" href="https://nishizawagsz.github.io/exe-learning/en/" target="_blank">A fejezet (angolul)</a> <a class="btn btn-outline" href="https://nishizawagsz.github.io/exe-learning/" lang="hu" target="_blank">Magyarul</a></div></div>
+</div>
+</div>
+<div class="exp-card" id="nitaii">
+<div class="exp-visual" style="height:150px;background:url(assets/embedded-05.jpg) center/cover no-repeat">
+<span class="cat" style="background:rgba(15,35,64,0.7);color:#fff;border-color:transparent">EdTech-kezdeményezés</span>
+</div>
+<div class="exp-body">
+<h3 class="exp-title">Nitaii Learning Lab</h3>
+<p class="exp-org">Független EdTech-kezdeményezés, Jokohama</p>
+<ul>
+<li>A tanulást támogató eszközök ott, ahol az oktatás, a technológia és a megismerés találkozik.</li>
+<li>Az első projekt a Focusa, egy Swiftben írt iOS-app azoknak a diákoknak, akiknek nehéz koncentrálni. Tanulás közben egyszerű jeleket olvas a testből, és megmutatja a diáknak, mikor lankad a figyelme, és mikor esedékes egy szünet.</li>
+</ul>
+
+<div class="card-foot"><div class="tags"><span class="tag">Diákjóllét</span><span class="tag">iOS / Swift</span></div><div class="card-actions"><a class="btn btn-primary" href="https://nitaii.eu/" target="_blank">A Nitaii oldala</a></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── SAMPLE GUIDE ────────────────────────────────────────────────── -->
+<section class="section section-alt" id="guide">
+<div class="container">
+<p class="section-label" style="text-align:center">Munkaminta</p>
+<h2 class="section-heading">Kutatási mintaútmutató</h2>
+<div class="divider"></div>
+<p class="section-intro">Példa arra az egyoldalas útmutatóra, amelyet diákoknak írnék, a témavezetőkkel közösen kidolgozva és az iskola tudományos tisztességi és AI-szabályzatához igazítva.</p>
+<div class="guide">
+<div class="guide-header">
+<h3>Stay the Author!</h3>
+<span class="badge">AI-használat az Extended Essay-ben · 11–12. évfolyam</span>
+</div>
+<div class="guide-body">
+<div class="guide-flow">
+<svg aria-label="Egy esszéoldal, amely megmutatja, hol van az AI helye: nem a szerző helyén, a szövegben csak hivatkozott idézetként, viszont a lábjegyzetekben, az irodalomjegyzékben és a kutatási naplóban igen" role="img" viewbox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#dbeafe" height="440" rx="4" width="330" x="66" y="38"></rect>
+<rect fill="#fff" height="440" rx="4" stroke="#0f2340" stroke-width="1.8" width="330" x="60" y="30"></rect>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="17" x="84" y="74">Extended Essay</text>
+<path d="M84,88h200M84,100h150" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#fff7ed" height="26" rx="13" stroke="#d99a2b" stroke-width="1.5" width="150" x="78" y="116"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="12" x="92" y="133">by <tspan font-weight="700">you</tspan></text>
+<text fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" x="152" y="134">és az AI</text>
+<path d="M148,130 L198,130" stroke="#c2410c" stroke-width="2.2"></path>
+<path d="M84,166h270" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,179h250" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,192h280" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#eff6ff" height="40" rx="3" stroke="#bfdbfe" width="282" x="84" y="212"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="10" x="92" y="226">„…egy mondat, amelyet AI-eszköz írt, idézőjelben…”</text>
+<text fill="#1d4ed8" font-family="Inter, sans-serif" font-size="10" font-weight="700" x="92" y="242">(ChatGPT 2026) [2]</text>
+<path d="M84,274h260" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,287h280" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,300h240" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,313h200" stroke="#e2e8f0" stroke-linecap="round" stroke-width="5"></path>
+<path d="M84,348h120" stroke="#94a3b8" stroke-width="1"></path>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" x="84" y="364">1  Szerző (2024), 12. o.</text>
+<rect fill="#f3f0fa" height="18" rx="3" stroke="#5b4a9e" stroke-width="1.2" width="294" x="78" y="372"></rect>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="9.5" x="84" y="385">2  ChatGPT (GPT-5), OpenAI, 2026. okt. 12., prompt: „…”, URL</text>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" x="84" y="414">Irodalomjegyzék</text>
+<path d="M84,424h230" stroke="#e2e8f0" stroke-linecap="round" stroke-width="4"></path>
+<rect fill="#f3f0fa" height="14" rx="3" stroke="#5b4a9e" stroke-width="1.2" width="200" x="78" y="431"></rect>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="8.5" x="84" y="441">OpenAI (2026) ChatGPT … [AI-eszköz]</text>
+<rect fill="#fff" height="96" rx="6" stroke="#5b4a9e" stroke-width="1.6" width="120" x="440" y="372"></rect>
+<rect fill="#5b4a9e" height="96" rx="6" width="14" x="440" y="372"></rect>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="10" font-weight="700" x="466" y="394">AI-napló</text>
+<path d="M466,408h70" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M466,422h60" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M466,436h50" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M466,450h40" stroke="#e9e4f5" stroke-linecap="round" stroke-width="4"></path>
+<path d="M230,129 C280,129 550,60 600,60" fill="none" stroke="#c2410c" stroke-width="1.8"></path>
+<circle cx="230" cy="129" fill="#c2410c" r="4"></circle>
+<text fill="#c2410c" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="64">Nem a szerző neve mellett.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="82">Az esszének egy szerzője van. Nem az AI az,</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="97">és az IB nem számítja a szavait a tiédnek.</text>
+<path d="M368,232 C418,232 550,160 600,160" fill="none" stroke="#1d4ed8" stroke-width="1.8"></path>
+<circle cx="368" cy="232" fill="#1d4ed8" r="4"></circle>
+<text fill="#1d4ed8" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="164">A szövegben csak idézetként.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="182">Idézőjel, szövegközi hivatkozás,</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="197">és idézetnek számít, nem a te munkádnak.</text>
+<path d="M372,381 C422,381 550,262 600,262" fill="none" stroke="#5b4a9e" stroke-width="1.8"></path>
+<circle cx="372" cy="381" fill="#5b4a9e" r="4"></circle>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="266">A lábjegyzetben és az irodalomjegyzékben.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="284">Eszköz és verzió, dátum, URL, prompt.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="299">Mint bármely más forrás.</text>
+<path d="M560,412 C610,412 550,372 600,372" fill="none" stroke="#5b4a9e" stroke-width="1.8"></path>
+<circle cx="560" cy="412" fill="#5b4a9e" r="4"></circle>
+<text fill="#5b4a9e" font-family="Inter, sans-serif" font-size="13" font-weight="700" x="610" y="376">És a kutatási naplódban.</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="394">Mit kérdeztél, mikor, és mit kezdtél</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" x="610" y="409">a válasszal. Készen a védésre.</text>
+<text fill="#0f2340" font-family="'DM Serif Display', Georgia, serif" font-size="15" text-anchor="end" x="880" y="488">Hol van az AI helye az oldaladon, és hol nincs?</text>
+</svg>
+</div>
+<p class="guide-note"><a href="https://ibo.org/news/news-about-the-ib/statement-from-the-ib-about-chatgpt-and-artificial-intelligence-in-assessment-and-education/" rel="noopener" target="_blank">Az IB nem tiltja az AI-eszközöket.</a> Az álláspontja az, hogy minden AI által előállított szöveget, képet vagy grafikont, amelyet felhasználsz, meg kell jelölnöd az esszé szövegében, és hivatkoznod kell rá az irodalomjegyzékben, és hogy az IB „nem tekinti a diák sajátjának azt a munkát, amelyet akár csak részben is ilyen eszközök állítottak elő”. Más szóval: idézheted és hivatkozhatsz rá, de nem számít a te munkádnak. Az iskolád tudományos tisztességi és AI-szabályzata és a témavezetőd útmutatása mindig az első. Mielőtt elkezdenéd, nézd meg mindkettőt.</p>
+<div class="guide-cols">
+<div class="guide-col ok">
+<h4>Miben segíthet az AI</h4>
+<ul>
+<li>Egy téma különböző nézőpontjainak feltárása, mielőtt kutatási kérdést választasz</li>
+<li>Egy nehéz fogalom elmagyarázása, amellyel olvasás közben találkoztál</li>
+<li>Egy bekezdés nyelvtanának ellenőrzése, amelyet <em>te</em> írtál</li>
+<li>Gyakorlókérdések készítése a megértésed ellenőrzésére</li>
+<li>Egy már elolvasott cikk összefoglalása, hogy ellenőrizd, megértetted-e</li>
+</ul>
+</div>
+<div class="guide-col no">
+<h4>Miben fog cserbenhagyni</h4>
+<ul>
+<li>Forráskeresés. Az AI kitalál hivatkozásokat, ezért minden hivatkozást ellenőrizz valódi adatbázisban vagy katalógusban.</li>
+<li>A bekezdéseid megírása. Az esszének a te érvelésednek kell lennie, a te szavaiddal.</li>
+<li>Az adataid vagy az elsődleges forrásod elemzése helyetted</li>
+<li>Az olvasás helyettesítése. Az összefoglalókból kimarad az, amiért egy forrást érdemes idézni.</li>
+</ul>
+</div>
+</div>
+<details class="fold"><summary>A teljes útmutató: hogyan jelezd az AI-használatot, az ellenőrzőlista és a források</summary>
+<div class="guide-block">
+<h4>Hogyan jelezd az AI-használatot</h4>
+<ol>
+<li>Ha AI által írt szöveg szerepel az esszédben, tedd idézőjelbe, és hivatkozz rá a szövegben és az irodalomjegyzékben.</li>
+<li>Ha AI-tól származó gondolatot vagy magyarázatot használtál, fogalmazd át, és ugyanígy hivatkozz rá.</li>
+<li>Jegyezd fel az eszközt és a verziót, a dátumot, az URL-t (ha lehet, a beszélgetését) és a promptot, például: <code>ChatGPT (GPT-5), OpenAI, 2026. okt. 12., prompt: „Magyarázd el a különbséget…”, https://chatgpt.com/...</code></li>
+<li>Vezess rövid AI-naplót a kutatási naplód mellett. A témavezetőd rákérdezhet a reflexiós beszélgetéseken.</li>
+</ol>
+</div>
+<div class="checklist">
+<div class="check"><strong>Leadás előtt kérdezd meg magadtól:</strong>El tudnám magyarázni az esszé minden állítását az eszköz nélkül?</div>
+<div class="check"><strong>Források</strong>Magam nyitottam meg és olvastam el az irodalomjegyzékem minden forrását?</div>
+<div class="check"><strong>Jelzés</strong>Látható az olvasó számára minden AI-segítség, amire támaszkodtam?</div>
+</div>
+<p class="guide-sources">Forrás: International Baccalaureate Organization (2023) <em>Statement from the IB about ChatGPT and artificial intelligence in assessment and education</em>. <a href="https://ibo.org/news/news-about-the-ib/statement-from-the-ib-about-chatgpt-and-artificial-intelligence-in-assessment-and-education/" rel="noopener" target="_blank">ibo.org</a> (letöltve: 2026. október 31.). Lásd még az IB <em>Academic integrity policy</em> című dokumentumának a mesterséges intelligenciáról szóló szakaszát, amely az iskolák számára az IB Programme Resource Centre-en érhető el.</p>
+</details>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#dbeafe;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,0 C480,90 960,90 1440,0 L1440,92 L0,92 Z" fill="#ffffff"></path>
+</svg>
+</div>
+<!-- ── READING CULTURE ─────────────────────────────────────────────── -->
+<section class="section" id="reading">
+<div class="container">
+<p class="section-label" style="text-align:center">Programötletek</p>
+<h2 class="section-heading">Olvasáskultúra egy iskolai könyvtárban</h2>
+<div class="divider"></div>
+<p class="section-intro">Ötletek, amelyekhez újra és újra visszatérek. Némelyik abból jön, amit most működni látok, másokat diákokkal és kollégákkal szeretnék kipróbálni.</p>
+<div class="story-figure" style="max-width:900px;margin:8px auto 28px">
+<svg aria-label="Egy könyvtári fal négy sarokkal: családi nyelvek polca szülői jegyzetekkel, diák-könyvajánló és könyvajánló-tábla, olvasósarok vonakodó olvasóknak, és egy szerző meg egy fordító beszélgetése" role="img" viewbox="0 0 960 330" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ar" markerheight="8" markerwidth="8" orient="auto" refx="6" refy="4"><path d="M0,0 L8,4 L0,8 z" fill="#0f2340"></path></marker></defs>
+<path d="M20,236 H940" stroke="#0f2340" stroke-linecap="round" stroke-width="2"></path>
+<rect fill="#fff" height="158" stroke="#0f2340" stroke-width="2" width="180" x="50" y="78"></rect>
+<path d="M50,134 h180" stroke="#0f2340" stroke-width="2"></path>
+<path d="M50,190 h180" stroke="#0f2340" stroke-width="2"></path>
+<rect fill="#1f8a87" height="48" opacity="0.85" rx="1.5" width="15" x="58" y="86"></rect>
+<rect fill="#d99a2b" height="40" opacity="0.85" rx="1.5" width="15" x="76" y="94"></rect>
+<rect fill="#d9644f" height="48" opacity="0.85" rx="1.5" width="11" x="94" y="86"></rect>
+<rect fill="#5b4a9e" height="34" opacity="0.85" rx="1.5" width="11" x="108" y="100"></rect>
+<rect fill="#3b82f6" height="44" opacity="0.85" rx="1.5" width="15" x="122" y="90"></rect>
+<rect fill="#0f2340" height="34" opacity="0.85" rx="1.5" width="11" x="140" y="100"></rect>
+<rect fill="#93c5fd" height="48" opacity="0.85" rx="1.5" width="9" x="154" y="86"></rect>
+<rect fill="#1f8a87" height="40" opacity="0.85" rx="1.5" width="15" x="166" y="94"></rect>
+<rect fill="#d99a2b" height="34" opacity="0.85" rx="1.5" width="9" x="184" y="100"></rect>
+<rect fill="#d9644f" height="34" opacity="0.85" rx="1.5" width="9" x="196" y="100"></rect>
+<rect fill="#5b4a9e" height="40" opacity="0.85" rx="1.5" width="11" x="208" y="94"></rect>
+<rect fill="#1f8a87" height="48" opacity="0.85" rx="1.5" width="9" x="58" y="142"></rect>
+<rect fill="#d99a2b" height="48" opacity="0.85" rx="1.5" width="13" x="70" y="142"></rect>
+<rect fill="#d9644f" height="40" opacity="0.85" rx="1.5" width="11" x="86" y="150"></rect>
+<rect fill="#5b4a9e" height="48" opacity="0.85" rx="1.5" width="13" x="100" y="142"></rect>
+<rect fill="#3b82f6" height="34" opacity="0.85" rx="1.5" width="9" x="116" y="156"></rect>
+<rect fill="#0f2340" height="44" opacity="0.85" rx="1.5" width="15" x="128" y="146"></rect>
+<rect fill="#93c5fd" height="34" opacity="0.85" rx="1.5" width="15" x="146" y="156"></rect>
+<rect fill="#1f8a87" height="44" opacity="0.85" rx="1.5" width="13" x="164" y="146"></rect>
+<rect fill="#d99a2b" height="44" opacity="0.85" rx="1.5" width="11" x="180" y="146"></rect>
+<rect fill="#d9644f" height="34" opacity="0.85" rx="1.5" width="9" x="194" y="156"></rect>
+<rect fill="#5b4a9e" height="48" opacity="0.85" rx="1.5" width="9" x="206" y="142"></rect>
+<rect fill="#1f8a87" height="44" opacity="0.85" rx="1.5" width="9" x="58" y="192"></rect>
+<rect fill="#d99a2b" height="34" opacity="0.85" rx="1.5" width="15" x="70" y="202"></rect>
+<rect fill="#d9644f" height="34" opacity="0.85" rx="1.5" width="9" x="88" y="202"></rect>
+<rect fill="#5b4a9e" height="40" opacity="0.85" rx="1.5" width="11" x="100" y="196"></rect>
+<rect fill="#3b82f6" height="48" opacity="0.85" rx="1.5" width="9" x="114" y="188"></rect>
+<rect fill="#0f2340" height="48" opacity="0.85" rx="1.5" width="15" x="126" y="188"></rect>
+<rect fill="#93c5fd" height="34" opacity="0.85" rx="1.5" width="15" x="144" y="202"></rect>
+<rect fill="#1f8a87" height="44" opacity="0.85" rx="1.5" width="11" x="162" y="192"></rect>
+<rect fill="#d99a2b" height="34" opacity="0.85" rx="1.5" width="13" x="176" y="202"></rect>
+<rect fill="#d9644f" height="44" opacity="0.85" rx="1.5" width="13" x="192" y="192"></rect>
+<rect fill="#5b4a9e" height="48" opacity="0.85" rx="1.5" width="9" x="208" y="188"></rect>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="58" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="73" y="137.5">HU</text>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="101" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="116" y="137.5">JA</text>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="144" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="159" y="137.5">DE</text>
+<rect fill="#fff" height="12" rx="2" stroke="#0f2340" stroke-width="1.2" width="30" x="187" y="128"></rect>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="202" y="137.5">KO</text>
+<g transform="rotate(5 262 112)"><rect fill="#fff" height="40" rx="3" stroke="#d99a2b" stroke-width="2" width="52" x="236" y="92"></rect><path d="M244,103h36M244,111h30M244,119h36" opacity="0.8" stroke="#d99a2b" stroke-width="2"></path></g>
+<circle cx="262" cy="94" fill="#d99a2b" r="3"></circle>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="262" y="150">jegyzet a</text><text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="262" y="162">szülőknek</text>
+<circle cx="366" cy="141" fill="#0f2340" r="11"></circle>
+<rect fill="#0f2340" height="8" width="8" x="362" y="150"></rect>
+<rect fill="#0f2340" height="52" rx="12" width="34" x="349" y="158"></rect>
+<path d="M357,208 v28 M375,208 v28" stroke="#0f2340" stroke-linecap="round" stroke-width="9"></path>
+<path d="M353,236 h-4 M379,236 h4" stroke="#0f2340" stroke-linecap="round" stroke-width="5"></path>
+<path d="M380,168 L404,150" stroke="#0f2340" stroke-linecap="round" stroke-width="8"></path>
+<path d="M352,168 L346,196" stroke="#0f2340" stroke-linecap="round" stroke-width="8"></path>
+<g transform="rotate(-20 408 142)"><path d="M398,132 q10,-4 20,0 v22 q-10,-4 -20,0 z" fill="#fff" stroke="#d9644f" stroke-width="2"></path><path d="M418,132 q10,-4 20,0 v22 q-10,-4 -20,0 z" fill="#fff" stroke="#d9644f" stroke-width="2"></path></g>
+<path d="M312,82 h66 a8,8 0 0 1 8,8 v22 a8,8 0 0 1 -8,8 h-22 l-8,12 v-12 h-36 a8,8 0 0 1 -8,-8 v-22 a8,8 0 0 1 8,-8 z" fill="#fff" stroke="#0f2340" stroke-width="2"></path>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" text-anchor="middle" x="345" y="103">öt perc</text>
+<circle cx="440" cy="198" fill="#0f2340" opacity="0.55" r="8"></circle><path d="M426,236 v-16 a14,14 0 0 1 28,0 v16 z" fill="#0f2340" opacity="0.55"></path>
+<circle cx="468" cy="198" fill="#0f2340" opacity="0.55" r="8"></circle><path d="M454,236 v-16 a14,14 0 0 1 28,0 v16 z" fill="#0f2340" opacity="0.55"></path>
+<circle cx="496" cy="198" fill="#0f2340" opacity="0.55" r="8"></circle><path d="M482,236 v-16 a14,14 0 0 1 28,0 v16 z" fill="#0f2340" opacity="0.55"></path>
+<rect fill="#fff" height="60" rx="3" stroke="#0f2340" stroke-width="2" width="104" x="420" y="66"></rect>
+<text fill="#3b82f6" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" text-anchor="middle" x="472" y="80">KÖNYVAJÁNLÓ</text>
+<rect fill="#1f8a87" height="12" opacity="0.75" rx="1.5" width="20" x="428" y="88"></rect>
+<rect fill="#d99a2b" height="12" opacity="0.75" rx="1.5" width="20" x="452" y="90"></rect>
+<rect fill="#5b4a9e" height="12" opacity="0.75" rx="1.5" width="20" x="476" y="87"></rect>
+<rect fill="#d9644f" height="12" opacity="0.75" rx="1.5" width="20" x="500" y="90"></rect>
+<rect fill="#3b82f6" height="12" opacity="0.75" rx="1.5" width="20" x="440" y="106"></rect>
+<rect fill="#1f8a87" height="12" opacity="0.75" rx="1.5" width="20" x="466" y="108"></rect>
+<rect fill="#d99a2b" height="12" opacity="0.75" rx="1.5" width="20" x="492" y="105"></rect>
+<path d="M552,236 c-6,-40 30,-66 80,-62 c46,4 70,30 62,62 z" fill="#dbeafe" stroke="#0f2340" stroke-width="2"></path>
+<circle cx="652" cy="170" fill="#0f2340" r="11"></circle><path d="M640,168 a12,12 0 0 1 24,0" fill="none" stroke="#0f2340" stroke-width="3"></path><rect fill="#0f2340" height="10" rx="2" width="6" x="637" y="166"></rect><rect fill="#0f2340" height="10" rx="2" width="6" x="661" y="166"></rect><g transform="rotate(10 650 206)"><rect fill="#0f2340" height="48" rx="11" width="32" x="634" y="182"></rect></g><path d="M640,226 L606,228 L590,236" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path><path d="M640,196 L620,208" stroke="#0f2340" stroke-linecap="round" stroke-width="7"></path><g transform="rotate(-14 612 212)"><rect fill="#fff" height="28" rx="2" stroke="#5b4a9e" stroke-width="2" width="40" x="592" y="198"></rect><path d="M612,198 v28 M592,212 h40" stroke="#5b4a9e" stroke-width="1.5"></path><circle cx="602" cy="205" fill="#5b4a9e" opacity="0.6" r="3"></circle><path d="M617,219 h11" stroke="#5b4a9e" stroke-width="2"></path></g>
+<rect fill="#3b82f6" height="10" opacity="0.85" rx="1.5" width="40" x="704" y="226"></rect><rect fill="#1f8a87" height="9" opacity="0.85" rx="1.5" width="34" x="708" y="216"></rect><rect fill="#d99a2b" height="9" opacity="0.85" rx="1.5" width="36" x="706" y="206"></rect>
+<circle cx="724" cy="186" fill="#fff" r="10" stroke="#0f2340" stroke-width="1.8"></circle><path d="M721,181 l8,5 l-8,5 z" fill="#0f2340"></path>
+<path d="M768,172 v36 M768,208 h40 M772,208 v28 M804,208 v28" stroke="#0f2340" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="786" cy="154" fill="#0f2340" r="11"></circle>
+<rect fill="#0f2340" height="7" width="8" x="782" y="163"></rect>
+<path d="M772,170 h28 a6,6 0 0 1 6,6 v26 a6,6 0 0 1 -6,6 h-28 a6,6 0 0 1 -6,-6 v-26 a6,6 0 0 1 6,-6 z" fill="#0f2340"></path>
+<path d="M786,204 h24 v32" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+<path d="M796,180 l14,10" stroke="#0f2340" stroke-linecap="round" stroke-width="7"></path>
+<path d="M922,172 v36 M922,208 h-40 M918,208 v28 M886,208 v28" stroke="#0f2340" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="904" cy="154" fill="#0f2340" r="11"></circle>
+<rect fill="#0f2340" height="7" width="8" x="900" y="163"></rect>
+<path d="M890,170 h28 a6,6 0 0 1 6,6 v26 a6,6 0 0 1 -6,6 h-28 a6,6 0 0 1 -6,-6 v-26 a6,6 0 0 1 6,-6 z" fill="#0f2340"></path>
+<path d="M904,204 h-24 v32" fill="none" stroke="#0f2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+<path d="M894,180 l-14,10" stroke="#0f2340" stroke-linecap="round" stroke-width="7"></path>
+<path d="M740,86 h70 a8,8 0 0 1 8,8 v28 a8,8 0 0 1 -8,8 h-24 l-8,10 v-10 h-38 a8,8 0 0 1 -8,-8 v-28 a8,8 0 0 1 8,-8 z" fill="#fff" stroke="#1f8a87" stroke-width="2"></path>
+<path d="M748,100h46M748,110h52M748,120h38" opacity="0.8" stroke="#1f8a87" stroke-width="2"></path>
+<path d="M868,86 h70 a8,8 0 0 1 8,8 v28 a8,8 0 0 1 -8,8 h-36 l-8,10 v-10 h-26 a8,8 0 0 1 -8,-8 v-28 a8,8 0 0 1 8,-8 z" fill="#fff" stroke="#d9644f" stroke-width="2"></path>
+<text fill="#d9644f" font-family="Inter, sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="903" y="108">あ · Á · A</text><path d="M878,120h50" opacity="0.8" stroke="#d9644f" stroke-width="2"></path>
+<path d="M822,108 h40" marker-end="url(#ar)" stroke="#0f2340" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle" x="845" y="70">egy könyv, két hang</text>
+<circle cx="140" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="140" y="266">01</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="140" y="292">Családi nyelvek polca</text>
+<circle cx="400" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="400" y="266">02</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="400" y="292">Reggeli könyvajánló-klipek</text>
+<circle cx="640" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="640" y="266">03</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="640" y="292">Olvasósarok, nyomás nélkül</text>
+<circle cx="845" cy="262" fill="#fff" r="11" stroke="#0f2340" stroke-width="2"></circle>
+<text fill="#0f2340" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" x="845" y="266">04</text>
+<text fill="#475569" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" x="845" y="292">Szerzők és fordítók</text>
+<text fill="#0f2340" font-family="DM Serif Display, serif" font-size="14" text-anchor="middle" x="480" y="320">Egy könyvtár, négy sarok. Mindegyiknek ugyanaz a lényege: egy olvasó, aki visszajön.</text>
+</svg>
+</div>
+<div class="ideas-grid">
+<div class="idea">
+<div class="num">01</div>
+<div>
+<h3>Családi nyelvek polca szülői jegyzetekkel</h3>
+<p>Jól látható, gondosan válogatott rész azokon a nyelveken, amelyeket a családok valóban beszélnek otthon, rövid olvasási jegyzetekkel a szülőknek ezeken a nyelveken. Magyarul beszélő szülőként Japánban tudom, mennyit jelenthet egyetlen ismerős polc, és milyen ritkán mondják meg a szülőknek, mit kezdjenek vele.</p>
+</div>
+</div>
+<div class="idea">
+<div class="num">02</div>
+<div>
+<h3>Reggeli könyvajánlók rövid videóklipekben</h3>
+<p>Rövid videóklipek reggeli könyvajánlóként, a szaktanárok igényeihez igazítva. A tanóra elején bemelegítésként és ráhangolásként lehet lejátszani a tanulóknak, a szaktanár és a könyvtáros együttműködésében.</p>
+</div>
+</div>
+<div class="idea">
+<div class="num">03</div>
+<div>
+<h3>Olvasófoglalkozások vonakodó és fejlődő olvasóknak</h3>
+<p>Rendszeres, laza olvasófoglalkozások a felső tagozatnak, a választásra építve: képregények, hangoskönyvek, rövid szépirodalom és ismeretterjesztő művek több nyelven, hogy az első lépés soha ne egy szöveggel teli oldal legyen. Az alsós könyvtársarok szabadságát viszi át a középiskolás évekbe.</p>
+</div>
+</div>
+<div class="idea">
+<div class="num">04</div>
+<div>
+<h3>Szerző- és fordítólátogatások</h3>
+<p>Ha a szerzők mellé fordítókat is meghívunk, az olvasóesemény magáról a nyelvről szóló beszélgetéssé válik. Illik egy többnyelvű iskolához, és megmutatja a diákoknak, hogy több nyelven olvasni ünnepelni való készség.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,40 C360,80 1080,10 1440,50 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── WRITTEN ─────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="written">
+<div class="container">
+<p class="section-label" style="text-align:center">Jegyzetek</p>
+<h2 class="section-heading">Amit írtam</h2>
+<div class="divider"></div>
+<p class="section-intro">Néhány LinkedIn-posztom, azok, amelyeket annak adnék a kezébe, aki tudni szeretné, hogyan gondolkodom. A többi a profilomon van.</p>
+<div class="notes-grid">
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nyitott ablak egy téglafalban" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="22" width="92" height="76" fill="#fbf9f4"/>
+<path d="M14,40 h92 M14,58 h92 M14,76 h92 M36,22 v18 M60,40 v18 M36,58 v18 M60,76 v22 M84,22 v18 M84,58 v18" stroke="#15212d" stroke-opacity=".35"/>
+<rect x="44" y="34" width="40" height="46" rx="2" fill="#fff"/>
+<path d="M44,57 h40 M64,34 v46"/>
+<path d="M46,36 l16,0 l0,19 l-16,0 z" fill="#0e7773" stroke="none" opacity=".9"/>
+<path d="M66,36 l16,0 l0,19 l-16,0 z" fill="#d99a37" stroke="none" opacity=".9"/>
+<path d="M46,59 l16,0 l0,19 l-16,0 z" fill="#d99a37" stroke="none" opacity=".55"/>
+<path d="M66,59 l16,0 l0,19 l-16,0 z" fill="#0e7773" stroke="none" opacity=".55"/>
+<path d="M84,36 l12,-6 v52 l-12,-6" fill="#fff"/>
+<path d="M50,44 c3,-3 6,-3 9,0 M70,44 c3,-3 6,-3 9,0" stroke="#fff" stroke-width="1.4"/></svg></div>
+<div class="note-body">
+<p class="note-kicker">Nyelvek · AI · Kognitív nyelvészet</p>
+<h3>Minek nyelvet tanulni, ha az AI mindent lefordít?</h3>
+<p>Öt hónap Japán után, fordítóalkalmazással a zsebemben észrevettem valamit: az appok minden táblát lefordítottak, én mégis állandó, csendes feszültséget éreztem. Az agyam, mivel nem tudta feldolgozni a körülöttem lévő nyelvet, falat épített. Az AI ablakot nyit egy kultúrára, de a falat nem bontja le helyetted. Kognitív nyelvészeti kutatásaimra támaszkodva olyan nyelvtanítás mellett érvelek, amely nyelvi cselekvőképességet épít: a részvétel szabadságát, nem csak a megértését. Napi tizenöt szűretlen perccel kezdődik.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7414553984465711104/" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Tovább a LinkedIn-en</a></div>
+</div></article>
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mentőkapszula, amely becsukja az ajtaját egy közeledő hullám előtt" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8,96 c14,-16 26,-16 40,0 c14,16 26,16 40,0 c8,-9 16,-12 24,-8" stroke="#0e7773" stroke-width="2.2"/>
+<path d="M4,106 c14,-14 26,-14 40,0 c14,14 26,14 40,0 c10,-10 20,-12 30,-6" stroke="#0e7773" stroke-width="1.6" opacity=".55"/>
+<rect x="34" y="34" width="52" height="46" rx="23" fill="#fbf9f4"/>
+<rect x="60" y="40" width="20" height="34" rx="4" fill="#bd5b4c" stroke="none" opacity=".9"/>
+<path d="M60,40 v34" />
+<circle cx="74" cy="57" r="1.8" fill="#15212d" stroke="none"/>
+<path d="M22,30 a16,16 0 0 1 16,-14 M26,34 a11,11 0 0 1 11,-10 M30,38 a6,6 0 0 1 6,-5" stroke="#d99a37" stroke-width="1.8"/>
+<circle cx="37" cy="40" r="2" fill="#d99a37" stroke="none"/></svg></div>
+<div class="note-body">
+<p class="note-kicker">Fizikai számítástechnika · Pedagógusworkshop</p>
+<h3>Amikor jön a cunami, nincs idő becsukni az ajtót</h3>
+<p>Egy pedagógusoknak szóló robotikai workshopon egy kollégámmal egy automatizált cunami-mentőkapszula működő modelljét építettük meg Artec-készletből: egy szenzor érzékeli a riasztást, egy szervomotor becsukja és lezárja az ajtót. Ezt szeretem a legjobban a fizikai számítástechnikában. A kód nem csak egy képernyőn fut, hanem történik tőle valami a valós világban. És Japánban élve a cunami nem tankönyvi példa.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7493624109847699456/" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Tovább a LinkedIn-en</a></div>
+</div></article>
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kartonrobot macskaarccal, festékpöttyökkel díszítve" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="56" height="48" rx="4" fill="#efe3c9"/>
+<path d="M30,30 l8,-8 h56 l-8,8 M86,30 l8,-8 v48 l-8,8" fill="#e4d4b2"/>
+<path d="M40,46 l5,-7 l5,7 M66,46 l5,-7 l5,7"/>
+<circle cx="46" cy="54" r="2" fill="#15212d" stroke="none"/><circle cx="70" cy="54" r="2" fill="#15212d" stroke="none"/>
+<path d="M54,60 l4,3 l4,-3 M50,64 c4,3 12,3 16,0"/>
+<path d="M44,66 h-10 M44,70 h-8 M72,66 h10 M72,70 h8" stroke="#15212d" stroke-opacity=".6"/>
+<circle cx="42" cy="86" r="6" fill="#685071" stroke="none"/><circle cx="74" cy="86" r="6" fill="#685071" stroke="none"/>
+<path d="M58,30 v-10"/><circle cx="58" cy="17" r="3" fill="#bd5b4c" stroke="none"/>
+<circle cx="100" cy="92" r="5" fill="#d99a37" stroke="none"/><circle cx="108" cy="80" r="3.5" fill="#0e7773" stroke="none"/><circle cx="16" cy="90" r="4" fill="#bd5b4c" stroke="none"/></svg></div>
+<div class="note-body">
+<p class="note-kicker">Programozás · Általános iskola</p>
+<h3>Mi lenne, ha fél óra alatt megépíthetnéd a saját robotodat?</h3>
+<p>Egy kartonrobot megváltoztatja, ki akar programozni. A teste papír: könnyű, biztonságos, olcsó, és a gyerek díszíti, így ugyanabból a készletből macska, mókus vagy dinoszaurusz lesz. A motor és a szenzorok belülre kerülnek, és a gyerekek blokkokkal programozzák, mint a Scratchben, de olyan kóddal, amelyet később könnyebb olvasni és bővíteni. Fél óra, egy robot, és egy teremnyi nyolcéves, aki úgy érzi, a programozás az övé.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://lnkd.in/p/gzhAzBMV" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Tovább a LinkedIn-en</a></div>
+</div></article>
+<article class="note">
+<div class="note-art-wrap"><svg class="note-art" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Egy kis kutya egy nyitott könyvön, és egy nevetés" fill="none" stroke="#15212d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18,88 c20,-8 36,-8 42,0 c6,-8 22,-8 42,0 v-56 c-20,-8 -36,-8 -42,0 c-6,-8 -22,-8 -42,0 z" fill="#fbf9f4"/>
+<path d="M60,32 v56"/>
+<path d="M26,46 h22 M26,54 h18 M26,62 h22 M26,70 h14" stroke="#15212d" stroke-opacity=".35"/>
+<path d="M72,70 h22 M72,76 h16" stroke="#15212d" stroke-opacity=".35"/>
+<path d="M72,64 c0,-8 4,-14 12,-14 c3,0 6,1 8,3 l4,-8 c2,-1 4,0 4,2 v10 c0,2 -1,4 -3,5 v4 c0,-3 -2,-6 -5,-6 h-6 c-4,0 -6,3 -6,6 h-8 z" fill="#d99a37" stroke="#15212d" stroke-width="1.4"/>
+<circle cx="91" cy="53" r="1.3" fill="#15212d" stroke="none"/><circle cx="98" cy="52" r="1.6" fill="#15212d" stroke="none"/>
+<path d="M72,60 c-4,-1 -7,2 -6,6" stroke="#15212d" stroke-width="1.4"/>
+<path d="M66,22 h22 a5,5 0 0 1 5,5 v8 a5,5 0 0 1 -5,5 h-4 l-4,5 v-5 h-14 a5,5 0 0 1 -5,-5 v-8 a5,5 0 0 1 5,-5 z" fill="#fff" stroke="#bd5b4c"/>
+<text x="77" y="34" text-anchor="middle" font-family="DM Serif Display, serif" font-style="italic" font-size="11" fill="#bd5b4c" stroke="none">ha!</text></svg></div>
+<div class="note-body">
+<p class="note-kicker">A könyvtárospultnál</p>
+<h3>A katalogizálás egyik váratlan öröme</h3>
+<p>Találni egy új könyvet, amin hangosan felnevetsz a pultnál. <em>We Are Definitely Human</em> című könyve X. Fangtól pontosan ezt tette. Minél tovább néztem, annál viccesebb lett. Különösen a kutya.</p>
+<div class="note-foot"><a class="btn btn-outline" href="https://lnkd.in/p/g-Bg_urf" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,8 v8 M4,4.5 v.5 M8,16 v-8 M8,11 c0,-2 1.5,-3 3,-3 c2,0 3,1.5 3,3.5 v4.5"/></svg>Tovább a LinkedIn-en</a></div>
+</div></article>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#ffffff;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,60 C240,10 480,85 720,45 C960,5 1200,75 1440,30 L1440,92 L0,92 Z" fill="#dbeafe"></path>
+</svg>
+</div>
+<!-- ── CONTACT ─────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="contact">
+<div class="container">
+<p class="section-label" style="text-align:center">Kapcsolat</p>
+<h2 class="section-heading">Kapcsolat</h2>
+<div class="divider"></div>
+<div class="contact-inner">
+<p>Jokohamában élek. Nyitott vagyok az együttműködésre iskolákkal és szakmabeliekkel mindenütt, ahol közösen értéket tudunk teremteni: egy olvasóprogram, egy kutatási készségterv, egy diákok számára is érthető AI-szabályzat.</p>
+<p>A workshopjaimat más iskolákba is elviszem: <strong>Stay the Author!</strong> középiskolásoknak és tanáraiknak, és <strong>Happy Hamster</strong> óvodai és alsós könyvtáraknak. Minden workshopot a résztvevő csoportra tervezek, ezért a tartalom, a forma és az időtartam (általában két-három óra) a diákoktól és az iskola igényeitől függ. Írj, és találunk időpontot.</p>
+<div class="contact-links">
+<a class="contact-link" href="mailto:nishizawagsz@gmail.com">nishizawagsz@gmail.com</a>
+<a class="contact-link" href="https://linkedin.com/in/gabriella-nishizawa" target="_blank">LinkedIn</a>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider" style="background:#dbeafe;">
+<svg preserveaspectratio="none" viewbox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C360,90 1080,0 1440,45 L1440,92 L0,92 Z" fill="#0f2340"></path>
+</svg>
+</div>
+<footer>
+<p>© 2026 Dr. Gabriella Nishizawa  ·  Jokohama, Japán</p>
+</footer>
+</template>
+</body></html>

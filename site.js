@@ -1,4 +1,4 @@
-(() => {
+window.initSite = () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nav = document.querySelector('.topnav');
   const menuToggle = document.querySelector('.menu-toggle');
@@ -95,10 +95,10 @@
   window.addEventListener('scroll', setCurrentLink, { passive: true });
   window.addEventListener('resize', setCurrentLink);
   setCurrentLink();
-})();
+};
 
 
-(function(){
+window.initScenes = function(){
   document.querySelectorAll('.scene-trigger').forEach(function(btn){
     var scene=document.getElementById(btn.getAttribute('aria-controls'));
     if(!scene) return;
@@ -108,4 +108,6 @@
       else { scene.classList.remove('is-open'); void scene.offsetWidth; scene.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); }
     });
   });
-})();
+};
+
+(function(){ const base = window.initSite; window.initSite = function(){ base(); if (window.initScenes) window.initScenes(); }; })();

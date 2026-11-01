@@ -442,7 +442,8 @@
 <script>
 (function(){
   var q=new URLSearchParams(location.search).get('lang');
-  var lang=(q==='hu')?'hu':'en';
+  var saved=null; try{saved=sessionStorage.getItem('site-lang');}catch(e){}
+  var lang=(q==='hu'||q==='en')?q:(saved==='hu'?'hu':'en');
   var titles={en:"Dr. Gabriella Nishizawa \u00b7 Libraries, Information and Learning",hu:"Dr. Gabriella Nishizawa \u00b7 K\u00f6nyvt\u00e1rak, inform\u00e1ci\u00f3 \u00e9s tanul\u00e1s"}, descs={en:"Dr. Gabriella Nishizawa, librarian and information specialist, linguist, computer science educator and developer, and examiner based in Yokohama: school libraries, reading culture, research and information literacy, academic integrity and responsible AI use.",hu:"Dr. Nishizawa Gabriella, k\u00f6nyvt\u00e1ros \u00e9s inform\u00e1ci\u00f3s szakember, nyelv\u00e9sz, informatikatan\u00e1r \u00e9s fejleszt\u0151, vizsg\u00e1ztat\u00f3, Jokohama: iskolai k\u00f6nyvt\u00e1rak, olvas\u00e1skult\u00fara, kutat\u00e1si \u00e9s inform\u00e1ci\u00f3s m\u0171velts\u00e9g, tudom\u00e1nyos tisztess\u00e9g \u00e9s felel\u0151s AI-haszn\u00e1lat."};
   function mount(l){
     var tpl=document.getElementById('lang-'+l); var site=document.getElementById('site');
@@ -452,7 +453,7 @@
     site.querySelectorAll('.lang-switch [data-lang]').forEach(function(b){
       b.addEventListener('click',function(){
         var to=b.getAttribute('data-lang'); if(to===l) return;
-        try{localStorage.removeItem('site-lang');}catch(e){}
+        try{sessionStorage.setItem('site-lang',to);localStorage.removeItem('site-lang');}catch(e){}
         var u=new URL(location.href); u.searchParams.delete('lang'); if(to==='hu') u.searchParams.set('lang','hu'); u.hash='';
         location.replace(u.toString());
       });

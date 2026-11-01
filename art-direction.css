@@ -1714,3 +1714,5 @@ nav.topnav > .topnav-inner > a.nav-brand:first-child {
 .strand-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 7px; height: 1px; background: currentColor; opacity: .55; }
 .strand-body p:has(+ .strand-list), .strand-body .strand-list, .strand-body .strand-list ~ p { color: var(--muted); font-size: .92rem; line-height: 1.65; text-align: left !important; }
 .strand-body p:has(+ .strand-list) { margin-bottom: 0; }
+.strand-body p:not(.strand-sub) { color: var(--muted); font-size: .92rem; line-height: 1.65; text-align: left !important; }
+.strand-body p:not(.strand-sub) + p { margin-top: 10px; }

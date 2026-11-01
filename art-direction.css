@@ -1705,6 +1705,5 @@ nav.topnav > .topnav-inner > a.nav-brand:first-child {
 
 /* Revision 24: language switch sits beside the menu button in the fixed nav. */
 .lang-switch { pointer-events: auto; position: relative; z-index: 102; margin: 0 0 0 22px; padding-left: 22px; border-left: 1px solid rgba(245,240,231,.42); }
-.topnav-inner { display: flex; align-items: center; }
-.topnav-inner .menu-toggle { margin-left: auto; }
+.nav-corner { display: flex; align-items: center; margin-left: auto; pointer-events: none; }
 @media (max-width: 760px) { .lang-switch { margin-left: 14px; padding-left: 14px; } }

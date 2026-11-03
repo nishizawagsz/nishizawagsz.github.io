@@ -1716,3 +1716,7 @@ nav.topnav > .topnav-inner > a.nav-brand:first-child {
 .strand-body p:has(+ .strand-list) { margin-bottom: 0; }
 .strand-body p:not(.strand-sub) { color: var(--muted); font-size: .92rem; line-height: 1.65; text-align: left !important; }
 .strand-body p:not(.strand-sub) + p { margin-top: 10px; }
+/* Revision 26: smaller, less tall portrait frame so the face sits centred with room around it */
+.hero-photo { width: 292px; height: 330px; }
+@media (max-width: 1100px) { .hero-photo { width: 244px; height: 276px; } }
+@media (max-width: 700px) { .hero-photo { width: 204px; height: 230px; } }
